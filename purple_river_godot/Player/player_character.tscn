@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://tvyto2dy7aa3"]
+
+[ext_resource type="Script" uid="uid://ditwa2x4nqh6f" path="res://Player/Script_GD/player_character.gd" id="1_5cwa8"]
+[ext_resource type="Texture2D" uid="uid://dfbliyanyt4iw" path="res://icon.svg" id="1_dfy8k"]
+
+[node name="PlayerCharacter" type="PlayerCharacter"]
+script = ExtResource("1_5cwa8")
+
+[node name="PCSprite" type="PCSprite" parent="."]
+position = Vector2(-64, -61)
+texture = ExtResource("1_dfy8k")
+centered = false
+
+[node name="PCCollision" type="PCCollision" parent="."]
+position = Vector2(-1.23079, 2.25959)
+scale = Vector2(0.615385, 0.620192)
+polygon = PackedVector2Array(-100.375, -103.612, -100.375, 104.388, 104.375, 106, 104.375, -102)

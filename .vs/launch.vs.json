@@ -1,0 +1,20 @@
+{
+	"version": "0.2.1",
+	"defaults": {},
+	"configurations": [
+	{
+		"type": "default",
+		"project": "G:\\GodotGameEngine\\Godot_v4.4.1-stable_win64.exe",
+		"name": "Godot Game",
+		"args": ["--path", "G:\\Purple River\\purple_river\\purple_river_godot" ]
+	},
+
+	{
+		"type": "default",
+		"project": "G:\\GodotGameEngine\\Godot_v4.4.1-stable_win64.exe",
+		"name": "Godot Editor",
+		"args": ["G:/Purple River/purple_river/purple_river_godot/project.godot" ]
+	}
+	]
+}
+
