@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "G:\\Purple River\\purple_river\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Purple River\\purple_river\\src\\player\\playerCharacter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\player\\playerCharacter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Purple River\\purple_river\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Purple River\\purple_river\\src\\player\\playerCharacter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\player\\playerCharacter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Purple River\\purple_river\\src\\player\\playerCharacter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\player\\playerCharacter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Purple River\\purple_river\\src\\register_types.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -46,11 +50,28 @@
       "DocumentGroups": [
         {
           "DockedWidth": 252,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "G:\\Purple River\\purple_river\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "G:\\Purple River\\purple_river\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAEsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-29T06:46:17.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "pcCamera.cpp",
               "DocumentMoniker": "G:\\Purple River\\purple_river\\src\\player\\pcCamera.cpp",
               "RelativeDocumentMoniker": "src\\player\\pcCamera.cpp",
@@ -58,12 +79,11 @@
               "RelativeToolTip": "src\\player\\pcCamera.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-29T05:04:58.96Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T05:04:58.96Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "pcCollision.cpp",
               "DocumentMoniker": "G:\\Purple River\\purple_river\\src\\player\\pcCollision.cpp",
               "RelativeDocumentMoniker": "src\\player\\pcCollision.cpp",
@@ -71,8 +91,7 @@
               "RelativeToolTip": "src\\player\\pcCollision.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-29T05:04:54.586Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T05:04:54.586Z"
             },
             {
               "$type": "Document",
@@ -89,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "register_types.cpp",
               "DocumentMoniker": "G:\\Purple River\\purple_river\\src\\register_types.cpp",
               "RelativeDocumentMoniker": "src\\register_types.cpp",
@@ -97,8 +116,7 @@
               "RelativeToolTip": "src\\register_types.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-21T05:31:52.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T05:31:52.919Z"
             }
           ]
         },
@@ -124,7 +142,7 @@
         "Y": 80,
         "Width": 591,
         "Height": 957,
-        "WindowState": 0
+        "WindowState": 2
       },
       "DocumentGroups": [
         {
@@ -133,7 +151,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "pcCamera.h",
               "DocumentMoniker": "G:\\Purple River\\purple_river\\src\\player\\pcCamera.h",
               "RelativeDocumentMoniker": "src\\player\\pcCamera.h",
@@ -141,12 +159,11 @@
               "RelativeToolTip": "src\\player\\pcCamera.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-23T05:00:04.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-23T05:00:04.601Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "register_types.h",
               "DocumentMoniker": "G:\\Purple River\\purple_river\\src\\register_types.h",
               "RelativeDocumentMoniker": "src\\register_types.h",
@@ -154,12 +171,11 @@
               "RelativeToolTip": "src\\register_types.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-21T05:32:14.219Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-21T05:32:14.219Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "gdexample.h",
               "DocumentMoniker": "G:\\Purple River\\purple_river\\src\\gdexample.h",
               "RelativeDocumentMoniker": "src\\gdexample.h",
@@ -171,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "playerCharacter.h",
               "DocumentMoniker": "G:\\Purple River\\purple_river\\src\\player\\playerCharacter.h",
               "RelativeDocumentMoniker": "src\\player\\playerCharacter.h",
@@ -184,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "pcCollision.h",
               "DocumentMoniker": "G:\\Purple River\\purple_river\\src\\player\\pcCollision.h",
               "RelativeDocumentMoniker": "src\\player\\pcCollision.h",
@@ -192,8 +208,7 @@
               "RelativeToolTip": "src\\player\\pcCollision.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-29T05:02:02.992Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-29T05:02:02.992Z"
             }
           ]
         }
