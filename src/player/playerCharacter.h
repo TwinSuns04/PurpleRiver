@@ -11,8 +11,8 @@ namespace godot {
 	private:
 
 		double timePassed;
-		Vector2 pcPosition;
-		Vector2 pcVelocity;
+		//Vector2 position;
+		//Vector2 velocity;
 		double movementSpeedBase;
 		double movementSpeed;
 		double speedBoostMult;
@@ -29,10 +29,10 @@ namespace godot {
 		void _process(double delta) override;
 
 		// getters and setters
-		Vector2 get_pcPosition() const;
-		void set_pcPosition(const Vector2 p_pos);
-		Vector2 get_pcVelocity() const;
-		void set_pcVelocity(const Vector2 p_velocity);
+		//Vector2 get_position() const;
+		//void set_position(const Vector2 p_pos);
+		//Vector2 get_velocity() const;
+		//void set_velocity(const Vector2 p_velocity);
 		double get_movementSpeedBase() const;
 		void set_movementSpeedBase(const double p_speed);
 		double get_movementSpeed() const;

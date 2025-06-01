@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Purple River"
-run/main_scene="uid://tvyto2dy7aa3"
+run/main_scene="uid://wtl85rrogwix"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/codeandweb.texturepacker/plugin.cfg")
 
 [input]
 

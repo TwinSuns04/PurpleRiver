@@ -1,0 +1,207 @@
+{
+	"textures": [
+		{
+			"image": "river-0.png",
+			"size": {
+				"w": 1848,
+				"h": 1848
+			},
+			"sprites": [
+				{
+					"filename": "Corner_I.png",
+					"region": {
+						"x": 8,
+						"y": 8,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Corner_II.png",
+					"region": {
+						"x": 8,
+						"y": 624,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Corner_III.png",
+					"region": {
+						"x": 8,
+						"y": 1240,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Corner_IV.png",
+					"region": {
+						"x": 624,
+						"y": 8,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Horizontal_I.png",
+					"region": {
+						"x": 1240,
+						"y": 8,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Horizontal_II.png",
+					"region": {
+						"x": 624,
+						"y": 624,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Pond_Corner.png",
+					"region": {
+						"x": 624,
+						"y": 1240,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Pond_Side.png",
+					"region": {
+						"x": 1240,
+						"y": 624,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Vertical_I.png",
+					"region": {
+						"x": 1240,
+						"y": 1240,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		},
+		{
+			"image": "river-1.png",
+			"size": {
+				"w": 1848,
+				"h": 616
+			},
+			"sprites": [
+				{
+					"filename": "Vertical_II.png",
+					"region": {
+						"x": 8,
+						"y": 8,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Waterfall_I.png",
+					"region": {
+						"x": 624,
+						"y": 8,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Waterfall_II.png",
+					"region": {
+						"x": 1240,
+						"y": 8,
+						"w": 600,
+						"h": 600
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:25ab17a99890b4add972e5a98b3e196e:215fbd6717cc256c7f6c9442e993dc1b:49d1249959c69e751e86ddc310542038$"
+	}
+}

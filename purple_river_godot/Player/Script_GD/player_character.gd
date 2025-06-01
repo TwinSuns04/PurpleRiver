@@ -1,45 +1,34 @@
 extends PlayerCharacter
 
 var screen_size
+var horizontalDirection
+var verticalDirection
 
 func _ready():
+	print("Player ready")
 	screen_size = get_viewport_rect().size
-	position = pcPosition
+
+func _physics_process(delta):
+	horizontalDirection = Input.get_axis("moveLeft", "moveRight")
+	verticalDirection = Input.get_axis("moveUp", "moveDown")
 	
-func _process(delta):
-	pcVelocity = Vector2.ZERO
-	
-	if Input.is_action_pressed("moveRight"):
-		print("moveRight pressed")
-		pcVelocity.x += 1
-		
-	if Input.is_action_pressed("moveLeft"):
-		print("moveLeft pressed")
-		pcVelocity.x -= 1
-		
-	if Input.is_action_pressed("moveUp"):
-		print("moveUp pressed")
-		pcVelocity.y -= 1
-		
-	if Input.is_action_pressed("moveDown"):
-		print("moveDown pressed")
-		pcVelocity.y += 1
-		
-	if Input.is_action_pressed("swimBoost"):
+	if Input.is_action_just_pressed("swimBoost"):
 		print("swimBoost pressed")
 		movementSpeed = movementSpeed * speedBoostMult
 	else:
 		movementSpeed = movementSpeedBase
 	
-	if pcVelocity.length() > 0:
-		pcVelocity = pcVelocity.normalized() * movementSpeed
+	velocity.x = horizontalDirection * movementSpeed
+	velocity.y = verticalDirection * movementSpeed
+	move_and_slide()
 	
-	position += pcVelocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
-	
+	#possibly use velocity instead of input (i.e. player cannot move down
+		# but has to let the river carry them down)
+
+#func _process(delta: float) -> void:
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_1:
 			print("Debug_1")
-			print("Screen_size: ", screen_size)
+			print("global_pos: ", global_position)
