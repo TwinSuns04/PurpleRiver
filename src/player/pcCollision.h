@@ -1,12 +1,12 @@
 #ifndef PCCOLLISION_H
 #define PCCOLLISION_H
 
-#include <godot_cpp/classes/collision_polygon2d.hpp>
+#include <godot_cpp/classes/collision_shape2d.hpp>
 
 namespace godot {
 
-	class PCCollision : public CollisionPolygon2D {
-		GDCLASS(PCCollision, CollisionPolygon2D)
+	class PCCollision : public CollisionShape2D {
+		GDCLASS(PCCollision, CollisionShape2D)
 
 	private:
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://wtl85rrogwix"]
+
+[ext_resource type="PackedScene" uid="uid://b6bcmud5kx216" path="res://prototype_map.tscn" id="2_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://tvyto2dy7aa3" path="res://Player/player_character.tscn" id="2_feb5d"]
+
+[node name="Game" type="Node"]
+
+[node name="PrototypeMap" parent="." instance=ExtResource("2_fc0e3")]
+position = Vector2(-27, -595)
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("2_feb5d")]
