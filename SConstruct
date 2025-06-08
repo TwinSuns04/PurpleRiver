@@ -23,7 +23,7 @@ def find_directories(directory):
 #env.Append(CPPPATH=["src/"])
 #sources = Glob("src/*.cpp")
 
-source_dirs = find_directories("G:\\Purple River\\purple_river\\src\\")
+source_dirs = find_directories("G:\\Purple_River\\purple_river\\src\\")
 env.Append(CPPPATH=source_dirs)
 
 sources = []
