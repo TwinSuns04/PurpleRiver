@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bldfe2nx32pj0"]
+
+[ext_resource type="Script" uid="uid://46a88skmjgpr" path="res://Map/river/river_area_script.gd" id="1_ikgld"]
+
+[node name="RiverArea" type="RiverArea"]
+script = ExtResource("1_ikgld")
+
+[node name="RiverAreaCollision" type="RiverAreaCollision" parent="."]
+modulate = Color(0.101961, 0.101961, 0.101961, 0.909804)
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
