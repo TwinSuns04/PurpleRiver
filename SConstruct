@@ -22,6 +22,8 @@ sources.append(Glob("src/gdextension/*.cpp"))
 
 env.Append(CPPPATH=["src/map/"])
 sources.append(Glob("src/map/*.cpp"))
+env.Append(CPPPATH=["src/map/flora/"])
+sources.append(Glob("src/map/flora/*.cpp"))
 env.Append(CPPPATH=["src/map/levels/"])
 sources.append(Glob("src/map/levels/*.cpp"))
 env.Append(CPPPATH=["src/map/procGen/"])
