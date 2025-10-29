@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bryax26iovjy5"]
+
+[ext_resource type="Texture2D" uid="uid://cjcnsic13ikg7" path="res://Map/Flora/Assets/Sakura-3.png" id="1_b4nhd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gal16"]
+radius = 96.7988
+
+[node name="Sakura_Sprite_Three" type="Sprite2D"]
+texture = ExtResource("1_b4nhd")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, 9)
+shape = SubResource("CircleShape2D_gal16")

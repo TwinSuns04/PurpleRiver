@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmy6uglapmeb8"]
+
+[ext_resource type="Texture2D" uid="uid://bi5006vfyfrg8" path="res://Map/Flora/Assets/Kiku-1.png" id="1_dj3cx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5c06q"]
+radius = 140.246
+
+[node name="Kiku_Sprite_One" type="Sprite2D" groups=["Flora"]]
+texture = ExtResource("1_dj3cx")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5c06q")

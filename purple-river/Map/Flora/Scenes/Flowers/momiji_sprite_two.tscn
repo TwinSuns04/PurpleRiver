@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2ss8xd0l4psb"]
+
+[ext_resource type="Texture2D" uid="uid://bge26iu1adp1e" path="res://Map/Flora/Assets/Momiji-2.png" id="1_a8pfl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24g5i"]
+
+[node name="Momiji_Sprite_Two" type="Sprite2D"]
+texture = ExtResource("1_a8pfl")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -5)
+scale = Vector2(12.2, 13.08)
+shape = SubResource("RectangleShape2D_24g5i")
