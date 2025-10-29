@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c70coi0dx2hbj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h13a8"]
-
-[node name="Kiku_Spawner" type="Area2D"]
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_h13a8")
