@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk4lviwn57xoh"]
+
+[ext_resource type="PackedScene" uid="uid://b6bcmud5kx216" path="res://prototype_map.tscn" id="2_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://bmkevp0y2kcjc" path="res://Player/player_character_cb2.tscn" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://bbg6nr1yhg3o4" path="res://Scenes_Misc/BasicBlock.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bldfe2nx32pj0" path="res://Map/river/river_area.tscn" id="4_fc0e3"]
+
+[node name="Main_Game" type="Node"]
+
+[node name="PrototypeMap" parent="." instance=ExtResource("2_fc0e3")]
+physics_interpolation_mode = 1
+position = Vector2(-27, -595)
+
+[node name="PlayerCharacterCB2" parent="." instance=ExtResource("3_fc0e3")]
+position = Vector2(269, 316)
+
+[node name="Block 1" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(608, 431)
+scale = Vector2(0.5, 0.5)
+
+[node name="RiverArea" parent="." instance=ExtResource("4_fc0e3")]
+position = Vector2(919, -1492)
+scale = Vector2(17.8305, 17.8075)

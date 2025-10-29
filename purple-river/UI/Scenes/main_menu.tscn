@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://c531qtutmxpqb"]
+
+[ext_resource type="Script" uid="uid://bhq54kejms6dq" path="res://UI/Scripts/main_menu.gd" id="1_2sit6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sit6"]
+bg_color = Color(0.0599104, 0.660152, 0.836434, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fnvfa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6jt3"]
+bg_color = Color(0.133863, 0.000234613, 0.317242, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7w4jk"]
+bg_color = Color(0.552021, 0.358126, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnvfa"]
+bg_color = Color(0.277435, 0.000911211, 0.600219, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2sit6"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2sit6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2sit6")
+
+[node name="BoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -71.0
+offset_right = 136.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start_Button" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fnvfa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6jt3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7w4jk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fnvfa")
+text = "Start"
+
+[node name="Options_Button" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fnvfa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6jt3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7w4jk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fnvfa")
+text = "Options"
+
+[node name="Quit_Button" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fnvfa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6jt3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7w4jk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fnvfa")
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -202.0
+offset_top = 92.0
+offset_right = 203.0
+offset_bottom = 207.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxTexture_2sit6")
+text = "Purple River"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="BoxContainer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="BoxContainer/Options_Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="BoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
