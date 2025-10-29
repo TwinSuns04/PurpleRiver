@@ -15,6 +15,16 @@
 // mechanics related
 #include "mechanics/leveling/foodItem.h"
 
+// player related
+#include "player/levelSystem.h"
+#include "player/pcAdvancedController.h"
+#include "player/pcArea.h"
+#include "player/pcCamera.h"
+#include "player/pcCollision.h"
+#include "player/pcSprite.h"
+#include "player/playerCharacter.h"
+#include "player/playerCharacterPhysicsBase.h"
+
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
@@ -40,6 +50,16 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 
 	// mechanics related
 	GDREGISTER_RUNTIME_CLASS(FoodItem);
+
+	// player related
+	GDREGISTER_RUNTIME_CLASS(LevelSystem);
+	GDREGISTER_RUNTIME_CLASS(PCAdvancedController); // not in use
+	GDREGISTER_RUNTIME_CLASS(PCArea);
+	GDREGISTER_RUNTIME_CLASS(PCCamera);
+	GDREGISTER_RUNTIME_CLASS(PCCollision);
+	GDREGISTER_RUNTIME_CLASS(PCSprite);
+	GDREGISTER_RUNTIME_CLASS(PlayerCharacter);
+	GDREGISTER_RUNTIME_CLASS(PlayerCharacterCB2);
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {
