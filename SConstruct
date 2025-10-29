@@ -31,6 +31,8 @@ sources.append(Glob("src/map/procGen/*.cpp"))
 
 env.Append(CPPPATH=["src/mechancis/"])
 sources.append(Glob("src/mechanics/*.cpp"))
+env.Append(CPPPATH=["src/mechanics/leveling/"])
+sources.append(Glob("src/mechanics/leveling/*.cpp"))
 
 env.Append(CPPPATH=["src/player/"])
 sources.append(Glob("src/player/*.cpp"))
