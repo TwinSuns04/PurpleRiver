@@ -5,6 +5,8 @@
 // map related
 #include "map/riverArea.h"
 #include "map/riverAreaCollision.h"
+#include "map/tileMapLayerCurrent.h"
+#include "map/tileSetCurrent.h"
 //#include "map/flora/floraSpawner.h"
 #include "map/levels/levelTemplate.h"
 #include "map/procGen/procGenMap.h"
@@ -26,6 +28,8 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 	// map related classes
 	GDREGISTER_RUNTIME_CLASS(RiverArea);
 	GDREGISTER_RUNTIME_CLASS(RiverAreaCollision)
+	GDREGISTER_RUNTIME_CLASS(TileMapLayerCurrent);
+	GDREGISTER_RUNTIME_CLASS(TileSetCurrent);
 	//GDREGISTER_CLASS(FloraSpawner);
 	GDREGISTER_RUNTIME_CLASS(LevelTemplate);
 	GDREGISTER_RUNTIME_CLASS(ProcGenMap);
