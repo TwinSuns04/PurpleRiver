@@ -3,6 +3,8 @@
 #include "gdexample.h"
 
 // map related
+#include "map/riverArea.h"
+#include "map/riverAreaCollision.h"
 //#include "map/flora/floraSpawner.h"
 #include "map/levels/levelTemplate.h"
 #include "map/procGen/procGenMap.h"
@@ -22,6 +24,8 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_RUNTIME_CLASS(GDExample);
 
 	// map related classes
+	GDREGISTER_RUNTIME_CLASS(RiverArea);
+	GDREGISTER_RUNTIME_CLASS(RiverAreaCollision)
 	//GDREGISTER_CLASS(FloraSpawner);
 	GDREGISTER_RUNTIME_CLASS(LevelTemplate);
 	GDREGISTER_RUNTIME_CLASS(ProcGenMap);
