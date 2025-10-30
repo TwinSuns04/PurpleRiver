@@ -1,73 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://beb7oridfiwtr"]
+[gd_scene load_steps=2 format=3 uid="uid://beb7oridfiwtr"]
 
 [ext_resource type="Texture2D" uid="uid://dnw0s0vseapwd" path="res://Map/Assets/MapTiles/Resized_1080p/Level_2.png" id="1_hb00m"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ypnd5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": true,
-"name": &"riverCurrent",
-"speed": 8.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_urqyq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": true,
-"name": &"waterfallBase",
-"speed": 8.0
-}]
 
 [node name="Level_Two" type="Node2D"]
 
@@ -108,16 +41,3 @@ polygon = PackedVector2Array(386, -199, 379, -16, 359, -22, 327, -31, 302, -36, 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D"]
 build_mode = 1
 polygon = PackedVector2Array(369, -357, 340, -316, 308, -286, 278, -265, 230, -242, 217, -237, 200, -235, 203, -209, 209, -141, 184, -141, 157, -141, 132, -151, 109, -163, 69, -198, 94, -242, 114, -270, 167, -295, 186, -317, 186, -357, 263, -350)
-
-[node name="RiverCurrent_Anim2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ypnd5")
-animation = &"riverCurrent"
-frame = 2
-frame_progress = 0.498225
-
-[node name="WaterfallBase_Anim2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1887, -1169)
-rotation = 0.127409
-scale = Vector2(0.1, 0.1)
-sprite_frames = SubResource("SpriteFrames_urqyq")
-animation = &"waterfallBase"
