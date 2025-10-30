@@ -1,39 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl6r404fichkp"]
+[gd_scene load_steps=11 format=3 uid="uid://bl6r404fichkp"]
 
 [ext_resource type="Texture2D" uid="uid://ciayl70h47o0q" path="res://Map/Assets/MapTiles/Resized_1080p/Level_1.PNG" id="1_igsr3"]
+[ext_resource type="Texture2D" uid="uid://dwp7h3pfuv2k0" path="res://Map/Assets/RiverCurrentAnim/Level_1/Resized-1080p/Level_1_Anim2-1.PNG" id="2_67bq8"]
+[ext_resource type="Texture2D" uid="uid://oa5qwngltsa0" path="res://Map/Assets/RiverCurrentAnim/Level_1/Resized-1080p/Level_1_Anim2-2.PNG" id="3_y5lhi"]
+[ext_resource type="Texture2D" uid="uid://rbonlfbe0nlp" path="res://Map/Assets/RiverCurrentAnim/Level_1/Resized-1080p/Level_1_Anim2-3.PNG" id="4_i4iec"]
+[ext_resource type="Texture2D" uid="uid://had2eph6iseu" path="res://Map/Assets/RiverCurrentAnim/Level_1/Resized-1080p/Level_1_Anim2-4.PNG" id="5_cgaas"]
+[ext_resource type="Texture2D" uid="uid://bpsr8t2pa60y8" path="res://Map/Assets/RiverCurrentAnim/Level_1/Resized-1080p/Level_1_Anim2-5.PNG" id="6_qoi31"]
+[ext_resource type="Texture2D" uid="uid://1m3ryrfe2ysb" path="res://Map/Assets/RiverCurrentAnim/Level_1/Resized-1080p/Level_1_Anim2-6.PNG" id="7_6lfhb"]
+[ext_resource type="Texture2D" uid="uid://yqvppqgysnft" path="res://Map/Assets/RiverCurrentAnim/Level_1/Resized-1080p/Level_1_Anim2-7.PNG" id="8_qrp17"]
+[ext_resource type="Texture2D" uid="uid://phhdgcrnabld" path="res://Map/Assets/RiverCurrentAnim/Level_1/Resized-1080p/Level_1_Anim2-8.PNG" id="9_45v0v"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_xig23"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwhgg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("2_67bq8")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("3_y5lhi")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("4_i4iec")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("5_cgaas")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("6_qoi31")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("7_6lfhb")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("8_qrp17")
 }, {
 "duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
+"texture": ExtResource("9_45v0v")
 }],
 "loop": true,
-"name": &"riverCurrent",
+"name": &"default",
 "speed": 8.0
 }]
 
@@ -69,9 +74,6 @@ polygon = PackedVector2Array(253, -357, 254, -347, 253, -330, 249, -315, 235, -2
 build_mode = 1
 polygon = PackedVector2Array(-292, -357, -291, -328, -289, -322, -278, -318, -230, -317, -210, -315, -196, -310, -188, -306, -179, -296, -174, -288, -168, -268, -154, -287, -145, -300, -143, -316, -144, -357, -229, -356)
 
-[node name="RiverCurrent_Anim2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_xig23")
-animation = &"riverCurrent"
-autoplay = "riverCurrent"
-frame = 3
-frame_progress = 0.518356
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(566, 285)
+sprite_frames = SubResource("SpriteFrames_rwhgg")
