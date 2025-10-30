@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://driycj65m5t8i"]
+[gd_scene load_steps=11 format=3 uid="uid://driycj65m5t8i"]
 
 [ext_resource type="Texture2D" uid="uid://yhpjvsgdmyxw" path="res://Map/Assets/MapTiles/Resized_1080p/Level_8.png" id="1_ilndw"]
+[ext_resource type="Texture2D" uid="uid://drgskqlpo1b4d" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-1.PNG" id="2_qrdqc"]
+[ext_resource type="Texture2D" uid="uid://dvbjl5xjr0mee" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-2.PNG" id="3_3fm3a"]
+[ext_resource type="Texture2D" uid="uid://dlv5llmvgeteq" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-3.PNG" id="4_lhrcn"]
+[ext_resource type="Texture2D" uid="uid://evlw5u1vw7mm" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-4.PNG" id="5_tfc0d"]
+[ext_resource type="Texture2D" uid="uid://bn2y474mupkfp" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-5.PNG" id="6_cedyh"]
+[ext_resource type="Texture2D" uid="uid://dhmrv5vboel1w" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-6.PNG" id="7_f27ai"]
+[ext_resource type="Texture2D" uid="uid://cnoj1lsf4lxdm" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-7.PNG" id="8_d40ik"]
+[ext_resource type="Texture2D" uid="uid://daj5dc1kbaj8f" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-8.PNG" id="9_ttqan"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08sdk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qrdqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3fm3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lhrcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tfc0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cedyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f27ai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d40ik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ttqan")
+}],
+"loop": true,
+"name": &"CurrentAnim",
+"speed": 8.0
+}]
 
 [node name="level_eight" type="Node2D"]
 
@@ -41,3 +81,8 @@ polygon = PackedVector2Array(410, -282, 390, -285, 366, -287, 348, -288, 324, -2
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D"]
 build_mode = 1
 polygon = PackedVector2Array(188, -99, 179, -92, 172, -82, 166, -71, 159, -54, 152, -34, 150, -21, 149, -13, 150, -2, 150, 9, 151, 22, 160, 19, 172, 10, 181, 3, 188, -3, 199, -17, 204, -26, 209, -41, 210, -49, 207, -62, 203, -76, 196, -92)
+
+[node name="RiverCurrentAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(568, 290)
+sprite_frames = SubResource("SpriteFrames_08sdk")
+animation = &"CurrentAnim"
