@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://luo2dvtcrrjc"]
+[gd_scene load_steps=20 format=3 uid="uid://luo2dvtcrrjc"]
 
 [ext_resource type="Texture2D" uid="uid://d3pnro2mxnkcs" path="res://Map/Assets/MapTiles/Resized_1080p/Level_6.png" id="1_giplb"]
 [ext_resource type="Texture2D" uid="uid://cfadcpqdtlru2" path="res://Map/Assets/RiverCurrentAnim/Level_6/Resize-1080p/Level_6_Anim2-1.PNG" id="2_dng0n"]
@@ -9,6 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://do2mf01bwu7ty" path="res://Map/Assets/RiverCurrentAnim/Level_6/Resize-1080p/Level_6_Anim2-6.PNG" id="7_xgodt"]
 [ext_resource type="Texture2D" uid="uid://chb28xi12mlmo" path="res://Map/Assets/RiverCurrentAnim/Level_6/Resize-1080p/Level_6_Anim2-7.PNG" id="8_k2der"]
 [ext_resource type="Texture2D" uid="uid://cjmmnoa08433b" path="res://Map/Assets/RiverCurrentAnim/Level_6/Resize-1080p/Level_6_Anim2-8.PNG" id="9_yhrbc"]
+[ext_resource type="Texture2D" uid="uid://yj8c744mf48u" path="res://Map/Assets/RiverCurrentAnim/WaterfallBase/Resize-1080p/WaterfallBase-1.PNG" id="10_koq5y"]
+[ext_resource type="Texture2D" uid="uid://b53jvwdk4xp5" path="res://Map/Assets/RiverCurrentAnim/WaterfallBase/Resize-1080p/WaterfallBase-2.PNG" id="11_ppckh"]
+[ext_resource type="Texture2D" uid="uid://qq8ys84a6pdw" path="res://Map/Assets/RiverCurrentAnim/WaterfallBase/Resize-1080p/WaterfallBase-3.PNG" id="12_e6m0h"]
+[ext_resource type="Texture2D" uid="uid://bv4541dffgeue" path="res://Map/Assets/RiverCurrentAnim/WaterfallBase/Resize-1080p/WaterfallBase-4.PNG" id="13_end6h"]
+[ext_resource type="Texture2D" uid="uid://cmcd0idu040y" path="res://Map/Assets/RiverCurrentAnim/WaterfallBase/Resize-1080p/WaterfallBase-5.PNG" id="14_3pwf2"]
+[ext_resource type="Texture2D" uid="uid://vgr5tt37e6a3" path="res://Map/Assets/RiverCurrentAnim/WaterfallBase/Resize-1080p/WaterfallBase-6.PNG" id="15_k5bbs"]
+[ext_resource type="Texture2D" uid="uid://ssjkp5655onu" path="res://Map/Assets/RiverCurrentAnim/WaterfallBase/Resize-1080p/WaterfallBase-7.PNG" id="16_xnypi"]
+[ext_resource type="Texture2D" uid="uid://dgiaconnspfl4" path="res://Map/Assets/RiverCurrentAnim/WaterfallBase/Resize-1080p/WaterfallBase-8.PNG" id="17_ebhpx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_koq5y"]
 animations = [{
@@ -39,6 +47,38 @@ animations = [{
 }],
 "loop": true,
 "name": &"CurrentAnim",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0s2c7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_koq5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ppckh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_e6m0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_end6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3pwf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_k5bbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xnypi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ebhpx")
+}],
+"loop": true,
+"name": &"WaterfallAnim",
 "speed": 8.0
 }]
 
@@ -82,3 +122,9 @@ polygon = PackedVector2Array(-372, -357, -373, -347, -372, -335, -367, -324, -35
 position = Vector2(579, 281)
 sprite_frames = SubResource("SpriteFrames_koq5y")
 animation = &"CurrentAnim"
+
+[node name="WaterfallBase" type="AnimatedSprite2D" parent="."]
+position = Vector2(993, 523)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_0s2c7")
+animation = &"WaterfallAnim"
