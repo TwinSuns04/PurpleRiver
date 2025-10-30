@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://driycj65m5t8i"]
+[gd_scene load_steps=12 format=3 uid="uid://driycj65m5t8i"]
 
 [ext_resource type="Texture2D" uid="uid://yhpjvsgdmyxw" path="res://Map/Assets/MapTiles/Resized_1080p/Level_8.png" id="1_ilndw"]
 [ext_resource type="Texture2D" uid="uid://drgskqlpo1b4d" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-1.PNG" id="2_qrdqc"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dhmrv5vboel1w" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-6.PNG" id="7_f27ai"]
 [ext_resource type="Texture2D" uid="uid://cnoj1lsf4lxdm" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-7.PNG" id="8_d40ik"]
 [ext_resource type="Texture2D" uid="uid://daj5dc1kbaj8f" path="res://Map/Assets/RiverCurrentAnim/Level_8/Resize-1080p/Level_8_Anim2-8.PNG" id="9_ttqan"]
+[ext_resource type="TileSet" uid="uid://cisimj8i31jts" path="res://Map/Assets/TileSets/RiverCurrent_TileSet.tres" id="10_3fm3a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_08sdk"]
 animations = [{
@@ -86,3 +87,6 @@ polygon = PackedVector2Array(188, -99, 179, -92, 172, -82, 166, -71, 159, -54, 1
 position = Vector2(568, 290)
 sprite_frames = SubResource("SpriteFrames_08sdk")
 animation = &"CurrentAnim"
+
+[node name="Current_TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("10_3fm3a")

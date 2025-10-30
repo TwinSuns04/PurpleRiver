@@ -15,7 +15,7 @@ namespace godot {
 		String rCV = "riverCurrentVector";
 		String rCM = "riverCurrentMultiplier";
 		String rTCS = "riverTileCollisionStatus";
-		const Vector2i tileSize = Vector2i(600, 600);
+		const Vector2i tileSize = Vector2i(32, 32);
 
 	protected:
 		static void _bind_methods();
