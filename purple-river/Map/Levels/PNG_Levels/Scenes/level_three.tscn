@@ -1,6 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgkox0kxxivp8"]
+[gd_scene load_steps=12 format=3 uid="uid://bgkox0kxxivp8"]
 
 [ext_resource type="Texture2D" uid="uid://cx4kvrg7kuhcx" path="res://Map/Assets/MapTiles/Resized_1080p/Level_3.png" id="1_324mj"]
+[ext_resource type="Texture2D" uid="uid://w4fkfp83olbe" path="res://Map/Assets/RiverCurrentAnim/Level_3/Resize-1080p/Level_3_Anim2-1.PNG" id="2_4iflk"]
+[ext_resource type="Texture2D" uid="uid://osioxjuucbok" path="res://Map/Assets/RiverCurrentAnim/Level_3/Resize-1080p/Level_3_Anim2-2.PNG" id="3_k0kem"]
+[ext_resource type="Texture2D" uid="uid://bx0u4xq4ifxfn" path="res://Map/Assets/RiverCurrentAnim/Level_3/Resize-1080p/Level_3_Anim2-3.PNG" id="4_7lpy4"]
+[ext_resource type="Texture2D" uid="uid://ctffy4p4ewk41" path="res://Map/Assets/RiverCurrentAnim/Level_3/Resize-1080p/Level_3_Anim2-4.PNG" id="5_r2770"]
+[ext_resource type="Texture2D" uid="uid://b1baegu8ubady" path="res://Map/Assets/RiverCurrentAnim/Level_3/Resize-1080p/Level_3_Anim2-5.PNG" id="6_sxlns"]
+[ext_resource type="Texture2D" uid="uid://dfs5xqyomy61h" path="res://Map/Assets/RiverCurrentAnim/Level_3/Resize-1080p/Level_3_Anim2-6.PNG" id="7_bud4c"]
+[ext_resource type="Texture2D" uid="uid://dfmli26uxsuad" path="res://Map/Assets/RiverCurrentAnim/Level_3/Resize-1080p/Level_3_Anim2-7.PNG" id="8_armh2"]
+[ext_resource type="Texture2D" uid="uid://dig8wvhshwri7" path="res://Map/Assets/RiverCurrentAnim/Level_3/Resize-1080p/Level_3_Anim2-8.PNG" id="9_nag7x"]
+[ext_resource type="Texture2D" uid="uid://u1u3mlusxgkg" path="res://Map/Assets/RiverCurrentAnim/Level_3/Resize-1080p/Level_3_Anim2-9.PNG" id="10_vmq54"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1f28s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4iflk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k0kem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7lpy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r2770")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sxlns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bud4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_armh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nag7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vmq54")
+}],
+"loop": true,
+"name": &"CurrentAnim",
+"speed": 8.0
+}]
 
 [node name="Level_Three" type="Node2D"]
 
@@ -37,3 +81,8 @@ polygon = PackedVector2Array(33, -111, 30, -194, 48, -195, 75, -201, 107, -201, 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D"]
 build_mode = 1
 polygon = PackedVector2Array(30, -194, 33, -111, 28, -106, 18, -98, 3, -84, -8, -68, -20, -52, -29, -37, -37, -16, -45, 1, -67, 63, -78, 58, -96, 56, -112, 56, -130, 60, -152, 72, -169, 87, -184, 103, -198, 123, -209, 136, -219, 145, -254, 167, -256, 162, -258, -161, -267, -179, -278, -182, -296, -186, -326, -188, -329, -207, -321, -209, -298, -203, -283, -203, -260, -210, -225, -221, -198, -224, -168, -222, -141, -216, -98, -197, -66, -188, -36, -188)
+
+[node name="RiverCurrentAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(579, 282)
+sprite_frames = SubResource("SpriteFrames_1f28s")
+animation = &"CurrentAnim"

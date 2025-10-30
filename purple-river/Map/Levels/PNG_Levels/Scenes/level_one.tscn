@@ -74,6 +74,6 @@ polygon = PackedVector2Array(253, -357, 254, -347, 253, -330, 249, -315, 235, -2
 build_mode = 1
 polygon = PackedVector2Array(-292, -357, -291, -328, -289, -322, -278, -318, -230, -317, -210, -315, -196, -310, -188, -306, -179, -296, -174, -288, -168, -268, -154, -287, -145, -300, -143, -316, -144, -357, -229, -356)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="RiverCurrentAnim" type="AnimatedSprite2D" parent="."]
 position = Vector2(566, 285)
 sprite_frames = SubResource("SpriteFrames_rwhgg")
