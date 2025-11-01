@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bprkjh7he2r6h"]
+
+[ext_resource type="Script" uid="uid://2d75s4e13if6" path="res://Map/Flora/flora_spawner.gd" id="1_phlvg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8485j"]
+
+[node name="FloraSpawner" type="Node"]
+script = ExtResource("1_phlvg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_8485j")
