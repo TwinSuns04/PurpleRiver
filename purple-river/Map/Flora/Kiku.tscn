@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlbufon4q4q2e"]
+
+[ext_resource type="Script" uid="uid://cgd5ei05agupv" path="res://Map/Flora/kiku_spawner.gd" id="1_nyvja"]
+[ext_resource type="Texture2D" uid="uid://bi5006vfyfrg8" path="res://Assets_Misc/Flora/Kiku-1.png" id="2_nhprv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1uv8"]
+radius = 139.09
+
+[node name="Kiku_RB" type="RigidBody2D"]
+script = ExtResource("1_nyvja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b1uv8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nhprv")
