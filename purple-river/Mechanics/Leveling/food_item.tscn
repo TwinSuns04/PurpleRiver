@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ot7d1"]
 
 [node name="FoodItem" type="FoodItem"]
+food_val = 100
 script = ExtResource("1_ot7d1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
