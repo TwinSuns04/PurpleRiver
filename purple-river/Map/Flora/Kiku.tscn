@@ -7,10 +7,16 @@
 radius = 139.09
 
 [node name="Kiku_RB" type="RigidBody2D"]
+mass = 0.001
+gravity_scale = 0.0
+sleeping = true
+freeze = true
 script = ExtResource("1_nyvja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.2, 0.2)
 shape = SubResource("CircleShape2D_b1uv8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_nhprv")

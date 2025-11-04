@@ -5,6 +5,8 @@ extends Node
 @export var spawnAreaSize: Vector2
 @export var spawnDelay: float
 @export var floraType: int
+var floraScene
+var floraInstance
 @onready var rectColl = $CollisionShape2D
 
 func _ready():
@@ -12,12 +14,23 @@ func _ready():
 	$CollisionShape2D/Marker2D.position = Vector2(0,0)
 	$SpawnTimer.wait_time = spawnDelay
 	flora_type()
+	place_flora()
 	
 func _process(delta: float):
 	pass
 
 func flora_type(): # choose which flora scene to instance
-	pass
+	if(floraType == 1): #flora is kiku
+		floraScene = load("res://Map/Flora/Kiku.tscn")
+	elif(floraType == 2): #flora is momiji
+		floraScene = load("res://Map/Flora/Momiji.tscn")
+	elif(floraType == 3): #flora is sakura
+		floraScene = load("res://Map/Flora/Sakura.tscn")
+	else:
+		floraScene = load("res://Map/Flora/Kiku.tscn")
+		
+	floraInstance = floraScene.instantiate()
+	add_child(floraInstance)
 
 func gen_spawn_point():
 	var randomness = RandomNumberGenerator.new()
@@ -33,8 +46,8 @@ func gen_spawn_point():
 	spawnPoint.x = randi_range(areaBoundsNeg.x, areaBoundsPos.x)
 	spawnPoint.y = randi_range(areaBoundsNeg.y, areaBoundsNeg.y)
 	print("spawnPoint: ", spawnPoint)
-	$CollisionShape2D/Marker2D/Sprite2D.position = spawnPoint
-	var x_coord: int
+	floraInstance.position = spawnPoint
+	print("floraPosition: ", floraInstance.position)
 
 func place_flora():
 	gen_spawn_point()
