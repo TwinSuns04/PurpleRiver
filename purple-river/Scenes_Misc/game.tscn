@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://wtl85rrogwix"]
+[gd_scene load_steps=14 format=3 uid="uid://wtl85rrogwix"]
 
 [ext_resource type="PackedScene" uid="uid://bl6r404fichkp" path="res://Map/Levels/PNG_Levels/Scenes/level_one.tscn" id="1_hqfge"]
 [ext_resource type="PackedScene" uid="uid://bmkevp0y2kcjc" path="res://Player/player_character_cb2.tscn" id="2_hqfge"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://driycj65m5t8i" path="res://Map/Levels/PNG_Levels/Scenes/level_eight.tscn" id="9_4famp"]
 [ext_resource type="PackedScene" uid="uid://ckngq03fhpp8e" path="res://Map/Levels/PNG_Levels/Scenes/level_nine_a.tscn" id="10_4hheb"]
 [ext_resource type="PackedScene" uid="uid://bftvciymvxw7k" path="res://Map/Levels/PNG_Levels/Scenes/level_nine_b.tscn" id="11_nckv2"]
+[ext_resource type="PackedScene" uid="uid://gf78mc62u6ng" path="res://Mechanics/Leveling/food_item.tscn" id="13_wkjrv"]
 
 [node name="Game" type="Node"]
 
@@ -57,5 +58,8 @@ staminaRegenVal = nan
 position = Vector2(445, 187)
 scale = Vector2(0.25, 0.25)
 wall_min_slide_angle = 0.0
+
+[node name="FoodItem" parent="." instance=ExtResource("13_wkjrv")]
+position = Vector2(243, 576)
 
 [editable path="Level_One/FloraSpawnerArea"]
