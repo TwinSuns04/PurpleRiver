@@ -32,6 +32,9 @@ void PlayerCharacterCB2::_bind_methods()
 	ClassDB::bind_method(D_METHOD("get_movementSpeedBase"), &PlayerCharacterCB2::get_movementSpeedBase);
 	ClassDB::bind_method(D_METHOD("set_movementSpeedBase", "p_speed"), &PlayerCharacterCB2::set_movementSpeedBase);
 	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "movementSpeedBase"), "set_movementSpeedBase", "get_movementSpeedBase");
+	ClassDB::bind_method(D_METHOD("get_movementSpeedMult"), &PlayerCharacterCB2::get_movementSpeedMult);
+	ClassDB::bind_method(D_METHOD("set_movementSpeedMult", "p_mult"), &PlayerCharacterCB2::set_movementSpeedMult);
+	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "movementSpeedMult"), "set_movementSpeedMult", "get_movementSpeedMult");
 	ClassDB::bind_method(D_METHOD("get_movementSpeed"), &PlayerCharacterCB2::get_movementSpeed);
 	ClassDB::bind_method(D_METHOD("set_movementSpeed", "p_speed"), &PlayerCharacterCB2::set_movementSpeed);
 	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "movementSpeed"), "set_movementSpeed", "get_movementSpeed");
@@ -59,6 +62,11 @@ void PlayerCharacterCB2::_bind_methods()
 	ClassDB::bind_method(D_METHOD("get_foodEaten"), &PlayerCharacterCB2::get_foodEaten);
 	ClassDB::bind_method(D_METHOD("set_foodEaten", "p_val"), &PlayerCharacterCB2::set_foodEaten);
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "foodEaten"), "set_foodEaten", "get_foodEaten");
+
+	// levelUp
+	ClassDB::bind_method(D_METHOD("get_levelUp"), &PlayerCharacterCB2::get_levelUp);
+	ClassDB::bind_method(D_METHOD("set_levelUp", "p_status"), &PlayerCharacterCB2::set_levelUp);
+	ADD_PROPERTY(PropertyInfo(Variant::BOOL, "levelUp"), "set_levelUp", "get_levelUp");
 
 	// positional river current custom data for tile sets
 	ClassDB::bind_method(D_METHOD("get_positionalRCV"), &PlayerCharacterCB2::get_positionalRCV);
@@ -96,14 +104,16 @@ PlayerCharacterCB2::PlayerCharacterCB2()
 	//position = Vector2(0, 0);
 	//velocity = Vector2(0, 0);
 	playerLevel = 1;
-	movementSpeedBase = 1600;
-	movementSpeed = movementSpeedBase * 1;
+	movementSpeedBase = 100;
+	movementSpeedMult = 3.6;
+	movementSpeed = movementSpeedBase * movementSpeedMult;
 	speedBoostMult = 1.5;
-	boostDuration = 50.0;
+	boostDuration = 25.0;
 	boostStatus = false;
 	staminaVal = 100;
 	strengthVal = 1;
 	foodEaten = 0;
+	levelUp = false;
 	positionalRCV = Vector2i (0, 0);
 	positionalRCM = 1;
 	positionalRCCS = false;
@@ -120,8 +130,6 @@ PlayerCharacterCB2::~PlayerCharacterCB2()
 void PlayerCharacterCB2::_process(double delta)
 {
 	//position = get_global_position();
-
-
 	if (boostStatus)
 	{
 		DepleteStamina(1);
@@ -142,7 +150,7 @@ Vector2i PlayerCharacterCB2::CalcRiverVelocity()
 {
 	Vector2i tempRiverVelocity = get_positionalRCV();
 	int tempRiverMult = get_positionalRCM();
-	tempRiverMult *= 400;
+	tempRiverMult *= riverCurrentScaler;
 
 	if (tempRiverVelocity != Vector2i(0, 0))
 	{
@@ -168,9 +176,11 @@ Vector2 PlayerCharacterCB2::CalcBasisTransform(double p_angle)
 
 void PlayerCharacterCB2::LevelUp()
 {
+	UtilityFunctions::print("LEVEL UP!");
 	double tempMovementSpeedBase = get_movementSpeedBase();
 	tempMovementSpeedBase *= speedScaler;
-	set_movementSpeed(tempMovementSpeedBase);
+	double tempMovementSpeed = tempMovementSpeedBase * movementSpeedMult;
+	set_movementSpeed(tempMovementSpeed);
 
 	double tempSpeedBoostMult = get_speedBoostMult();
 	tempSpeedBoostMult *= boostMultScaler;
@@ -195,6 +205,21 @@ void PlayerCharacterCB2::LevelUp()
 	int tempLevel = get_playerLevel();
 	tempLevel++;
 	set_playerLevel(tempLevel);
+
+	if(get_playerLevel() == 2)
+	{
+		set_scale(Vector2(0.12, 0.12));
+	}
+	else if (get_playerLevel() == 3)
+	{
+		set_scale(Vector2(0.16, 0.16));
+	}
+	else if (get_playerLevel() == 4)
+	{
+		set_scale(Vector2(0.2, 0.2));
+	}
+	
+	
 }
 
 void PlayerCharacterCB2::EatFood(int p_val)
@@ -226,9 +251,11 @@ void PlayerCharacterCB2::RegenStamina(int p_val)
 
 void PlayerCharacterCB2::DepleteStamina(int p_val)
 {
+	UtilityFunctions::print("DepleteStamina() exec");
 	if (staminaVal > 0)
 	{
 		staminaVal -= p_val;
+		UtilityFunctions::print("staminaVal: ", staminaVal);
 	}
 }
 
@@ -285,6 +312,16 @@ double PlayerCharacterCB2::get_movementSpeedBase() const
 void PlayerCharacterCB2::set_movementSpeedBase(const double p_speed)
 {
 	movementSpeedBase = p_speed;
+}
+
+double PlayerCharacterCB2::get_movementSpeedMult() const
+{
+	return movementSpeedMult;
+}
+
+void PlayerCharacterCB2::set_movementSpeedMult(const double p_mult)
+{
+	movementSpeedMult = p_mult;
 }
 
 double PlayerCharacterCB2::get_movementSpeed() const
@@ -365,6 +402,16 @@ int PlayerCharacterCB2::get_foodEaten() const
 void PlayerCharacterCB2::set_foodEaten(const int p_val)
 {
 	foodEaten = p_val;
+}
+
+bool PlayerCharacterCB2::get_levelUp() const
+{
+	return levelUp;
+}
+
+void PlayerCharacterCB2::set_levelUp(const bool p_status)
+{
+	levelUp = p_status;
 }
 
 Vector2i PlayerCharacterCB2::get_positionalRCV() const

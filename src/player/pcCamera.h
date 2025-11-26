@@ -10,6 +10,7 @@ namespace godot {
 
 	private:
 		Vector2 const CUSTOM_ZOOM_QUARTER = Vector2(0.25, 0.25);
+		Vector2 const CUSTOM_ZOOM_GAME = Vector2(2.5, 2.5);
 
 	protected:
 		static void _bind_methods();
