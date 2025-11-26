@@ -103,7 +103,7 @@ PlayerCharacterCB2::PlayerCharacterCB2()
 	movementSpeedMult = 3.6;
 	movementSpeed = movementSpeedBase * movementSpeedMult;
 	speedBoostMult = 1.5;
-	boostDuration = 50.0;
+	boostDuration = 25.0;
 	boostStatus = false;
 	staminaVal = 100;
 	strengthVal = 1;
@@ -172,9 +172,11 @@ Vector2 PlayerCharacterCB2::CalcBasisTransform(double p_angle)
 
 void PlayerCharacterCB2::LevelUp()
 {
+	UtilityFunctions::print("LEVEL UP!");
 	double tempMovementSpeedBase = get_movementSpeedBase();
 	tempMovementSpeedBase *= speedScaler;
-	set_movementSpeed(tempMovementSpeedBase);
+	double tempMovementSpeed = tempMovementSpeedBase * movementSpeedMult;
+	set_movementSpeed(tempMovementSpeed);
 
 	double tempSpeedBoostMult = get_speedBoostMult();
 	tempSpeedBoostMult *= boostMultScaler;
@@ -230,9 +232,11 @@ void PlayerCharacterCB2::RegenStamina(int p_val)
 
 void PlayerCharacterCB2::DepleteStamina(int p_val)
 {
+	UtilityFunctions::print("DepleteStamina() exec");
 	if (staminaVal > 0)
 	{
 		staminaVal -= p_val;
+		UtilityFunctions::print("staminaVal: ", staminaVal);
 	}
 }
 

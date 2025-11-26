@@ -31,14 +31,16 @@ func _physics_process(delta):
 	horizontalDirection = Input.get_axis("moveLeft", "moveRight")
 	verticalDirection = Input.get_axis("moveUp", "moveDown")
 	
-	if Input.is_action_just_pressed("swimBoost"):
+	if Input.is_action_pressed("swimBoost"):
 		print("swimBoost pressed")
-		if staminaVal >= 0:
+		if staminaVal > 0:
 			movementSpeed = movementSpeed * speedBoostMult
 			boostStatus = true
+		else:
+			print("No mucho boosto")
 	if Input.is_action_just_released("swimBoost"):
 		print("swimBoost released")
-		movementSpeed = movementSpeedBase
+		movementSpeed = movementSpeedBase * movementSpeedMult
 		boostStatus = false
 
 	temp_river_velocity = calc_river_velocity()
@@ -90,8 +92,7 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_1:
 			print("\n\nDebug_1")
-			print("rcv: ", positionalRCV)
-			print("rcm: ", positionalRCM)
+			print("staminaVal: ", staminaVal)
 			print("\n\n")
 			#print("localPos: ", PlayerCharacterCB2.to_local(position))
 
@@ -103,41 +104,43 @@ func _on_pc_area_entered(area: Area2D):
 
 
 func _on_pc_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int):
-	print("\n\npc_area_body_shaped_entered() exec \n")
-	print("body: ", body)
+	#print("\n\npc_area_body_shaped_entered() exec \n")
+	#print("body: ", body)
 	
 	var tileMap: TileMapLayer = body
-	print("tileMap var created")
+	#print("tileMap var created")
 	
-	if not tileMap:
-		print("tileMap invalid")
-		return
+	#if not tileMap:
+		#print("tileMap invalid")
+		#return
 	
-	print("tileMap is valid")
+	#print("tileMap is valid")
 	var local_pos = tileMap.to_local(position)
-	#var cell := tileMap.local_to_map(position)
 	var cell := tileMap.local_to_map(local_pos)
 	var tile_data: TileData = null
 	
 	if(cell):
 		tile_data = tileMap.get_cell_tile_data(cell)
-		print("cell is valid")
-		if(tile_data):
-			print("tile_data is immediatley valid")
-		else:
-			print("tile_data is immediatley invalid")
+		#print("cell is valid")
+		#if(tile_data):
+			#print("tile_data is immediatley valid")
+		#else:
+			#print("tile_data is immediatley invalid")
 	else:
 		tile_data = null
-		print("cell invalid")
+		#print("cell invalid")
 	
 	if(tile_data):
-		print("tile_data is valid")
+		#print("tile_data is valid")
 		positionalRCV = get_river_current_vector(tile_data)
 		positionalRCM = get_river_current_mult(tile_data)
 		positionalRCCS = get_rCurrent_collision_status(tile_data)
 		
 	else:
 		print("tile_data invalid")
+		positionalRCV = Vector2(0, 0)
+		positionalRCM = 0
+		positionalRCCS = false
 	
 	#old code attempt
 	#print("_on_pc_area_body_shape_entered() exec")
@@ -152,39 +155,39 @@ func _on_pc_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 
 func get_river_current_vector(p_tileData: TileData) -> Vector2i:
 	var riverCurrentVector = Vector2i.ZERO
-	print("get_river_current_vector()")
+	#print("get_river_current_vector()")
 	
 	if(p_tileData):
 		riverCurrentVector = p_tileData.get_custom_data("currentVector")
 		if not riverCurrentVector:
 			print("Failed to get custom data for rcv")
 			riverCurrentVector = Vector2i.ZERO
-		print("riverCurrentVector val updated")
+		#print("riverCurrentVector val updated")
 	
 	return riverCurrentVector
 
 func get_river_current_mult(p_tileData: TileData) -> int:
 	var riverCurrentMult = 1
-	print("get_river_current_mult()")
+	#print("get_river_current_mult()")
 	
 	if(p_tileData):
 		riverCurrentMult = p_tileData.get_custom_data("currentMult")
 		if not riverCurrentMult:
 			print("Failed to get custom data for rcm")
 			riverCurrentMult = 1
-		print("riverCurrentMult val updated")
+		#print("riverCurrentMult val updated")
 	
 	return riverCurrentMult
 
 func get_rCurrent_collision_status(p_tileData: TileData) -> bool:
 	var rCurrentCollisionStatus = false
-	print("get_rCurrent_collision_status()")
+	#print("get_rCurrent_collision_status()")
 	
 	if(p_tileData):
 		rCurrentCollisionStatus = p_tileData.get_custom_data("collisionStatus")
-		print("rCurrentCollisionStatus updated")
+		#print("rCurrentCollisionStatus updated")
 		if(rCurrentCollisionStatus == null):
-			print("Failed to get custom data for rccs")
+			#print("Failed to get custom data for rccs")
 			rCurrentCollisionStatus = false
 	
 	return rCurrentCollisionStatus
