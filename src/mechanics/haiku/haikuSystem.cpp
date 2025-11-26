@@ -14,7 +14,7 @@ void HaikuSystem::_bind_methods()
 HaikuSystem::HaikuSystem()
 {
     chosenHaiku = 0;
-    haikuTitle = "untitled";
+    haikuNum;
     haikuText = "";
     haikuAuthor = "";
 
@@ -100,14 +100,14 @@ void HaikuSystem::set_chosenHaiku(const int p_val)
     chosenHaiku = p_val;
 }
 
-String HaikuSystem::get_haikuTitle() const
+int HaikuSystem::get_haikuNum() const
 {
-    return haikuTitle;
+    return haikuNum;
 }
 
-void HaikuSystem::set_haikuTitle(const String p_title)
+void HaikuSystem::set_haikuNum(const int p_num)
 {
-    haikuTitle = p_title;
+    haikuNum = p_num;
 }
 
 String HaikuSystem::get_haikuText() const

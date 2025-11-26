@@ -14,14 +14,15 @@ namespace godot {
         GDCLASS(HaikuSystem, Node)
 
     private:
+    // Possible make a struct of all haiku vals instead of storing the seperately
     int chosenHaiku;
-    String haikuTitle;
+    int haikuNum;
     String haikuText;
     String haikuAuthor;
     std::vector<int> selectedHaikus;
 
-    String const haikuFile = "---file path here ---";
-    int const totalNumHaikus = 44;
+    String const c_haikuFilePath = "haikuFile.txt";
+    int const c_totalNumHaikus = 93;
 
     protected:
     static void _bind_methods();
@@ -38,8 +39,8 @@ namespace godot {
     // getset
     int get_chosenHaiku() const;
     void set_chosenHaiku(const int p_val);
-    String get_haikuTitle() const;
-    void set_haikuTitle(const String p_title);
+    int get_haikuNum() const;
+    void set_haikuNum(const int p_num);
     String get_haikuText() const;
     void set_haikuText(const String p_text);
     String get_haikuAuthor() const;
