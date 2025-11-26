@@ -90,7 +90,8 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_1:
 			print("\n\nDebug_1")
-			print("playerLevel: ", playerLevel)
+			print("rcv: ", positionalRCV)
+			print("rcm: ", positionalRCM)
 			print("\n\n")
 			#print("localPos: ", PlayerCharacterCB2.to_local(position))
 
@@ -102,9 +103,10 @@ func _on_pc_area_entered(area: Area2D):
 
 
 func _on_pc_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int):
-	print("pc_area_body_shaped_entered() exec \n")
+	print("\n\npc_area_body_shaped_entered() exec \n")
+	print("body: ", body)
 	
-	var tileMap: TileMapLayer = get_tree().get_first_node_in_group("rCurrentTileMap")
+	var tileMap: TileMapLayer = body
 	print("tileMap var created")
 	
 	if not tileMap:
