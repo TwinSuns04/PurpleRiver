@@ -14,7 +14,7 @@ namespace godot {
         GDCLASS(HaikuSystem, Node)
 
     private:
-    // Possible make a struct of all haiku vals instead of storing the seperately
+    // Possibly make a struct of all haiku vals instead of storing the seperately
     int chosenHaiku;
     int haikuNum;
     String haikuText;
@@ -32,7 +32,7 @@ namespace godot {
     ~HaikuSystem();
     void _process(double delta) override;
 
-    void ChooseHaiku();
+    void ChooseHaiku(); // choose a random haiku and check if it has been read
     void ReadHaiku(); // read/search haiku file for required haiku
     void OutputChosenHaiku();
 

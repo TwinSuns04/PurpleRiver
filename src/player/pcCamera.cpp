@@ -10,7 +10,7 @@ void PCCamera::_bind_methods()
 PCCamera::PCCamera()
 {
 	// Initialize any variables here.
-	set_zoom(CUSTOM_ZOOM_QUARTER);
+	set_zoom(CUSTOM_ZOOM_GAME);
 	
 }
 
