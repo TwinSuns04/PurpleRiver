@@ -63,6 +63,11 @@ void PlayerCharacterCB2::_bind_methods()
 	ClassDB::bind_method(D_METHOD("set_foodEaten", "p_val"), &PlayerCharacterCB2::set_foodEaten);
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "foodEaten"), "set_foodEaten", "get_foodEaten");
 
+	// levelUp
+	ClassDB::bind_method(D_METHOD("get_levelUp"), &PlayerCharacterCB2::get_levelUp);
+	ClassDB::bind_method(D_METHOD("set_levelUp", "p_status"), &PlayerCharacterCB2::set_levelUp);
+	ADD_PROPERTY(PropertyInfo(Variant::BOOL, "levelUp"), "set_levelUp", "get_levelUp");
+
 	// positional river current custom data for tile sets
 	ClassDB::bind_method(D_METHOD("get_positionalRCV"), &PlayerCharacterCB2::get_positionalRCV);
 	ClassDB::bind_method(D_METHOD("set_positionalRCV", "p_val"), &PlayerCharacterCB2::set_positionalRCV);
@@ -108,6 +113,7 @@ PlayerCharacterCB2::PlayerCharacterCB2()
 	staminaVal = 100;
 	strengthVal = 1;
 	foodEaten = 0;
+	levelUp = false;
 	positionalRCV = Vector2i (0, 0);
 	positionalRCM = 1;
 	positionalRCCS = false;
@@ -124,8 +130,6 @@ PlayerCharacterCB2::~PlayerCharacterCB2()
 void PlayerCharacterCB2::_process(double delta)
 {
 	//position = get_global_position();
-
-
 	if (boostStatus)
 	{
 		DepleteStamina(1);
@@ -201,6 +205,21 @@ void PlayerCharacterCB2::LevelUp()
 	int tempLevel = get_playerLevel();
 	tempLevel++;
 	set_playerLevel(tempLevel);
+
+	if(get_playerLevel() == 2)
+	{
+		set_scale(Vector2(0.12, 0.12));
+	}
+	else if (get_playerLevel() == 3)
+	{
+		set_scale(Vector2(0.16, 0.16));
+	}
+	else if (get_playerLevel() == 4)
+	{
+		set_scale(Vector2(0.2, 0.2));
+	}
+	
+	
 }
 
 void PlayerCharacterCB2::EatFood(int p_val)
@@ -383,6 +402,16 @@ int PlayerCharacterCB2::get_foodEaten() const
 void PlayerCharacterCB2::set_foodEaten(const int p_val)
 {
 	foodEaten = p_val;
+}
+
+bool PlayerCharacterCB2::get_levelUp() const
+{
+	return levelUp;
+}
+
+void PlayerCharacterCB2::set_levelUp(const bool p_status)
+{
+	levelUp = p_status;
 }
 
 Vector2i PlayerCharacterCB2::get_positionalRCV() const

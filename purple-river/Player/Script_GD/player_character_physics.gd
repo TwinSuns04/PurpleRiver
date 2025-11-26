@@ -13,7 +13,6 @@ func _ready():
 	$PCCamera.zoom.x = 2.0
 	$PCCamera.zoom.y = 2.0
 	
-	
 	#change mouse mode
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 

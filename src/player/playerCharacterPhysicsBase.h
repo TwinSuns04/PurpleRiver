@@ -5,6 +5,7 @@
 
 #include <godot_cpp/classes/character_body2d.hpp>
 #include <godot_cpp/classes/tile_data.hpp>
+#include "pcSprite.h"
 
 namespace godot {
 
@@ -26,6 +27,7 @@ namespace godot {
 		double staminaRegenVal;
 		int strengthVal;
 		int foodEaten;
+		bool levelUp;
 		Vector2i positionalRCV;
 		int positionalRCM;
 		bool positionalRCCS;
@@ -85,6 +87,8 @@ namespace godot {
 		void set_strengthVal(const int p_strength);
 		int get_foodEaten() const;
 		void set_foodEaten(const int p_val);
+		bool get_levelUp() const;
+		void set_levelUp(const bool p_status);
 		Vector2i get_positionalRCV() const;
 		void set_positionalRCV(const Vector2i p_vector);
 		int get_positionalRCM() const;
