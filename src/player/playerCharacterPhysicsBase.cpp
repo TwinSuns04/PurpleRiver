@@ -32,6 +32,9 @@ void PlayerCharacterCB2::_bind_methods()
 	ClassDB::bind_method(D_METHOD("get_movementSpeedBase"), &PlayerCharacterCB2::get_movementSpeedBase);
 	ClassDB::bind_method(D_METHOD("set_movementSpeedBase", "p_speed"), &PlayerCharacterCB2::set_movementSpeedBase);
 	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "movementSpeedBase"), "set_movementSpeedBase", "get_movementSpeedBase");
+	ClassDB::bind_method(D_METHOD("get_movementSpeedMult"), &PlayerCharacterCB2::get_movementSpeedMult);
+	ClassDB::bind_method(D_METHOD("set_movementSpeedMult", "p_mult"), &PlayerCharacterCB2::set_movementSpeedMult);
+	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "movementSpeedMult"), "set_movementSpeedMult", "get_movementSpeedMult");
 	ClassDB::bind_method(D_METHOD("get_movementSpeed"), &PlayerCharacterCB2::get_movementSpeed);
 	ClassDB::bind_method(D_METHOD("set_movementSpeed", "p_speed"), &PlayerCharacterCB2::set_movementSpeed);
 	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "movementSpeed"), "set_movementSpeed", "get_movementSpeed");
@@ -96,8 +99,9 @@ PlayerCharacterCB2::PlayerCharacterCB2()
 	//position = Vector2(0, 0);
 	//velocity = Vector2(0, 0);
 	playerLevel = 1;
-	movementSpeedBase = 1600;
-	movementSpeed = movementSpeedBase * 1;
+	movementSpeedBase = 100;
+	movementSpeedMult = 3.6;
+	movementSpeed = movementSpeedBase * movementSpeedMult;
 	speedBoostMult = 1.5;
 	boostDuration = 50.0;
 	boostStatus = false;
@@ -142,7 +146,7 @@ Vector2i PlayerCharacterCB2::CalcRiverVelocity()
 {
 	Vector2i tempRiverVelocity = get_positionalRCV();
 	int tempRiverMult = get_positionalRCM();
-	tempRiverMult *= 400;
+	tempRiverMult *= riverCurrentScaler;
 
 	if (tempRiverVelocity != Vector2i(0, 0))
 	{
@@ -285,6 +289,16 @@ double PlayerCharacterCB2::get_movementSpeedBase() const
 void PlayerCharacterCB2::set_movementSpeedBase(const double p_speed)
 {
 	movementSpeedBase = p_speed;
+}
+
+double PlayerCharacterCB2::get_movementSpeedMult() const
+{
+	return movementSpeedMult;
+}
+
+void PlayerCharacterCB2::set_movementSpeedMult(const double p_mult)
+{
+	movementSpeedMult = p_mult;
 }
 
 double PlayerCharacterCB2::get_movementSpeed() const

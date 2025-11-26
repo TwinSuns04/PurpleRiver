@@ -17,6 +17,7 @@ namespace godot {
 		int playerLevel;
 		double playerHealth;
 		double movementSpeedBase;
+		double movementSpeedMult;
 		double movementSpeed;
 		double speedBoostMult;
 		double boostDuration;
@@ -36,6 +37,7 @@ namespace godot {
 		double const boostDurationScaler = 1.10;
 		double const staminaScaler = 1.10;
 		int const strengthScaler = 2;
+		int const riverCurrentScaler = 50;
 		
 
 	protected:
@@ -65,6 +67,8 @@ namespace godot {
 		void set_playerHealth(const int p_health);
 		double get_movementSpeedBase() const;
 		void set_movementSpeedBase(const double p_speed);
+		double get_movementSpeedMult() const;
+		void set_movementSpeedMult(const double p_mult);
 		double get_movementSpeed() const;
 		void set_movementSpeed(const double p_speed);
 		double get_speedBoostMult() const;

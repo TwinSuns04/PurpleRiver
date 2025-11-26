@@ -78,7 +78,6 @@ radius = 86.0
 height = 172.0
 
 [node name="PlayerCharacterCB2" type="PlayerCharacterCB2"]
-staminaRegenVal = nan
 scale = Vector2(0.5, 0.5)
 motion_mode = 1
 script = ExtResource("1_ce8l7")

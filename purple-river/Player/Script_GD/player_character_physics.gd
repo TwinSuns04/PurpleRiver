@@ -10,8 +10,8 @@ func _ready():
 	print("Player name: ", name)
 	add_to_group("Player")
 	screen_size = get_viewport_rect().size
-	$PCCamera.zoom.x = 0.5
-	$PCCamera.zoom.y = 0.5
+	$PCCamera.zoom.x = 2.0
+	$PCCamera.zoom.y = 2.0
 	
 	
 	#change mouse mode
