@@ -5,6 +5,7 @@
 
 #include <godot_cpp/classes/character_body2d.hpp>
 #include <godot_cpp/classes/tile_data.hpp>
+#include "pcSprite.h"
 
 namespace godot {
 
@@ -17,6 +18,7 @@ namespace godot {
 		int playerLevel;
 		double playerHealth;
 		double movementSpeedBase;
+		double movementSpeedMult;
 		double movementSpeed;
 		double speedBoostMult;
 		double boostDuration;
@@ -25,6 +27,7 @@ namespace godot {
 		double staminaRegenVal;
 		int strengthVal;
 		int foodEaten;
+		bool levelUp;
 		Vector2i positionalRCV;
 		int positionalRCM;
 		bool positionalRCCS;
@@ -36,6 +39,7 @@ namespace godot {
 		double const boostDurationScaler = 1.10;
 		double const staminaScaler = 1.10;
 		int const strengthScaler = 2;
+		int const riverCurrentScaler = 50;
 		
 
 	protected:
@@ -65,6 +69,8 @@ namespace godot {
 		void set_playerHealth(const int p_health);
 		double get_movementSpeedBase() const;
 		void set_movementSpeedBase(const double p_speed);
+		double get_movementSpeedMult() const;
+		void set_movementSpeedMult(const double p_mult);
 		double get_movementSpeed() const;
 		void set_movementSpeed(const double p_speed);
 		double get_speedBoostMult() const;
@@ -81,6 +87,8 @@ namespace godot {
 		void set_strengthVal(const int p_strength);
 		int get_foodEaten() const;
 		void set_foodEaten(const int p_val);
+		bool get_levelUp() const;
+		void set_levelUp(const bool p_status);
 		Vector2i get_positionalRCV() const;
 		void set_positionalRCV(const Vector2i p_vector);
 		int get_positionalRCM() const;
