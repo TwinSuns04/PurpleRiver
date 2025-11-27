@@ -4,6 +4,7 @@
 
 // haiku system
 #include "haiku/haikuSystem.h"
+#include "haiku/haikuArea.h"
 
 // map related
 #include "map/riverArea.h"
@@ -44,6 +45,8 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 
 	// haiku system related classes
 	GDREGISTER_RUNTIME_CLASS(HaikuSystem);
+	GDREGISTER_RUNTIME_CLASS(HaikuArea);
+	GDREGISTER_CLASS(TestScons);
 
 	// map related classes
 	GDREGISTER_RUNTIME_CLASS(RiverArea);

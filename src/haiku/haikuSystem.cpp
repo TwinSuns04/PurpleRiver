@@ -1,6 +1,7 @@
 #include "haikuSystem.h"
 
 #include <godot_cpp/core/class_db.hpp>
+#include <godot_cpp/classes/file_access.hpp>
 
 using namespace godot;
 
@@ -16,18 +17,84 @@ HaikuSystem::HaikuSystem()
     haikuText = "";
     haikuAuthor = "";
 
-    
+   if(FileAccess::file_exists(haikuFilePath))
+   {
+        UtilityFunctions::print("Haiku file exists");
+   }
+   else
+   {
+        UtilityFunctions::print("Haiku file does not exist");
+   }
     
 }
 
 HaikuSystem::~HaikuSystem()
 {
-    
+    haikuFile->close();
+    haikuFile->flush();
 }
 
 void HaikuSystem::_process(double delta)
 {
     
+}
+
+void HaikuSystem::OpenHaiku()
+{
+    UtilityFunctions::print("OpenHaiku() exec");
+    haikuFile = FileAccess::open(haikuFilePath, FileAccess::READ);
+    int tempLineCount = 0;
+    int tempHaikuVal = 0;
+    String tempHaikuLine = "";
+    std::vector<String> tempHaikuVector;
+
+    // read and store file info
+    while(haikuFile->get_position() < haikuFile->get_length())
+    {
+        tempLineCount++;
+        tempHaikuLine = haikuFile->get_line();
+
+        if((tempLineCount % 5) == 1)
+        {
+            tempHaikuVal = tempHaikuLine.to_int();
+        }
+        else if ((tempLineCount % 5) == 0)
+        {
+            haikuMap.emplace(tempHaikuVal, tempHaikuVector);
+        }
+        else
+        {
+            tempHaikuVector.push_back(tempHaikuLine);
+        }
+        
+        tempHaikuVal = 0;
+        tempHaikuLine = "";
+        tempHaikuVector.clear();
+
+    }
+
+    if(haikuFile->eof_reached())
+    {
+        UtilityFunctions::print("End of haiku file reached");
+        CloseHaiku();
+    }
+
+    OutputHaikuFile();
+    
+}
+
+void HaikuSystem::OutputHaikuFile()
+{
+    for(auto& h: haikuMap)
+    {
+        UtilityFunctions::print("num: ", h.first, " author: ", h.second[0], " haiku: ", h.second[1]);
+    }
+}
+
+void HaikuSystem::CloseHaiku()
+{
+    UtilityFunctions::print("CloseHaiku() exec");
+    haikuFile->close();
 }
 
 void HaikuSystem::ChooseHaiku()

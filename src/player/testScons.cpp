@@ -11,7 +11,7 @@ void TestScons::_bind_methods()
 
 TestScons::TestScons()
 {
-
+    UtilityFunctions::print("TestScons ready");
 }
 
 TestScons::~TestScons()
@@ -21,5 +21,5 @@ TestScons::~TestScons()
 
 void TestScons::_process(double delta)
 {
-    
+    UtilityFunctions::print("TestScons _process");
 }

@@ -2,10 +2,12 @@
 #define HAIKUSYSTEM_H
 
 #include <godot_cpp/classes/node2d.hpp>
-#include <godot_cpp/classes/random_number_generator.hpp>
+#include <godot_cpp/classes/file_access.hpp>
 #include <vector>
+#include <unordered_map>
 
-// reminder to not hardcode haiuk's into game
+
+// reminder to not hardcode haiku's into game
 
 namespace godot
 {
@@ -20,10 +22,14 @@ namespace godot
         String haikuAuthor;
         std::vector<int> selectedHaikus;
 
-        String const haikuFilePath = "haikuFile.txt";
+        String const haikuFilePath = "res://haikuFile.txt";
         int const totalNumHaikus = 93;
 
-        RandomNumberGenerator *randomizer;
+        Ref<FileAccess> haikuFile;
+
+        // use unordered map because I will be searching often
+        std::unordered_map<int, std::vector<String>> haikuMap;
+
 
     protected:
         static void _bind_methods();
@@ -33,6 +39,9 @@ namespace godot
         ~HaikuSystem();
         void _process(double delta) override;
 
+        void OpenHaiku();
+        void CloseHaiku();
+        void OutputHaikuFile(); // for debug and test only
         void ChooseHaiku(); // choose a random haiku and check if it has been read
         void ReadHaiku(); // read/search haiku file for required haiku
         void OutputChosenHaiku();
