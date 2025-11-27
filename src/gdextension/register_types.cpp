@@ -2,6 +2,9 @@
 
 #include "gdexample.h"
 
+// haiku system
+#include "haiku/haikuSystem.h"
+
 // map related
 #include "map/riverArea.h"
 #include "map/riverAreaCollision.h"
@@ -24,6 +27,7 @@
 #include "player/pcSprite.h"
 #include "player/playerCharacter.h"
 #include "player/playerCharacterPhysicsBase.h"
+#include "player/testScons.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -37,6 +41,9 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 	}
 
 	GDREGISTER_RUNTIME_CLASS(GDExample);
+
+	// haiku system related classes
+	GDREGISTER_RUNTIME_CLASS(HaikuSystem);
 
 	// map related classes
 	GDREGISTER_RUNTIME_CLASS(RiverArea);
@@ -60,6 +67,7 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_RUNTIME_CLASS(PCSprite);
 	GDREGISTER_RUNTIME_CLASS(PlayerCharacter);
 	GDREGISTER_RUNTIME_CLASS(PlayerCharacterCB2);
+	GDREGISTER_RUNTIME_CLASS(TestScons);
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {

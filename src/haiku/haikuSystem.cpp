@@ -4,8 +4,6 @@
 
 using namespace godot;
 
-RandomNumberGenerator randomizer;
-
 void HaikuSystem::_bind_methods()
 {
 
@@ -19,24 +17,24 @@ HaikuSystem::HaikuSystem()
     haikuAuthor = "";
 
     
-    randomizer.randomize();
+    
 }
 
 HaikuSystem::~HaikuSystem()
 {
-
+    
 }
 
 void HaikuSystem::_process(double delta)
 {
-
+    
 }
 
 void HaikuSystem::ChooseHaiku()
 {
     
     // randomly choose a haiku from the list
-    chosenHaiku = randomizer.randi_range(1, totalNumHaikus);
+    //chosenHaiku = randomizer.randi_range(1, totalNumHaikus);
     UtilityFunctions::print("chosenHaiku: ", chosenHaiku);
     bool haikuFound = false;
 
