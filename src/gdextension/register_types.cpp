@@ -46,7 +46,6 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 	// haiku system related classes
 	GDREGISTER_RUNTIME_CLASS(HaikuSystem);
 	GDREGISTER_RUNTIME_CLASS(HaikuArea);
-	GDREGISTER_CLASS(TestScons);
 
 	// map related classes
 	GDREGISTER_RUNTIME_CLASS(RiverArea);
@@ -70,7 +69,7 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_RUNTIME_CLASS(PCSprite);
 	GDREGISTER_RUNTIME_CLASS(PlayerCharacter);
 	GDREGISTER_RUNTIME_CLASS(PlayerCharacterCB2);
-	GDREGISTER_RUNTIME_CLASS(TestScons);
+	GDREGISTER_CLASS(TestScons);
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {
