@@ -36,7 +36,7 @@ void HaikuSystem::ChooseHaiku()
 {
     
     // randomly choose a haiku from the list
-    chosenHaiku = randomizer.randi_range(1, totalNumHaikus);
+    chosenHaiku = randomizer.randi_range(1, c_totalNumHaikus);
     UtilityFunctions::print("chosenHaiku: ", chosenHaiku);
     bool haikuFound = false;
 
