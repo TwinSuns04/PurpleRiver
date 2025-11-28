@@ -13,6 +13,7 @@
                 "-j12",
                 "target=template_debug",
                 "dev_mode=yes",
+                "debug_symbols=yes",
                 "profile=${workspaceFolder}/custom.py"
 
             ]

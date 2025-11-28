@@ -20,15 +20,15 @@ namespace godot
         int haikuNum;
         String haikuText;
         String haikuAuthor;
-        std::vector<int> selectedHaikus;
+        bool fileOpenStatus;
+        String haikuFileLine;
 
         String const haikuFilePath = "res://haikuFile.txt";
         int const totalNumHaikus = 93;
 
-        Ref<FileAccess> haikuFile;
-
         // use unordered map because I will be searching often
         std::unordered_map<int, std::vector<String>> haikuMap;
+         std::vector<int> selectedHaikus; // no longer being used
 
 
     protected:
@@ -40,10 +40,11 @@ namespace godot
         void _process(double delta) override;
 
         void OpenHaiku();
+        void ReadHaiku(); // read and save haiku file in umap
         void CloseHaiku();
         void OutputHaikuFile(); // for debug and test only
         void ChooseHaiku(); // choose a random haiku and check if it has been read
-        void ReadHaiku(); // read/search haiku file for required haiku
+        void SearchHaiku();
         void OutputChosenHaiku();
 
         // getset
@@ -55,7 +56,10 @@ namespace godot
         void set_haikuText(const String p_text);
         String get_haikuAuthor() const;
         void set_haikuAuthor(const String p_author);
-
+        bool get_fileOpenStatus() const;
+        void set_fileOpenStatus(const bool p_status);
+        String get_haikuFileLine() const;
+        void set_haikuFileLine(const String p_text);
     };
     
 } // namespace godot
