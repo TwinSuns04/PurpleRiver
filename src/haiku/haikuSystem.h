@@ -21,6 +21,7 @@ namespace godot
         String haikuText;
         String haikuAuthor;
         bool fileOpenStatus;
+        String haikuFile;
         String haikuFileLine;
 
         String const haikuFilePath = "res://haikuFile.txt";
@@ -58,6 +59,8 @@ namespace godot
         void set_haikuAuthor(const String p_author);
         bool get_fileOpenStatus() const;
         void set_fileOpenStatus(const bool p_status);
+        String get_haikuFile() const;
+        void set_haikuFile(const String p_text);
         String get_haikuFileLine() const;
         void set_haikuFileLine(const String p_text);
     };
