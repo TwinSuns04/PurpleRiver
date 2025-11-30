@@ -19,17 +19,20 @@ namespace godot
         int chosenHaiku;
         int haikuNum;
         String haikuText;
+        String haikuTextJapanese;
         String haikuAuthor;
         bool fileOpenStatus;
-        String haikuFile;
-        String haikuFileLine;
+        bool fileReadStatus;
+        
+        std::vector<String> haikuLineVector;
+        std::vector<String> haikuInfo;
 
         String const haikuFilePath = "res://haikuFile.txt";
         int const totalNumHaikus = 93;
 
         // use unordered map because I will be searching often
         std::unordered_map<int, std::vector<String>> haikuMap;
-         std::vector<int> selectedHaikus; // no longer being used
+        std::vector<int> selectedHaikus; // no longer being used
 
 
     protected:
@@ -41,6 +44,7 @@ namespace godot
         void _process(double delta) override;
 
         void OpenHaiku();
+        void ReadHaiku_PH();
         void ReadHaiku(); // read and save haiku file in umap
         void CloseHaiku();
         void OutputHaikuFile(); // for debug and test only
@@ -55,14 +59,19 @@ namespace godot
         void set_haikuNum(const int p_num);
         String get_haikuText() const;
         void set_haikuText(const String p_text);
+        String get_haikuTextJapanese() const;
+        void set_haikuTextJapanese(const String p_text);
         String get_haikuAuthor() const;
         void set_haikuAuthor(const String p_author);
         bool get_fileOpenStatus() const;
         void set_fileOpenStatus(const bool p_status);
-        String get_haikuFile() const;
-        void set_haikuFile(const String p_text);
-        String get_haikuFileLine() const;
-        void set_haikuFileLine(const String p_text);
+        bool get_fileReadStatus() const;
+        void set_fileReadStatus(const bool p_status);
+        std::vector<String> get_haikuLineVector() const;
+        void set_haikuLineVector(const std::vector<String> p_vector);
+        std::vector<String> get_haikuInfo() const;
+        void set_haikuInfo(const std::vector<String> p_vector);
+        
     };
     
 } // namespace godot

@@ -19,6 +19,10 @@ void HaikuSystem::_bind_methods()
     ClassDB::bind_method(D_METHOD("set_haikuText", "p_text"), &HaikuSystem::set_haikuText);
     ADD_PROPERTY(PropertyInfo(Variant::STRING, "haikuText"), "set_haikuText", "get_haikuText");
 
+    ClassDB::bind_method(D_METHOD("get_haikuTextJapanese"), &HaikuSystem::get_haikuTextJapanese);
+    ClassDB::bind_method(D_METHOD("set_haikuTextJapanese", "p_text"), &HaikuSystem::set_haikuTextJapanese);
+    ADD_PROPERTY(PropertyInfo(Variant::STRING, "haikuTextJapanese"), "set_haikuTextJapanese", "get_haikuTextJapanese");
+
     ClassDB::bind_method(D_METHOD("get_haikuAuthor"), &HaikuSystem::get_haikuAuthor);
     ClassDB::bind_method(D_METHOD("set_haikuAuthor", "p_author"), &HaikuSystem::set_haikuAuthor);
     ADD_PROPERTY(PropertyInfo(Variant::STRING, "haikuAuthor"), "set_haikuAuthor", "get_haikuAuthor");
@@ -27,19 +31,13 @@ void HaikuSystem::_bind_methods()
     ClassDB::bind_method(D_METHOD("set_fileOpenStatus", "fileOpenStatus"), &HaikuSystem::set_fileOpenStatus);
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "fileOpenStatus"), "set_fileOpenStatus", "get_fileOpenStatus");
 
-    ClassDB::bind_method(D_METHOD("get_haikuFile"), &HaikuSystem::get_haikuFile);
-    ClassDB::bind_method(D_METHOD("set_haikuFile", "p_text"), &HaikuSystem::set_haikuFile);
-    ADD_PROPERTY(PropertyInfo(Variant::STRING, "haikuFile"), "set_haikuFile", "get_haikuFile");
+    ADD_SIGNAL(MethodInfo("g_open_file", PropertyInfo(Variant::BOOL, "p_fileStatus"), PropertyInfo(Variant::STRING, "p_filePath")));
+    ADD_SIGNAL(MethodInfo("g_close_file", PropertyInfo(Variant::BOOL, "p_fileStatus")));
+    ADD_SIGNAL(MethodInfo("g_update_haiku", PropertyInfo(Variant::INT, "p_tempCount")));
 
-    ClassDB::bind_method(D_METHOD("get_haikuFileLine"), &HaikuSystem::get_haikuFileLine);
-    ClassDB::bind_method(D_METHOD("set_haikuFileLine", "p_text"), &HaikuSystem::set_haikuFileLine);
-    ADD_PROPERTY(PropertyInfo(Variant::STRING, "haikuFileLine"), "set_haikuFileLine", "get_haikuFileLine");
-
-    ADD_SIGNAL(MethodInfo("godot_open_file", PropertyInfo(Variant::BOOL, "fileStatus")));
-    ADD_SIGNAL(MethodInfo("godot_close_file", PropertyInfo(Variant::BOOL, "fileClosed")));
-    ADD_SIGNAL(MethodInfo("godot_update_haiku", PropertyInfo(Variant::STRING, "haikuLine")));
-
-    // other method binds
+    // Additional methods
+    ClassDB::bind_method(D_METHOD("ReadHaiku"), &HaikuSystem::ReadHaiku_PH);
+    
 }
 
 HaikuSystem::HaikuSystem()
@@ -49,6 +47,7 @@ HaikuSystem::HaikuSystem()
     haikuText = "";
     haikuAuthor = "";
     fileOpenStatus = false;
+    fileReadStatus = false;
 
     bool fileExists = FileAccess::file_exists(haikuFilePath);
 
@@ -76,38 +75,88 @@ void HaikuSystem::_process(double delta)
 
 void HaikuSystem::OpenHaiku()
 {
-    // emit signal to godot to open file
+    UtilityFunctions::print("OpenHaiku() exec");
+    //emit signal to godot to open file
+    call_deferred("emit_signal", "g_open_file", fileOpenStatus, haikuFilePath);
+}
+
+void HaikuSystem::ReadHaiku_PH()
+{
+    UtilityFunctions::print("ReadHaiku_PH() exec");
     ReadHaiku();
 }
 
 void HaikuSystem::ReadHaiku()
 {
+    if(!fileOpenStatus)
+    {
+        UtilityFunctions::print("ERROR: ReadHaiku() exec on !fileOpenStatus");
+        return;
+    }
+    UtilityFunctions::print("ReadHaiku() exec");
     // read and store file info in umap
-    int tempLineCount = 0;
+    int tempHaikuCount = 0;
     int tempHaikuVal = 0;
-    String tempHaikuLine = "";
-    std::vector<String> tempHaikuVector;
 
+    // Missing a check for if above values don't update if "godot_read_file fails"
+    
+    /*
+    while(!fileReadStatus)
+    {
+        tempHaikuCount++;
+        call_deferred("emit_signal", "g_update_haiku", totalNumHaikus);
+        
+        // get hakiuNum for packed array and convert to int
+        //tempHaikuVal = haikuLineArray[0].to_int();
+        
+        // get haiku info and and to temp array
+        //tempHaikuVector[0] = haikuLineArray[1];
+        //tempHaikuVector[1] = haikuLineArray[2];
+        //tempHaikuVector[2] = haikuLineArray[3];
+
+        // add pair to umap
+        //haikuMap.emplace(tempHaikuVal, tempHaikuVector);
+
+        //tempHaikuVector.clear();
+    }
+        */
+
+    for(int i = 0; i < totalNumHaikus; i++)
+    {
+        call_deferred("emit_signal", "g_update_haiku", totalNumHaikus);
+
+        
+    }
+    
+    CloseHaiku();
+    OutputHaikuFile();
 }
 
 void HaikuSystem::CloseHaiku()
 {
-
+    call_deferred("emit_signal", "g_close_file", fileOpenStatus);
+    UtilityFunctions::print("CloseHaiku() exec");
 }
 
+// for debug and test only
 void HaikuSystem::OutputHaikuFile()
 {
+    UtilityFunctions::print("OutputHaikuFile() exec");
+    /*
     for(auto& h: haikuMap)
     {
         UtilityFunctions::print("num: ", h.first, " author: ", h.second[0], " haiku: ", h.second[1]);
     }
+        */
 }
 
+// will execute from godot when signal recieved
 void HaikuSystem::ChooseHaiku()
 {
     
     // randomly choose a haiku from the list
     //chosenHaiku = randomizer.randi_range(1, totalNumHaikus);
+    UtilityFunctions::print("need random num from godot");
     UtilityFunctions::print("chosenHaiku: ", chosenHaiku);
     bool haikuFound = false;
 
@@ -132,7 +181,7 @@ void HaikuSystem::ChooseHaiku()
         
         if(!haikuFound)
         {
-            ReadHaiku();
+            //ReadHaiku();
             selectedHaikus.push_back(chosenHaiku);
         }
         else
@@ -190,6 +239,16 @@ void HaikuSystem::set_haikuText(const String p_text)
     haikuText = p_text;
 }
 
+String HaikuSystem::get_haikuTextJapanese() const
+{
+    return haikuTextJapanese;
+}
+
+void HaikuSystem::set_haikuTextJapanese(const String p_text)
+{
+    haikuTextJapanese = p_text;
+}
+
 String HaikuSystem::get_haikuAuthor() const
 {
     return haikuAuthor;
@@ -210,23 +269,33 @@ void HaikuSystem::set_fileOpenStatus(const bool p_status)
     fileOpenStatus = p_status;
 }
 
-String HaikuSystem::get_haikuFile() const
+bool HaikuSystem::get_fileReadStatus() const
 {
-    return haikuFile;
+    return fileReadStatus;
 }
 
-void HaikuSystem::set_haikuFile(const String p_text)
+void HaikuSystem::set_fileReadStatus(const bool p_status)
 {
-    haikuFile = p_text;
+    fileReadStatus = p_status;
 }
 
-String HaikuSystem::get_haikuFileLine() const
+std::vector<String> HaikuSystem::get_haikuLineVector() const
 {
-    return haikuFileLine;
+    return haikuLineVector;
 }
 
-void HaikuSystem::set_haikuFileLine(const String p_text)
+void HaikuSystem::set_haikuLineVector(const std::vector<String> p_vector)
 {
-    haikuFileLine = p_text;
+    haikuLineVector = p_vector;
+}
+
+std::vector<String> HaikuSystem::get_haikuInfo() const
+{
+    return haikuInfo;
+}
+
+void HaikuSystem::set_haikuInfo(const std::vector<String> p_vector)
+{
+    haikuInfo = p_vector;
 }
 #pragma endregion
