@@ -11,4 +11,4 @@ script = ExtResource("1_vumgf")
 
 [connection signal="g_close_file" from="HaikuSystem" to="." method="_on_haiku_system_g_close_file"]
 [connection signal="g_open_file" from="HaikuSystem" to="." method="_on_haiku_system_g_open_file"]
-[connection signal="g_update_haiku" from="HaikuSystem" to="." method="_on_haiku_system_g_update_haiku"]
+[connection signal="g_read_file" from="HaikuSystem" to="." method="_on_haiku_system_g_read_file"]

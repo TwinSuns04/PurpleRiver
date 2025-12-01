@@ -4,7 +4,7 @@
 #include <godot_cpp/classes/node2d.hpp>
 #include <godot_cpp/classes/file_access.hpp>
 #include <vector>
-#include <unordered_map>
+#include <map>
 
 
 // reminder to not hardcode haiku's into game
@@ -23,15 +23,15 @@ namespace godot
         String haikuAuthor;
         bool fileOpenStatus;
         bool fileReadStatus;
-        
-        std::vector<String> haikuLineVector;
+        bool haikuAdded;
+
         std::vector<String> haikuInfo;
 
         String const haikuFilePath = "res://haikuFile.txt";
-        int const totalNumHaikus = 93;
+        int const totalNumHaikus = 94;
 
         // use unordered map because I will be searching often
-        std::unordered_map<int, std::vector<String>> haikuMap;
+        std::map<int, std::vector<String>> haikuMap;
         std::vector<int> selectedHaikus; // no longer being used
 
 
@@ -44,13 +44,17 @@ namespace godot
         void _process(double delta) override;
 
         void OpenHaiku();
-        void ReadHaiku_PH();
+        void ReadHaiku_GA();
         void ReadHaiku(); // read and save haiku file in umap
+        void SaveHaikuInfo_GA(int p_num, String p_author, String p_text, String p_textJ); // Godot access point, for some reason using SaveHaikuInfo() with params crashed godot but this doesn't
+        void SaveHaikuInfo();
         void CloseHaiku();
         void OutputHaikuFile(); // for debug and test only
+        void OutputHaikuFile_PH();
         void ChooseHaiku(); // choose a random haiku and check if it has been read
         void SearchHaiku();
         void OutputChosenHaiku();
+        void ConvertHaikuInfo();
 
         // getset
         int get_chosenHaiku() const;
@@ -67,11 +71,8 @@ namespace godot
         void set_fileOpenStatus(const bool p_status);
         bool get_fileReadStatus() const;
         void set_fileReadStatus(const bool p_status);
-        std::vector<String> get_haikuLineVector() const;
-        void set_haikuLineVector(const std::vector<String> p_vector);
-        std::vector<String> get_haikuInfo() const;
-        void set_haikuInfo(const std::vector<String> p_vector);
-        
+        bool get_haikuAdded() const;
+        void set_haikuAdded(const bool p_status);
     };
     
 } // namespace godot

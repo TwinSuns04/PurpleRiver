@@ -12,33 +12,51 @@ func _process(delta: float) -> void:
 	pass
 	
 func Open_Haiku(c_haiku_file_path: String) -> void:
-	print("Open_Haiku() exec")
+	#print("Open_Haiku() exec")
 	haiku_file = FileAccess.open(c_haiku_file_path, FileAccess.READ)
 	
 	if(haiku_file != null):
-		print("haiku_file !null")
+		#print("haiku_file !null")
 		fileOpenStatus = true
-		ReadHaiku()
+		haikuAdded = false;
+		Read_Haiku()
 	else:
 		fileOpenStatus = false
 		print("File not successfully opened")
 
-func Update_Haiku(_p_haiku_num: int) -> void:
-	print("Update_Haiku() exec")
-	var temp_haiku_line
-	if(haiku_file_pos < haiku_file.get_length()):
+func Read_Haiku() -> void:
+	var num
+	var author
+	var textE
+	var textJ
+	var dummyText
+	if(!haikuAdded):
 		haiku_file.seek(haiku_file_pos)
-		haikuNum = haiku_file.get_line().to_int()
-		haikuAuthor = haiku_file.get_line()
-		haikuText = haiku_file.get_line()
-		haikuTextJapanese = haiku_file.get_line()
-		temp_haiku_line = haiku_file.get_line()
+		num = haiku_file.get_line().to_int()
+		author = haiku_file.get_line()
+		textE = haiku_file.get_line()
+		textJ = haiku_file.get_line()
+		dummyText = haiku_file.get_line()
 		haiku_file_pos = haiku_file.get_position()
 	
+	SaveHaikuInfo(num, author, textE, textJ)
+
+func Status_Haiku(p_status: bool) -> void:
+	if(haiku_file.eof_reached()):
+		fileReadStatus = true
+	
+	if(!haikuAdded):
+		Read_Haiku()
+	else:
+		print("Status_Haiku() exec while haikuAdded true")
+		SaveHaikuInfo(haikuNum, haikuAuthor, haikuText, haikuTextJapanese)
 
 	
 func Close_Haiku() -> void:
+	#print("Close_Haiku() exec")
 	haiku_file.close()
+	fileOpenStatus = false
+	OutputHaikuFile()
 	
 func Choose_Haiku() -> void:
 	pass

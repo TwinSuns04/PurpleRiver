@@ -31,12 +31,23 @@ void HaikuSystem::_bind_methods()
     ClassDB::bind_method(D_METHOD("set_fileOpenStatus", "fileOpenStatus"), &HaikuSystem::set_fileOpenStatus);
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "fileOpenStatus"), "set_fileOpenStatus", "get_fileOpenStatus");
 
+    ClassDB::bind_method(D_METHOD("get_fileReadStatus"), &HaikuSystem::get_fileReadStatus);
+    ClassDB::bind_method(D_METHOD("set_fileReadStatus", "p_status"), &HaikuSystem::set_fileReadStatus);
+    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "fileReadStatus"), "set_fileReadStatus", "get_fileReadStatus");
+
+    ClassDB::bind_method(D_METHOD("get_haikuAdded"), &HaikuSystem::get_haikuAdded);
+    ClassDB::bind_method(D_METHOD("set_haikuAdded", "p_status"), &HaikuSystem::set_haikuAdded);
+    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "haikuAdded"), "set_haikuAdded", "get_haikuAdded");
+
     ADD_SIGNAL(MethodInfo("g_open_file", PropertyInfo(Variant::BOOL, "p_fileStatus"), PropertyInfo(Variant::STRING, "p_filePath")));
+    ADD_SIGNAL(MethodInfo("g_read_file", PropertyInfo(Variant::BOOL, "p_haikuAdded")));
     ADD_SIGNAL(MethodInfo("g_close_file", PropertyInfo(Variant::BOOL, "p_fileStatus")));
     ADD_SIGNAL(MethodInfo("g_update_haiku", PropertyInfo(Variant::INT, "p_tempCount")));
 
     // Additional methods
-    ClassDB::bind_method(D_METHOD("ReadHaiku"), &HaikuSystem::ReadHaiku_PH);
+    ClassDB::bind_method(D_METHOD("ReadHaiku"), &HaikuSystem::ReadHaiku_GA);
+    ClassDB::bind_method(D_METHOD("OutputHaikuFile"), &HaikuSystem::OutputHaikuFile_PH);
+    ClassDB::bind_method(D_METHOD("SaveHaikuInfo", "p_num", "p_author", "p_text", "p_textJ"), &HaikuSystem::SaveHaikuInfo_GA);
     
 }
 
@@ -48,24 +59,28 @@ HaikuSystem::HaikuSystem()
     haikuAuthor = "";
     fileOpenStatus = false;
     fileReadStatus = false;
+    haikuAdded = false;
+
+    haikuInfo = {};
+    haikuMap = {};
 
     bool fileExists = FileAccess::file_exists(haikuFilePath);
-
-   if(fileExists)
-   {
+    if(fileExists)
+    {
         UtilityFunctions::print("Haiku file exists");
         OpenHaiku();
-   }
-   else
-   {
+    }
+    else
+    {
         UtilityFunctions::print("Haiku file does not exist");
-   }
+    }
     
 }
 
 HaikuSystem::~HaikuSystem()
 {
     // Need to close file
+    CloseHaiku();
 }
 
 void HaikuSystem::_process(double delta)
@@ -80,56 +95,66 @@ void HaikuSystem::OpenHaiku()
     call_deferred("emit_signal", "g_open_file", fileOpenStatus, haikuFilePath);
 }
 
-void HaikuSystem::ReadHaiku_PH()
+void HaikuSystem::ReadHaiku_GA()
 {
-    UtilityFunctions::print("ReadHaiku_PH() exec");
+    //UtilityFunctions::print("ReadHaiku_GA() exec");
     ReadHaiku();
 }
 
 void HaikuSystem::ReadHaiku()
 {
-    if(!fileOpenStatus)
+    //UtilityFunctions::print("ReadHaiku() exec");
+
+    if(!fileReadStatus)
     {
-        UtilityFunctions::print("ERROR: ReadHaiku() exec on !fileOpenStatus");
-        return;
+        if(haikuAdded)
+        {
+            // flip haikuAdded to add next haiku
+            haikuAdded = false;
+            haikuInfo.clear();
+            call_deferred("emit_signal", "g_read_file", haikuAdded);
+        }
+        else
+        {
+            UtilityFunctions::print("File not read but haiku not added yet");
+        }
     }
-    UtilityFunctions::print("ReadHaiku() exec");
-    // read and store file info in umap
-    int tempHaikuCount = 0;
-    int tempHaikuVal = 0;
-
-    // Missing a check for if above values don't update if "godot_read_file fails"
-    
-    /*
-    while(!fileReadStatus)
+    else
     {
-        tempHaikuCount++;
-        call_deferred("emit_signal", "g_update_haiku", totalNumHaikus);
-        
-        // get hakiuNum for packed array and convert to int
-        //tempHaikuVal = haikuLineArray[0].to_int();
-        
-        // get haiku info and and to temp array
-        //tempHaikuVector[0] = haikuLineArray[1];
-        //tempHaikuVector[1] = haikuLineArray[2];
-        //tempHaikuVector[2] = haikuLineArray[3];
-
-        // add pair to umap
-        //haikuMap.emplace(tempHaikuVal, tempHaikuVector);
-
-        //tempHaikuVector.clear();
+        CloseHaiku();
     }
-        */
+}
 
-    for(int i = 0; i < totalNumHaikus; i++)
+void HaikuSystem::SaveHaikuInfo_GA(int p_num, String p_author, String p_text, String p_textJ)
+{
+    //UtilityFunctions::print("SaveHaikuInfo_GH() exec");
+
+    set_haikuNum(p_num);
+    set_haikuAuthor(p_author);
+    set_haikuText(p_text);
+    set_haikuTextJapanese(p_textJ);
+    SaveHaikuInfo();
+}
+
+void HaikuSystem::SaveHaikuInfo()
+{
+    haikuInfo.emplace_back(haikuAuthor);
+    haikuInfo.emplace_back(haikuText);
+    haikuInfo.emplace_back(haikuTextJapanese);
+
+    haikuMap.emplace(haikuNum, haikuInfo);
+
+    if(haikuMap.count(haikuNum) == 1)
     {
-        call_deferred("emit_signal", "g_update_haiku", totalNumHaikus);
-
-        
+        // above haiku was successfully added
+        //UtilityFunctions::print("Haiku Added Successfully - map size: ", haikuMap.size());
+        haikuAdded = true;
+        ReadHaiku();
     }
-    
-    CloseHaiku();
-    OutputHaikuFile();
+    else
+    {
+        UtilityFunctions::print("Haiku not added successfully");
+    }
 }
 
 void HaikuSystem::CloseHaiku()
@@ -138,16 +163,30 @@ void HaikuSystem::CloseHaiku()
     UtilityFunctions::print("CloseHaiku() exec");
 }
 
+void HaikuSystem::OutputHaikuFile_PH()
+{
+    //UtilityFunctions::print("OutputHaikuFile_PH() exec");
+    //UtilityFunctions::print("map size: ", haikuMap.size());
+    OutputHaikuFile();
+}
+
 // for debug and test only
 void HaikuSystem::OutputHaikuFile()
 {
     UtilityFunctions::print("OutputHaikuFile() exec");
-    /*
+
+    if(haikuMap.empty())
+    {
+        UtilityFunctions::print("haikuMap is empty");
+    }
+    
+    UtilityFunctions::print("map size: ", haikuMap.size());
+
     for(auto& h: haikuMap)
     {
-        UtilityFunctions::print("num: ", h.first, " author: ", h.second[0], " haiku: ", h.second[1]);
+        UtilityFunctions::print("Haiku Num: ", h.first, " author: ", h.second[0], " haiku: ", h.second[1], " haiku (Japanese): ", h.second[2]);
     }
-        */
+    
 }
 
 // will execute from godot when signal recieved
@@ -279,23 +318,13 @@ void HaikuSystem::set_fileReadStatus(const bool p_status)
     fileReadStatus = p_status;
 }
 
-std::vector<String> HaikuSystem::get_haikuLineVector() const
+bool HaikuSystem::get_haikuAdded() const
 {
-    return haikuLineVector;
+    return haikuAdded;
 }
 
-void HaikuSystem::set_haikuLineVector(const std::vector<String> p_vector)
+void HaikuSystem::set_haikuAdded(const bool p_status)
 {
-    haikuLineVector = p_vector;
-}
-
-std::vector<String> HaikuSystem::get_haikuInfo() const
-{
-    return haikuInfo;
-}
-
-void HaikuSystem::set_haikuInfo(const std::vector<String> p_vector)
-{
-    haikuInfo = p_vector;
+    haikuAdded = p_status;
 }
 #pragma endregion
