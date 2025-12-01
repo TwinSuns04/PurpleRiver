@@ -13,6 +13,7 @@
                 "-j12",
                 "target=template_debug",
                 "debug_symbols=yes",
+                "profile=${workspaceFolder}/custom.py",
                 "custom_api_file=/home/garrett/GameDev_L/PurpleRiver_Main/PurpleRiver/extension_api.json"
 
             ]
