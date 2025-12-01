@@ -39,6 +39,10 @@ void HaikuSystem::_bind_methods()
     ClassDB::bind_method(D_METHOD("set_haikuAdded", "p_status"), &HaikuSystem::set_haikuAdded);
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "haikuAdded"), "set_haikuAdded", "get_haikuAdded");
 
+    ClassDB::bind_method(D_METHOD("get_haikusAllDisplayed"), &HaikuSystem::get_haikusAllDisplayed);
+    ClassDB::bind_method(D_METHOD("set_haikusAllDisplayed", "p_status"), &HaikuSystem::set_haikusAllDisplayed);
+    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "haikusAllDisplayed"), "set_haikusAllDisplayed", "get_haikusAllDisplayed");
+
     ADD_SIGNAL(MethodInfo("g_open_file", PropertyInfo(Variant::BOOL, "p_fileStatus"), PropertyInfo(Variant::STRING, "p_filePath")));
     ADD_SIGNAL(MethodInfo("g_read_file", PropertyInfo(Variant::BOOL, "p_haikuAdded")));
     ADD_SIGNAL(MethodInfo("g_close_file", PropertyInfo(Variant::BOOL, "p_fileStatus")));
@@ -62,6 +66,7 @@ HaikuSystem::HaikuSystem()
     fileOpenStatus = false;
     fileReadStatus = false;
     haikuAdded = false;
+    haikusAllDisplayed = false;
 
     haikuInfo = {};
     haikuMap = {};
@@ -202,6 +207,14 @@ void HaikuSystem::ChooseHaiku(int p_rand)
     // Get rand num from godot
     chosenHaiku = p_rand;
     UtilityFunctions::print("chosenHaiku: ", chosenHaiku);
+    
+    // If all haikus displayed, reset tracked map so they can be displayed again
+    if(haikusAllDisplayed)
+    {
+        UtilityFunctions::print("Haikus have all been displayed");
+        selectedHaikus.clear();
+        return;
+    }
 
     // check if haiku has already been used
     // if no, display it. If yes, choose new one
@@ -224,6 +237,13 @@ void HaikuSystem::ChooseHaiku(int p_rand)
             ChooseHaiku(chosenHaiku - 1);
         }
     }
+
+    // check to see if all haikus have been displayed
+    if((selectedHaikus.size()) == (haikuMap.size()))
+    {
+        haikusAllDisplayed = true;
+    }
+    
 }
 
 // Emit signal to godot to display haiku in game
@@ -313,5 +333,15 @@ bool HaikuSystem::get_haikuAdded() const
 void HaikuSystem::set_haikuAdded(const bool p_status)
 {
     haikuAdded = p_status;
+}
+
+bool HaikuSystem::get_haikusAllDisplayed() const
+{
+    return haikusAllDisplayed;
+}
+
+void HaikuSystem::set_haikusAllDisplayed(const bool p_status)
+{
+    haikusAllDisplayed = p_status;
 }
 #pragma endregion
