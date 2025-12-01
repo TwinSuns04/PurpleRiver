@@ -51,6 +51,10 @@ Debug_1={
 ]
 }
 
+[memory]
+
+limits/message_queue/max_size_mb=64
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

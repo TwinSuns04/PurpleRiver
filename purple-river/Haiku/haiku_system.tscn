@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbxw3kq5wt5eq"]
+
+[ext_resource type="Script" uid="uid://b5kg1hledlevs" path="res://Haiku/haiku_system.gd" id="1_vumgf"]
+[ext_resource type="Script" uid="uid://dywh1epjp8mvw" path="res://Haiku/root_haiku_system.gd" id="1_wiaut"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wiaut"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wiaut")
+
+[node name="HaikuSystem" type="HaikuSystem" parent="."]
+script = ExtResource("1_vumgf")
+
+[node name="HaikuArea" type="HaikuArea" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HaikuArea"]
+shape = SubResource("CircleShape2D_wiaut")
+
+[node name="HaikuArea2" type="HaikuArea" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HaikuArea2"]
+shape = SubResource("CircleShape2D_wiaut")
+
+[node name="HaikuArea3" type="HaikuArea" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HaikuArea3"]
+shape = SubResource("CircleShape2D_wiaut")
+
+[node name="HaikuArea4" type="HaikuArea" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HaikuArea4"]
+shape = SubResource("CircleShape2D_wiaut")
+
+[node name="HaikuArea5" type="HaikuArea" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HaikuArea5"]
+shape = SubResource("CircleShape2D_wiaut")
+
+[node name="HaikuArea6" type="HaikuArea" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HaikuArea6"]
+shape = SubResource("CircleShape2D_wiaut")
+
+[node name="HaikuArea7" type="HaikuArea" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HaikuArea7"]
+shape = SubResource("CircleShape2D_wiaut")
+
+[connection signal="g_close_file" from="HaikuSystem" to="." method="_on_haiku_system_g_close_file"]
+[connection signal="g_display_haiku" from="HaikuSystem" to="." method="_on_haiku_system_g_display_haiku"]
+[connection signal="g_open_file" from="HaikuSystem" to="." method="_on_haiku_system_g_open_file"]
+[connection signal="g_read_file" from="HaikuSystem" to="." method="_on_haiku_system_g_read_file"]
+[connection signal="body_entered" from="HaikuArea" to="." method="_on_haiku_area_body_entered"]
+[connection signal="body_entered" from="HaikuArea2" to="." method="_on_haiku_area_body_entered"]
+[connection signal="body_entered" from="HaikuArea3" to="." method="_on_haiku_area_body_entered"]
+[connection signal="body_entered" from="HaikuArea4" to="." method="_on_haiku_area_body_entered"]
+[connection signal="body_entered" from="HaikuArea5" to="." method="_on_haiku_area_body_entered"]
+[connection signal="body_entered" from="HaikuArea6" to="." method="_on_haiku_area_body_entered"]
+[connection signal="body_entered" from="HaikuArea7" to="." method="_on_haiku_area_body_entered"]
