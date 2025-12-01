@@ -43,11 +43,13 @@ void HaikuSystem::_bind_methods()
     ADD_SIGNAL(MethodInfo("g_read_file", PropertyInfo(Variant::BOOL, "p_haikuAdded")));
     ADD_SIGNAL(MethodInfo("g_close_file", PropertyInfo(Variant::BOOL, "p_fileStatus")));
     ADD_SIGNAL(MethodInfo("g_update_haiku", PropertyInfo(Variant::INT, "p_tempCount")));
+    ADD_SIGNAL(MethodInfo("g_display_haiku", PropertyInfo(Variant::INT, "p_chosenHaiku")));
 
     // Additional methods
     ClassDB::bind_method(D_METHOD("ReadHaiku"), &HaikuSystem::ReadHaiku_GA);
     ClassDB::bind_method(D_METHOD("OutputHaikuFile"), &HaikuSystem::OutputHaikuFile_PH);
     ClassDB::bind_method(D_METHOD("SaveHaikuInfo", "p_num", "p_author", "p_text", "p_textJ"), &HaikuSystem::SaveHaikuInfo_GA);
+    ClassDB::bind_method(D_METHOD("ChooseHaiku"), &HaikuSystem::ChooseHaiku);
     
 }
 
@@ -88,6 +90,7 @@ void HaikuSystem::_process(double delta)
     
 }
 
+// Open file in godot using signal
 void HaikuSystem::OpenHaiku()
 {
     UtilityFunctions::print("OpenHaiku() exec");
@@ -101,6 +104,7 @@ void HaikuSystem::ReadHaiku_GA()
     ReadHaiku();
 }
 
+// Part of reading haikuFile.txt. Weird interactions with Godot
 void HaikuSystem::ReadHaiku()
 {
     //UtilityFunctions::print("ReadHaiku() exec");
@@ -136,6 +140,7 @@ void HaikuSystem::SaveHaikuInfo_GA(int p_num, String p_author, String p_text, St
     SaveHaikuInfo();
 }
 
+// Save haiku info to map
 void HaikuSystem::SaveHaikuInfo()
 {
     haikuInfo.emplace_back(haikuAuthor);
@@ -157,12 +162,14 @@ void HaikuSystem::SaveHaikuInfo()
     }
 }
 
+// Close Haiku file
 void HaikuSystem::CloseHaiku()
 {
     call_deferred("emit_signal", "g_close_file", fileOpenStatus);
     UtilityFunctions::print("CloseHaiku() exec");
 }
 
+// Placedholder for Godot Access, Godot doesn't like maps or umaps for some reason
 void HaikuSystem::OutputHaikuFile_PH()
 {
     //UtilityFunctions::print("OutputHaikuFile_PH() exec");
@@ -189,62 +196,42 @@ void HaikuSystem::OutputHaikuFile()
     
 }
 
-// will execute from godot when signal recieved
-void HaikuSystem::ChooseHaiku()
-{
-    
-    // randomly choose a haiku from the list
-    //chosenHaiku = randomizer.randi_range(1, totalNumHaikus);
-    UtilityFunctions::print("need random num from godot");
-    UtilityFunctions::print("chosenHaiku: ", chosenHaiku);
-    bool haikuFound = false;
 
-    // check if chosen haiku is in selectedHaikus
-    if(selectedHaikus.size() == 0)
+void HaikuSystem::ChooseHaiku(int p_rand)
+{
+    // Get rand num from godot
+    chosenHaiku = p_rand;
+    UtilityFunctions::print("chosenHaiku: ", chosenHaiku);
+
+    // check if haiku has already been used
+    // if no, display it. If yes, choose new one
+    if(selectedHaikus.count(chosenHaiku) == 0)
     {
-        // set haikuTitle
-        // set haikuText
-        // set haikuAuthor
-        selectedHaikus.push_back(chosenHaiku);
+        haikuAuthor = haikuMap.find(chosenHaiku)->second[0];
+        haikuText = haikuMap.find(chosenHaiku)->second[1];
+        haikuTextJapanese = haikuMap.find(chosenHaiku)->second[2];
+        selectedHaikus.emplace(chosenHaiku, true);
+        OutputChosenHaiku();
     }
     else
     {
-        for (auto h: selectedHaikus)
+        if(chosenHaiku < 93)
         {
-            if(h == chosenHaiku)
-            {
-                haikuFound = true;
-                break;
-            }
-        }
-        
-        if(!haikuFound)
-        {
-            //ReadHaiku();
-            selectedHaikus.push_back(chosenHaiku);
+            ChooseHaiku(chosenHaiku + 1);
         }
         else
         {
-            ChooseHaiku();
+            ChooseHaiku(chosenHaiku - 1);
         }
-
     }
-        // if yes choose a new haiku
-        // else
-            // update haiku values
-            // add haiku to selected Haikus
 }
 
- 
-
-void HaikuSystem::SearchHaiku()
-{
-
-}
-
+// Emit signal to godot to display haiku in game
 void HaikuSystem::OutputChosenHaiku()
 {
     // output chosen haiku to game
+    call_deferred("emit_signal", "g_display_haiku", chosenHaiku);
+
 }
 
 #pragma region GetSet

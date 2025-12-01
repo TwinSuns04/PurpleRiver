@@ -6,7 +6,7 @@ using namespace godot;
 
 void HaikuArea::_bind_methods()
 {
-
+    
 }
 
 HaikuArea::HaikuArea()
@@ -23,3 +23,4 @@ void HaikuArea::_process(double delta)
 {
     
 }
+

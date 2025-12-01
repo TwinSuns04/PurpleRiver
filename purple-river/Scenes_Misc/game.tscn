@@ -143,5 +143,10 @@ scale = Vector2(0.287328, 0.287328)
 
 [node name="Node2D" parent="." instance=ExtResource("15_35wev")]
 
+[node name="HaikuArea" parent="Node2D" index="1"]
+position = Vector2(273, 356)
+scale = Vector2(-5.519, -5.519)
+
 [editable path="Level_One"]
 [editable path="Level_One/FloraSpawnerArea"]
+[editable path="Node2D"]

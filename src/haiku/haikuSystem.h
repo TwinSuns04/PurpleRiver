@@ -5,6 +5,7 @@
 #include <godot_cpp/classes/file_access.hpp>
 #include <vector>
 #include <map>
+#include <unordered_map>
 
 
 // reminder to not hardcode haiku's into game
@@ -15,7 +16,6 @@ namespace godot
         GDCLASS(HaikuSystem, Node2D)
 
     private:
-        // Possibly make a struct of all haiku vals instead of storing the seperately
         int chosenHaiku;
         int haikuNum;
         String haikuText;
@@ -30,10 +30,8 @@ namespace godot
         String const haikuFilePath = "res://haikuFile.txt";
         int const totalNumHaikus = 94;
 
-        // use unordered map because I will be searching often
         std::map<int, std::vector<String>> haikuMap;
-        std::vector<int> selectedHaikus; // no longer being used
-
+        std::unordered_map<int, bool> selectedHaikus;
 
     protected:
         static void _bind_methods();
@@ -50,11 +48,9 @@ namespace godot
         void SaveHaikuInfo();
         void CloseHaiku();
         void OutputHaikuFile(); // for debug and test only
-        void OutputHaikuFile_PH();
-        void ChooseHaiku(); // choose a random haiku and check if it has been read
-        void SearchHaiku();
+        void OutputHaikuFile_PH(); // Godot Access point placeholder
+        void ChooseHaiku(int p_rand); // choose a random haiku and check if it has been read
         void OutputChosenHaiku();
-        void ConvertHaikuInfo();
 
         // getset
         int get_chosenHaiku() const;
@@ -75,6 +71,6 @@ namespace godot
         void set_haikuAdded(const bool p_status);
     };
     
-} // namespace godot
+}
 
 #endif

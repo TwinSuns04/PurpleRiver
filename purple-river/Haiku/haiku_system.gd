@@ -29,14 +29,14 @@ func Read_Haiku() -> void:
 	var author
 	var textE
 	var textJ
-	var dummyText
+	var _dummyText
 	if(!haikuAdded):
 		haiku_file.seek(haiku_file_pos)
 		num = haiku_file.get_line().to_int()
 		author = haiku_file.get_line()
 		textE = haiku_file.get_line()
 		textJ = haiku_file.get_line()
-		dummyText = haiku_file.get_line()
+		_dummyText = haiku_file.get_line()
 		haiku_file_pos = haiku_file.get_position()
 	
 	SaveHaikuInfo(num, author, textE, textJ)
@@ -56,10 +56,16 @@ func Close_Haiku() -> void:
 	#print("Close_Haiku() exec")
 	haiku_file.close()
 	fileOpenStatus = false
-	OutputHaikuFile()
+	#OutputHaikuFile()
 	
 func Choose_Haiku() -> void:
-	pass
+	# need to check somewhere if a haiku is already being displayed
+	var tempRand = randi_range(0, TOTAL_HAIKU_NUM)
+	ChooseHaiku(tempRand)
 	
-func Output_Chosen_Haiku() -> void:
-	pass
+func Display_Chosen_Haiku() -> void:
+	print("Chosen Haiku: ", chosenHaiku, "\n")
+	print("Author: ", haikuAuthor, "\n")
+	print("Haiku: ", haikuText, "\n")
+	print("Haiku: ", haikuTextJapanese, "\n")
+	
