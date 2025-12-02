@@ -6,6 +6,7 @@ extends Node
 @export var spawnDelay: float
 @export var floraType: int
 @export var floraCount: int
+@export var floraCountMax: int
 @export var floraScene: PackedScene
 @onready var rectColl = $CollisionShape2D
 var randomness = RandomNumberGenerator.new()
@@ -15,7 +16,7 @@ var randomness = RandomNumberGenerator.new()
 # using collision shapes and areas?
 
 func _ready():
-	rectColl.shape.size = spawnAreaSize
+	spawnAreaSize = rectColl.shape.size
 	print("rectSize: ", rectColl.shape.size)
 	$CollisionShape2D/Marker2D.position = Vector2(0,0)
 	spawnDelay = 0.1
@@ -31,25 +32,27 @@ func _process(delta: float):
 func flora_type(): # choose which flora scene to instance
 	if(floraScene == null):
 		if(floraType == 1): #flora is kiku
-			floraScene = load("res://Map/Flora/Kiku.tscn")
+			floraScene = load("res://Flora/Scenes/kiku.tscn")
 			spawnDelay = 0.1
 		elif(floraType == 2): #flora is momiji
 			floraScene = load("res://Flora/Scenes/momiji.tscn")
 			spawnDelay = 2.0
 		elif(floraType == 3): #flora is sakura
-			floraScene = load("res://Map/Flora/Sakura.tscn")
+			floraScene = load("res://Flora/Scenes/sakura.tscn")
 			spawnDelay = 2.0
 		else:
-			floraScene = load("res://Map/Flora/Kiku.tscn")
+			floraScene = load("res://Flora/Scenes/kiku.tscn")
 		
+	if(floraCountMax == 0):
+		floraCountMax = 16
 	
 
 func place_flora():
-	if(floraCount < 20):
+	if(floraCount <= floraCountMax):
 		var floraInstance = floraScene.instantiate()
 		add_child(floraInstance)
 		floraInstance.position = gen_spawn_point()
-		floraInstance.scale = Vector2(0.04, 0.04)
+		#floraInstance.scale = Vector2(0.04, 0.04)
 		floraCount+= 1
 
 func gen_spawn_point() -> Vector2:
@@ -63,9 +66,6 @@ func gen_spawn_point() -> Vector2:
 	spawnPoint.x = randi_range(areaBoundsNeg.x, areaBoundsPos.x)
 	spawnPoint.y = randi_range(areaBoundsNeg.y, areaBoundsPos.y)
 	return spawnPoint
-
-
-
 
 func _on_spawn_timer_timeout() -> void:
 	place_flora()

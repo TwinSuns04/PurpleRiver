@@ -18,4 +18,4 @@ func flora_type() -> void:
 	
 	$Sprite2D.texture = floraTexture
 	
-	scale = Vector2(0.04, 0.04);
+	#scale = Vector2(0.04, 0.04);
