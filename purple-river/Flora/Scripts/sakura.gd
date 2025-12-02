@@ -6,6 +6,7 @@ var positionalRCCS: bool
 
 func _ready() -> void:
 	velocity = Vector2(0, 20.0)
+	add_to_group("Flora")
 	flora_type()
 	
 
@@ -18,7 +19,7 @@ func _physics_process(delta: float) -> void:
 
 func flora_type() -> void:
 	var floraTexture: CompressedTexture2D
-	var randVal = randi_range(1,3)
+	var randVal = randi_range(0,4)
 	if(randVal == 1):
 		floraTexture = load("res://Flora/Assets/Sakura-1.png")
 	elif(randVal == 2):

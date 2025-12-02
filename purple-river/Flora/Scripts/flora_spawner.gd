@@ -15,13 +15,15 @@ var randomness = RandomNumberGenerator.new()
 # using collision shapes and areas?
 
 func _ready():
-	rectColl.shape.extents = spawnAreaSize
+	rectColl.shape.size = spawnAreaSize
+	print("rectSize: ", rectColl.shape.size)
 	$CollisionShape2D/Marker2D.position = Vector2(0,0)
 	spawnDelay = 0.1
 	$SpawnTimer.wait_time = spawnDelay
 	flora_type()
 	place_flora()
 	randomness.randomize()
+	
 	
 func _process(delta: float):
 	pass

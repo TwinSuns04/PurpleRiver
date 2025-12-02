@@ -14,6 +14,10 @@ config/name="Purple River"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[global_group]
+
+Flora="All flowers and leaves instanced in game"
+
 [input]
 
 moveLeft={

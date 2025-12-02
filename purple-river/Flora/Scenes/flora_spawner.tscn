@@ -1,7 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://bprkjh7he2r6h"]
+[gd_scene load_steps=7 format=3 uid="uid://bprkjh7he2r6h"]
 
 [ext_resource type="Script" uid="uid://2d75s4e13if6" path="res://Flora/Scripts/flora_spawner.gd" id="1_phlvg"]
-[ext_resource type="PackedScene" uid="uid://dlbufon4q4q2e" path="res://Map/Flora/Kiku.tscn" id="2_4djdh"]
+[ext_resource type="Texture2D" uid="uid://bi5006vfyfrg8" path="res://Flora/Assets/Kiku-1.png" id="2_kbfac"]
+
+[sub_resource type="GDScript" id="GDScript_0ia7n"]
+script/source = "extends RigidBody2D
+
+func _ready() -> void:
+	flora_type()
+	
+func _process(delta: float) -> void:
+	pass
+
+func _physics_process(delta: float) -> void:
+	pass
+	
+func flora_type():
+	var floraTexture: CompressedTexture2D
+	var randVal = randi_range(1,3)
+	if(randVal == 1):
+		floraTexture = load(\"res://Assets_Misc/Flora/Kiku-1.png\")
+	elif(randVal == 2):
+		floraTexture = load(\"res://Assets_Misc/Flora/Kiku-2.png\")
+	elif(randVal == 3):
+		floraTexture = load(\"res://Assets_Misc/Flora/Kiku-3.png\")
+	else:
+		floraTexture = load(\"res://Assets_Misc/Flora/Kiku-1.png\")
+	
+	$Sprite2D.texture = floraTexture
+	
+
+func despawn():
+	pass
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1uv8"]
+radius = 139.09
+
+[sub_resource type="PackedScene" id="PackedScene_d3lwp"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Kiku_RB", "RigidBody2D", "mass", "gravity_scale", "sleeping", "freeze", "script", "CollisionShape2D", "CollisionShape2D", "scale", "shape", "Sprite2D", "Sprite2D", "scale", "texture"),
+"node_count": 3,
+"node_paths": [NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 5, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 0, 1073741824, 0, 8, 7, -1, 2, 9, 5, 10, 6, 0, 1073741825, 0, 12, 11, -1, 2, 13, 7, 14, 8, 0),
+"variants": [0.001, 0.0, true, true, SubResource("GDScript_0ia7n"), Vector2(0.2, 0.2), SubResource("CircleShape2D_b1uv8"), Vector2(0.2, 0.2), ExtResource("2_kbfac")],
+"version": 3
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8485j"]
 size = Vector2(263, 216)
@@ -10,7 +57,7 @@ size = Vector2(263, 216)
 script = ExtResource("1_phlvg")
 spawnAreaSize = Vector2(100, 100)
 floraType = 1
-floraScene = ExtResource("2_4djdh")
+floraScene = SubResource("PackedScene_d3lwp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8485j")
