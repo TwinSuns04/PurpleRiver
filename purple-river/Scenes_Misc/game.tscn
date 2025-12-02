@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wtl85rrogwix"]
+[gd_scene load_steps=17 format=3 uid="uid://wtl85rrogwix"]
 
 [ext_resource type="PackedScene" uid="uid://bl6r404fichkp" path="res://Map/Levels/PNG_Levels/Scenes/level_one.tscn" id="1_hqfge"]
 [ext_resource type="Script" uid="uid://4fu6x4iigquq" path="res://Scripts_Misc/game.gd" id="1_itksk"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://bftvciymvxw7k" path="res://Map/Levels/PNG_Levels/Scenes/level_nine_b.tscn" id="11_nckv2"]
 [ext_resource type="PackedScene" uid="uid://gf78mc62u6ng" path="res://Mechanics/Leveling/food_item.tscn" id="13_wkjrv"]
 [ext_resource type="PackedScene" uid="uid://dbxw3kq5wt5eq" path="res://Haiku/haiku_system.tscn" id="15_35wev"]
+[ext_resource type="PackedScene" uid="uid://bprkjh7he2r6h" path="res://Map/Flora/flora_spawner.tscn" id="15_xch6g"]
+[ext_resource type="PackedScene" uid="uid://bgo5qdsisaa3a" path="res://Flora/Scenes/momiji.tscn" id="16_xch6g"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_itksk")
@@ -57,81 +59,62 @@ wall_min_slide_angle = 0.0
 position = Vector2(168, -388)
 scale = Vector2(0.287328, 0.287328)
 
-[node name="FoodItem2" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(488, -140)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem2" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(1113.71, 863.125)
 
-[node name="FoodItem3" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(1036, -691)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem3" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(3020.94, -1054.54)
 
-[node name="FoodItem4" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(839, -1098)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem4" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(2335.31, -2471.04)
 
-[node name="FoodItem5" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(211, -1291)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem5" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(149.655, -3142.75)
 
-[node name="FoodItem6" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(1343, -849)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem6" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(4089.4, -1604.44)
 
-[node name="FoodItem7" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(2108, -1372)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem7" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(6751.87, -3424.66)
 
-[node name="FoodItem8" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(2532, -795)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem8" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(8227.53, -1416.5)
 
-[node name="FoodItem9" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(2521, -1089)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem9" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(8189.25, -2439.72)
 
-[node name="FoodItem10" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(3267, -1115)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem10" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(10785.6, -2530.21)
 
-[node name="FoodItem11" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(2444, -1797)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem11" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(7921.26, -4903.8)
 
-[node name="FoodItem12" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(2358, -2063)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem12" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(7621.95, -5829.57)
 
-[node name="FoodItem13" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(1914, -2264)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem13" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(6076.68, -6529.12)
 
-[node name="FoodItem14" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(1472, -2478)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem14" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(4538.37, -7273.92)
 
-[node name="FoodItem15" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(2224, -2917)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem15" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(7155.59, -8801.79)
 
-[node name="FoodItem16" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(2357, -3494)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem16" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(7618.47, -10809.9)
 
-[node name="FoodItem17" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(2417, -2997)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem17" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(7827.29, -9080.21)
 
-[node name="FoodItem18" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(2070, -3310)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem18" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(6619.61, -10169.6)
 
-[node name="FoodItem19" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(1613, -3051)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem19" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(5029.1, -9268.15)
 
-[node name="FoodItem20" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(273, 354)
-scale = Vector2(0.287328, 0.287328)
+[node name="FoodItem20" parent="FoodItem" instance=ExtResource("13_wkjrv")]
+position = Vector2(365.436, 2582.41)
 
 [node name="HaikuSystem_Root" parent="." instance=ExtResource("15_35wev")]
 
@@ -139,5 +122,13 @@ scale = Vector2(0.287328, 0.287328)
 position = Vector2(273, 356)
 scale = Vector2(-5.519, -5.519)
 
+[node name="FloraSpawnerArea" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(425, 288)
+spawnDelay = 2.0
+floraType = 2
+floraCount = 4
+floraScene = ExtResource("16_xch6g")
+
 [editable path="Level_One"]
+[editable path="Level_Two"]
 [editable path="HaikuSystem_Root"]

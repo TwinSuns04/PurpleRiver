@@ -9,6 +9,9 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	pass
 	
+func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
+	pass
+	
 func flora_type():
 	var floraTexture: CompressedTexture2D
 	var randVal = randi_range(1,3)

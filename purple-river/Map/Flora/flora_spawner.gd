@@ -32,7 +32,7 @@ func flora_type(): # choose which flora scene to instance
 			floraScene = load("res://Map/Flora/Kiku.tscn")
 			spawnDelay = 0.1
 		elif(floraType == 2): #flora is momiji
-			floraScene = load("res://Map/Flora/Momiji.tscn")
+			floraScene = load("res://Flora/Scenes/momiji.tscn")
 			spawnDelay = 2.0
 		elif(floraType == 3): #flora is sakura
 			floraScene = load("res://Map/Flora/Sakura.tscn")
@@ -47,6 +47,7 @@ func place_flora():
 		var floraInstance = floraScene.instantiate()
 		add_child(floraInstance)
 		floraInstance.position = gen_spawn_point()
+		floraInstance.scale = Vector2(0.04, 0.04)
 		floraCount+= 1
 
 func gen_spawn_point() -> Vector2:
@@ -59,7 +60,6 @@ func gen_spawn_point() -> Vector2:
 	
 	spawnPoint.x = randi_range(areaBoundsNeg.x, areaBoundsPos.x)
 	spawnPoint.y = randi_range(areaBoundsNeg.y, areaBoundsPos.y)
-	print("spawnPoint: ", spawnPoint)
 	return spawnPoint
 
 
