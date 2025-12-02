@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgo5qdsisaa3a"]
 
-[ext_resource type="Texture2D" uid="uid://bge26iu1adp1e" path="res://Assets_Misc/Flora/Momiji-2.png" id="1_6jnxl"]
+[ext_resource type="Texture2D" uid="uid://bge26iu1adp1e" path="res://Flora/Assets/Momiji-2.png" id="1_6jnxl"]
 [ext_resource type="Script" uid="uid://culg15jar7xw6" path="res://Flora/Scripts/momiji.gd" id="1_oupga"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oupga"]

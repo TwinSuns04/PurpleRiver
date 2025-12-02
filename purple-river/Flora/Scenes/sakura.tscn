@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyj7n1x61gvx8"]
 
 [ext_resource type="Script" uid="uid://cncms0wpodx7e" path="res://Flora/Scripts/sakura.gd" id="1_2muvm"]
-[ext_resource type="Texture2D" uid="uid://dsb4a6ce6njri" path="res://Assets_Misc/Flora/Sakura-1.png" id="2_tf0cu"]
+[ext_resource type="Texture2D" uid="uid://dsb4a6ce6njri" path="res://Flora/Assets/Sakura-1.png" id="2_tf0cu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sstet"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mjlyh"]
 
 [node name="Sakura_CB2D" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_2muvm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjcnsic13ikg7"
-path="res://.godot/imported/Sakura-3.png-5bfa5d060f7484ba76f1362f61d180a2.ctex"
+uid="uid://bxmam386jf7wy"
+path="res://.godot/imported/flora_TS.png-5ad95a78bc493cb07d663f656049abc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Misc/Flora/Sakura-3.png"
-dest_files=["res://.godot/imported/Sakura-3.png-5bfa5d060f7484ba76f1362f61d180a2.ctex"]
+source_file="res://Flora/Assets/flora_TS.png"
+dest_files=["res://.godot/imported/flora_TS.png-5ad95a78bc493cb07d663f656049abc6.ctex"]
 
 [params]
 

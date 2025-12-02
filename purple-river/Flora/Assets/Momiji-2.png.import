@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn1fnubqyx3i4"
-path="res://.godot/imported/Momiji-3.png-6b58821794ca4c809726e76d56fb4dae.ctex"
+uid="uid://bge26iu1adp1e"
+path="res://.godot/imported/Momiji-2.png-129e04146b6735a434e2123e36713fcf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Misc/Flora/Momiji-3.png"
-dest_files=["res://.godot/imported/Momiji-3.png-6b58821794ca4c809726e76d56fb4dae.ctex"]
+source_file="res://Flora/Assets/Momiji-2.png"
+dest_files=["res://.godot/imported/Momiji-2.png-129e04146b6735a434e2123e36713fcf.ctex"]
 
 [params]
 

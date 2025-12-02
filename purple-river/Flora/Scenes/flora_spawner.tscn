@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bprkjh7he2r6h"]
 
-[ext_resource type="Script" uid="uid://2d75s4e13if6" path="res://Map/Flora/flora_spawner.gd" id="1_phlvg"]
+[ext_resource type="Script" uid="uid://2d75s4e13if6" path="res://Flora/Scripts/flora_spawner.gd" id="1_phlvg"]
 [ext_resource type="PackedScene" uid="uid://dlbufon4q4q2e" path="res://Map/Flora/Kiku.tscn" id="2_4djdh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8485j"]

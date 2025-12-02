@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsxv808ompuoj"
-path="res://.godot/imported/Kiku-2.png-4f94f66562f72a3f278290cc1d86a724.ctex"
+uid="uid://cyltygs4fy6di"
+path="res://.godot/imported/Sakura-2.png-f02ee474dc1bfb741605b6e84f73428b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Misc/Flora/Kiku-2.png"
-dest_files=["res://.godot/imported/Kiku-2.png-4f94f66562f72a3f278290cc1d86a724.ctex"]
+source_file="res://Flora/Assets/Sakura-2.png"
+dest_files=["res://.godot/imported/Sakura-2.png-f02ee474dc1bfb741605b6e84f73428b.ctex"]
 
 [params]
 

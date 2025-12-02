@@ -4,13 +4,13 @@ func flora_type() -> void:
 	var floraTexture: CompressedTexture2D
 	var randVal = randi_range(1,3)
 	if(randVal == 1):
-		floraTexture = load("res://Assets_Misc/Flora/Kiku-1.png")
+		floraTexture = load("res://Flora/Assets/Kiku-1.png")
 	elif(randVal == 2):
-		floraTexture = load("res://Assets_Misc/Flora/Kiku-2.png")
+		floraTexture = load("res://Flora/Assets/Kiku-2.png")
 	elif(randVal == 3):
-		floraTexture = load("res://Assets_Misc/Flora/Kiku-3.png")
+		floraTexture = load("res://Flora/Assets/Kiku-3.png")
 	else:
-		floraTexture = load("res://Assets_Misc/Flora/Kiku-1.png")
+		floraTexture = load("res://Flora/Assets/Kiku-1.png")
 	
 	$Sprite2D.texture = floraTexture
 	

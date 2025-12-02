@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b83xofmwopcif"
-path="res://.godot/imported/Kiku-3.png-b983b9ceee1766ec5e39eb6f2436e6af.ctex"
+path="res://.godot/imported/Kiku-3.png-cafc9be0dfef08bf79ca46f16aa5aa23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Misc/Flora/Kiku-3.png"
-dest_files=["res://.godot/imported/Kiku-3.png-b983b9ceee1766ec5e39eb6f2436e6af.ctex"]
+source_file="res://Flora/Assets/Kiku-3.png"
+dest_files=["res://.godot/imported/Kiku-3.png-cafc9be0dfef08bf79ca46f16aa5aa23.ctex"]
 
 [params]
 

@@ -1,13 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://eh21sseikpe3"]
 
 [ext_resource type="Script" uid="uid://bu2ftybq3qy17" path="res://Flora/Scripts/kiku.gd" id="1_dxaph"]
-[ext_resource type="Texture2D" uid="uid://dsxv808ompuoj" path="res://Assets_Misc/Flora/Kiku-2.png" id="2_phupb"]
+[ext_resource type="Texture2D" uid="uid://dsxv808ompuoj" path="res://Flora/Assets/Kiku-2.png" id="2_phupb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykx2l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6psx7"]
 
 [node name="Kiku_CB2D" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_dxaph")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
