@@ -5,37 +5,51 @@ extends Node
 @export var spawnAreaSize: Vector2
 @export var spawnDelay: float
 @export var floraType: int
-var floraScene
-var floraInstance
+@export var floraCount: int
+@export var floraScene: PackedScene
 @onready var rectColl = $CollisionShape2D
+var randomness = RandomNumberGenerator.new()
+
+#If time, I would like to implement a system so multiple flora
+# don't spawn on top of one another. Could possible implement
+# using collision shapes and areas?
 
 func _ready():
 	rectColl.shape.extents = spawnAreaSize
 	$CollisionShape2D/Marker2D.position = Vector2(0,0)
+	spawnDelay = 0.1
 	$SpawnTimer.wait_time = spawnDelay
 	flora_type()
 	place_flora()
+	randomness.randomize()
 	
 func _process(delta: float):
 	pass
 
 func flora_type(): # choose which flora scene to instance
-	if(floraType == 1): #flora is kiku
-		floraScene = load("res://Map/Flora/Kiku.tscn")
-	elif(floraType == 2): #flora is momiji
-		floraScene = load("res://Map/Flora/Momiji.tscn")
-	elif(floraType == 3): #flora is sakura
-		floraScene = load("res://Map/Flora/Sakura.tscn")
-	else:
-		floraScene = load("res://Map/Flora/Kiku.tscn")
+	if(floraScene == null):
+		if(floraType == 1): #flora is kiku
+			floraScene = load("res://Map/Flora/Kiku.tscn")
+			spawnDelay = 0.1
+		elif(floraType == 2): #flora is momiji
+			floraScene = load("res://Map/Flora/Momiji.tscn")
+			spawnDelay = 2.0
+		elif(floraType == 3): #flora is sakura
+			floraScene = load("res://Map/Flora/Sakura.tscn")
+			spawnDelay = 2.0
+		else:
+			floraScene = load("res://Map/Flora/Kiku.tscn")
 		
-	floraInstance = floraScene.instantiate()
-	add_child(floraInstance)
-
-func gen_spawn_point():
-	var randomness = RandomNumberGenerator.new()
-	randomness.randomize()
 	
+
+func place_flora():
+	if(floraCount < 20):
+		var floraInstance = floraScene.instantiate()
+		add_child(floraInstance)
+		floraInstance.position = gen_spawn_point()
+		floraCount+= 1
+
+func gen_spawn_point() -> Vector2:
 	var areaBoundsPos: Vector2i
 	var areaBoundsNeg: Vector2i
 	areaBoundsPos.x = spawnAreaSize.x / 2
@@ -44,11 +58,12 @@ func gen_spawn_point():
 	areaBoundsNeg.y = -areaBoundsPos.y
 	
 	spawnPoint.x = randi_range(areaBoundsNeg.x, areaBoundsPos.x)
-	spawnPoint.y = randi_range(areaBoundsNeg.y, areaBoundsNeg.y)
+	spawnPoint.y = randi_range(areaBoundsNeg.y, areaBoundsPos.y)
 	print("spawnPoint: ", spawnPoint)
-	floraInstance.position = spawnPoint
-	print("floraPosition: ", floraInstance.position)
+	return spawnPoint
 
-func place_flora():
-	gen_spawn_point()
-	
+
+
+
+func _on_spawn_timer_timeout() -> void:
+	place_flora()

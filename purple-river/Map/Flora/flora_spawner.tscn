@@ -1,21 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://bprkjh7he2r6h"]
+[gd_scene load_steps=4 format=3 uid="uid://bprkjh7he2r6h"]
 
 [ext_resource type="Script" uid="uid://2d75s4e13if6" path="res://Map/Flora/flora_spawner.gd" id="1_phlvg"]
+[ext_resource type="PackedScene" uid="uid://dlbufon4q4q2e" path="res://Map/Flora/Kiku.tscn" id="2_4djdh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8485j"]
-size = Vector2(16, 178)
+size = Vector2(263, 216)
 
 [node name="FloraSpawnerArea" type="Area2D"]
 script = ExtResource("1_phlvg")
 spawnAreaSize = Vector2(100, 100)
-spawnDelay = 2.0
 floraType = 1
+floraScene = ExtResource("2_4djdh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(265, 138)
 shape = SubResource("RectangleShape2D_8485j")
 
 [node name="Marker2D" type="Marker2D" parent="CollisionShape2D"]
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

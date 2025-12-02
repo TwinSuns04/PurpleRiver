@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://wtl85rrogwix"]
+[gd_scene load_steps=15 format=3 uid="uid://wtl85rrogwix"]
 
 [ext_resource type="PackedScene" uid="uid://bl6r404fichkp" path="res://Map/Levels/PNG_Levels/Scenes/level_one.tscn" id="1_hqfge"]
 [ext_resource type="Script" uid="uid://4fu6x4iigquq" path="res://Scripts_Misc/game.gd" id="1_itksk"]
 [ext_resource type="PackedScene" uid="uid://bmkevp0y2kcjc" path="res://Player/player_character_cb2.tscn" id="2_hqfge"]
-[ext_resource type="PackedScene" uid="uid://bprkjh7he2r6h" path="res://Map/Flora/flora_spawner.tscn" id="2_sikyw"]
 [ext_resource type="PackedScene" uid="uid://beb7oridfiwtr" path="res://Map/Levels/PNG_Levels/Scenes/level_two.tscn" id="3_u4x70"]
 [ext_resource type="PackedScene" uid="uid://bgkox0kxxivp8" path="res://Map/Levels/PNG_Levels/Scenes/level_three.tscn" id="4_sikyw"]
 [ext_resource type="PackedScene" uid="uid://dswsqkw1mdpqv" path="res://Map/Levels/PNG_Levels/Scenes/level_four.tscn" id="5_wkjrv"]
@@ -21,13 +20,6 @@ script = ExtResource("1_itksk")
 
 [node name="Level_One" parent="." instance=ExtResource("1_hqfge")]
 position = Vector2(64, 38)
-
-[node name="FloraSpawnerArea" parent="Level_One" instance=ExtResource("2_sikyw")]
-position = Vector2(593, 111)
-
-[node name="CollisionShape2D" parent="Level_One/FloraSpawnerArea" index="0"]
-position = Vector2(44, 35)
-scale = Vector2(17, 1.24)
 
 [node name="Level_Two" parent="." instance=ExtResource("3_u4x70")]
 position = Vector2(64, -674)
@@ -141,12 +133,11 @@ scale = Vector2(0.287328, 0.287328)
 position = Vector2(273, 354)
 scale = Vector2(0.287328, 0.287328)
 
-[node name="Node2D" parent="." instance=ExtResource("15_35wev")]
+[node name="HaikuSystem_Root" parent="." instance=ExtResource("15_35wev")]
 
-[node name="HaikuArea" parent="Node2D" index="1"]
+[node name="HaikuArea" parent="HaikuSystem_Root" index="1"]
 position = Vector2(273, 356)
 scale = Vector2(-5.519, -5.519)
 
 [editable path="Level_One"]
-[editable path="Level_One/FloraSpawnerArea"]
-[editable path="Node2D"]
+[editable path="HaikuSystem_Root"]
