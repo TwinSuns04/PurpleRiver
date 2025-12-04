@@ -11,6 +11,8 @@ extends Node
 @onready var rectColl = $CollisionShape2D
 var randomness = RandomNumberGenerator.new()
 
+const FLOWER_SCALE := Vector2(0.04, 0.04)
+
 #If time, I would like to implement a system so multiple flora
 # don't spawn on top of one another. Could possible implement
 # using collision shapes and areas?
@@ -55,7 +57,7 @@ func place_flora():
 		var floraInstance = floraScene.instantiate()
 		add_child(floraInstance)
 		floraInstance.position = gen_spawn_point()
-		floraInstance.scale = Vector2(0.04, 0.04)
+		floraInstance.scale = FLOWER_SCALE
 		floraCount+= 1
 
 func gen_spawn_point() -> Vector2:

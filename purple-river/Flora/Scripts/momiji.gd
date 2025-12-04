@@ -4,6 +4,8 @@ var positionalRCV: Vector2
 var positionalRCM: int
 var positionalRCCS: bool
 
+const FLOWER_SCALE := Vector2(0.04, 0.04)
+
 func _ready() -> void:
 	velocity = Vector2(0, 20.0)
 	add_to_group("Flora")
@@ -31,7 +33,7 @@ func flora_type() -> void:
 	
 	$Sprite2D.texture = floraTexture
 	
-	scale = Vector2(0.04, 0.04);
+	scale = FLOWER_SCALE;
 
 func despawn() -> void:
 	pass
