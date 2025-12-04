@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsxv808ompuoj"
-path="res://.godot/imported/Kiku-2.png-4f94f66562f72a3f278290cc1d86a724.ctex"
+uid="uid://bge26iu1adp1e"
+path="res://.godot/imported/Momiji-2.png-129e04146b6735a434e2123e36713fcf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Misc/Flora/Kiku-2.png"
-dest_files=["res://.godot/imported/Kiku-2.png-4f94f66562f72a3f278290cc1d86a724.ctex"]
+source_file="res://Flora/Assets/Momiji-2.png"
+dest_files=["res://.godot/imported/Momiji-2.png-129e04146b6735a434e2123e36713fcf.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

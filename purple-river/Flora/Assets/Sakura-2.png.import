@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxmam386jf7wy"
-path="res://.godot/imported/flora_TS.png-f9d398bb0f8b339d8890a8f7ab310869.ctex"
+uid="uid://cyltygs4fy6di"
+path="res://.godot/imported/Sakura-2.png-f02ee474dc1bfb741605b6e84f73428b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets_Misc/Flora/flora_TS.png"
-dest_files=["res://.godot/imported/flora_TS.png-f9d398bb0f8b339d8890a8f7ab310869.ctex"]
+source_file="res://Flora/Assets/Sakura-2.png"
+dest_files=["res://.godot/imported/Sakura-2.png-f02ee474dc1bfb741605b6e84f73428b.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
