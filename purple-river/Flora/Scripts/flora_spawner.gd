@@ -19,7 +19,10 @@ func _ready():
 	spawnAreaSize = rectColl.shape.size
 	print("rectSize: ", rectColl.shape.size)
 	$CollisionShape2D/Marker2D.position = Vector2(0,0)
-	spawnDelay = 0.1
+	
+	if(spawnDelay == 0):
+		spawnDelay = 0.1
+	
 	$SpawnTimer.wait_time = spawnDelay
 	flora_type()
 	place_flora()
@@ -52,7 +55,7 @@ func place_flora():
 		var floraInstance = floraScene.instantiate()
 		add_child(floraInstance)
 		floraInstance.position = gen_spawn_point()
-		#floraInstance.scale = Vector2(0.04, 0.04)
+		floraInstance.scale = Vector2(0.04, 0.04)
 		floraCount+= 1
 
 func gen_spawn_point() -> Vector2:
