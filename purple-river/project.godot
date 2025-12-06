@@ -21,6 +21,8 @@ Music="*res://UI/Scenes/music.tscn"
 [global_group]
 
 Flora="All flowers and leaves instanced in game"
+Flora_Scenes=""
+Food=""
 
 [input]
 
