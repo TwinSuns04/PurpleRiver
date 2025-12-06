@@ -1,9 +1,108 @@
-[gd_scene load_steps=4 format=3 uid="uid://gf78mc62u6ng"]
+[gd_scene load_steps=8 format=3 uid="uid://gf78mc62u6ng"]
 
 [ext_resource type="Texture2D" uid="uid://dvn5cder33ayv" path="res://Mechanics/Leveling/bug_PH.png" id="1_cpkvl"]
 [ext_resource type="Script" uid="uid://clj15c8m5x7g1" path="res://Mechanics/Leveling/food_item.gd" id="1_ot7d1"]
+[ext_resource type="AudioStream" uid="uid://drbfi4v6wgmf2" path="res://UI/Assets/Audio/impactBell_heavy_000.ogg" id="3_xt54n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ot7d1"]
+
+[sub_resource type="Animation" id="Animation_xb86h"]
+resource_name = "Omnom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Omnom_SFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bcrwi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Omnom_SFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_76p4p"]
+_data = {
+&"Omnom": SubResource("Animation_xb86h"),
+&"RESET": SubResource("Animation_bcrwi")
+}
 
 [node name="FoodItem" type="FoodItem"]
 script = ExtResource("1_ot7d1")
@@ -16,5 +115,13 @@ position = Vector2(-1, 7)
 scale = Vector2(5.6, 5.28)
 shape = SubResource("CircleShape2D_ot7d1")
 debug_color = Color(0.764706, 0, 0.133333, 0.670588)
+
+[node name="Omnom_SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xt54n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_76p4p")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

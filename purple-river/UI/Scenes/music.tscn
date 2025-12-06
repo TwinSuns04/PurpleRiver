@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cvva46wigsbiu"]
+
+[node name="Music" type="Node"]
+
+[node name="Soundtrack" type="AudioStreamPlayer2D" parent="."]
+autoplay = true
+bus = &"Soundtrack"

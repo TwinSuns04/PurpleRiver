@@ -1,5 +1,7 @@
 extends FoodItem
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	food_val = 20
@@ -20,4 +22,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if(body.name == playerRef.name):
 		playerRef.eat_food(food_val)
 		is_eaten = true
-		self.queue_free()
+		animation_player.play("Omnom")

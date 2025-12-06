@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Main_Menu="*res://UI/Scenes/main_menu.tscn"
+Music="*res://UI/Scenes/music.tscn"
 
 [global_group]
 
