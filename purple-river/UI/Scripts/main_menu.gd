@@ -4,7 +4,7 @@ extends Control
 @onready var options_sub_menu: Panel = $Options_Sub_Menu
 @onready var back_button: Button = $Options_Sub_Menu/Options_ButtonContainer/Back_Button
 @onready var volume_button: Button = $Options_Sub_Menu/Options_ButtonContainer/Volume_Button
-@onready var credits_button: Button = $Options_Sub_Menu/Credits_Button
+@onready var credits_button: Button = $Options_Sub_Menu/Options_ButtonContainer/Credits_Button
 @onready var volume_sub_menu: Panel = $Volume_Sub_Menu
 @onready var volume_label: Label = $Volume_Sub_Menu/Volume_Label
 
@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 
 func _on_start_button_pressed():
 	print("start button pressed")
+	#Global.scene_manager.change_world2d_scene("res://Scenes_Misc/game.tscn")
 	get_tree().change_scene_to_file("res://Scenes_Misc/game.tscn")
 
 

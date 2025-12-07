@@ -8,6 +8,7 @@ func _ready() -> void:
 	#$PlayerCharacterCB2.scale = Vector2(0.08, 0.08)
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

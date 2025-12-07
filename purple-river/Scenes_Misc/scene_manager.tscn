@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjevqerdi2g06"]
+
+[ext_resource type="Script" uid="uid://nhnhfl72xamr" path="res://Scripts_Misc/scene_manager.gd" id="1_gl8id"]
+[ext_resource type="PackedScene" uid="uid://c531qtutmxpqb" path="res://UI/Scenes/main_menu.tscn" id="2_byea0"]
+
+[node name="SceneManager" type="Node"]
+script = ExtResource("1_gl8id")
+
+[node name="World_2D" type="Node2D" parent="."]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Main_Menu" parent="GUI" instance=ExtResource("2_byea0")]
+layout_mode = 1

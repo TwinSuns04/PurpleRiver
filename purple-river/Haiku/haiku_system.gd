@@ -3,7 +3,7 @@ extends HaikuSystem
 const TOTAL_HAIKU_NUM = 93
 
 var haiku_file
-var haiku_file_pos
+var haiku_file_pos = 0
 
 func _ready() -> void:
 	haiku_file_pos = 0
