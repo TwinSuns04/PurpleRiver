@@ -7,7 +7,7 @@ var current_2D_scene
 var current_gui_scene
 
 func _ready() -> void:
-	Global.scene_manager = self
+	#Global.scene_manager = self
 	current_gui_scene = $GUI/Main_Menu
 
 func change_gui_scene(p_scene: String, p_delete: bool = true, p_keep_running: bool = false) -> void:

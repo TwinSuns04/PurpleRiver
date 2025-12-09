@@ -1,24 +1,35 @@
 extends Control
 
-func resume():
-	get_tree().paused = false
+@export var game_manager : GameManager
+@export var player_char : PlayerCharacterCB2
 
-func pause():
-	get_tree().paused = true
+@onready var volume_sub_menu = $Panel/Volume_Sub_Menu
 
-func testEscape():
-	if Input.is_action_just_pressed("Escape") and !get_tree().paused:
-		pause()
-	elif Input.is_action_just_pressed("Escape") and get_tree().paused:
-		resume()
+func _ready() -> void:
+	hide()
+	volume_sub_menu.visible = false
+	game_manager.connect("toggle_game_paused", _on_game_manager_toggle_game_paused)
 
-func _on_quit_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://UI/Scenes/main_menu.tscn")
-
-
-func _on_settings_button_pressed() -> void:
-	print("In-game settings menu")
+func _on_game_manager_toggle_game_paused(is_paused : bool):
+	print("signal")
+	if(is_paused):
+		show()
+		position = player_char.position
+	else:
+		hide()
 
 
 func _on_resume_button_pressed() -> void:
-	resume()
+	game_manager.pause_status = false
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_volume_button_pressed() -> void:
+	volume_sub_menu.visible = true
+
+
+func _on_back_button_2_pressed() -> void:
+	volume_sub_menu.visible = false

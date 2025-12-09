@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://c531qtutmxpqb"]
+[gd_scene load_steps=10 format=3 uid="uid://c531qtutmxpqb"]
 
 [ext_resource type="Script" uid="uid://bhq54kejms6dq" path="res://UI/Scripts/main_menu.gd" id="1_2sit6"]
-[ext_resource type="Script" uid="uid://ba4k5e20jk2tb" path="res://UI/Scripts/audiocontrol.gd" id="2_h6jt3"]
+[ext_resource type="PackedScene" uid="uid://imxxp6glglsl" path="res://volume_sub_menu.tscn" id="2_h6jt3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sit6"]
 bg_color = Color(0.495072, 0.364077, 0.968205, 1)
@@ -33,21 +33,6 @@ corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oafp"]
 bg_color = Color(0.494118, 0.364706, 0.968627, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8e7h"]
-bg_color = Color(0.494118, 0.364706, 0.968627, 1)
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_2sit6"]
-color = Color(1, 0.717647, 0.772549, 1)
-thickness = 8
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_h6jt3"]
-color = Color(1, 1, 1, 1)
-thickness = 8
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_7w4jk"]
-color = Color(1, 1, 1, 1)
-thickness = 8
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -214,118 +199,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_7w4jk")
 theme_override_styles/normal = SubResource("StyleBoxFlat_fnvfa")
 text = "Back"
 
-[node name="Volume_Sub_Menu" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -169.0
-offset_top = -72.0
-offset_right = 170.0
-offset_bottom = 163.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_y8e7h")
-
-[node name="Volume_Label" type="Label" parent="Volume_Sub_Menu"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -188.0
-offset_top = -67.0
-offset_right = 188.0
-offset_bottom = 21.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0.498039, 0.329412, 1)
-theme_override_colors/font_shadow_color = Color(0.109804, 0.321569, 0.713726, 1)
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_2sit6")
-text = "Volume"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Music_Label" type="Label" parent="Volume_Sub_Menu"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -187.5
-offset_top = 4.0
-offset_right = 188.5
-offset_bottom = 92.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0.498039, 0.329412, 1)
-theme_override_colors/font_shadow_color = Color(0.109804, 0.321569, 0.713726, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_2sit6")
-text = "Music"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Music_Slider" type="HSlider" parent="Volume_Sub_Menu"]
+[node name="Volume_Sub_Menu" parent="." instance=ExtResource("2_h6jt3")]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 60.0
-offset_right = 315.0
-offset_bottom = 90.0
-theme_override_styles/slider = SubResource("StyleBoxLine_2sit6")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_h6jt3")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_7w4jk")
-max_value = 1.0
-step = 0.05
-value = 0.8
-script = ExtResource("2_h6jt3")
-audio_bus_name = "Soundtrack"
-
-[node name="SFX_Label" type="Label" parent="Volume_Sub_Menu"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -187.5
-offset_top = 70.0
-offset_right = 188.5
-offset_bottom = 158.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0.498039, 0.329412, 1)
-theme_override_colors/font_shadow_color = Color(0.109804, 0.321569, 0.713726, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_2sit6")
-text = "SFX"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SFX_Slider1" type="HSlider" parent="Volume_Sub_Menu"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 130.0
-offset_right = 315.0
-offset_bottom = 160.0
-theme_override_styles/slider = SubResource("StyleBoxLine_2sit6")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_h6jt3")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_7w4jk")
-max_value = 1.0
-step = 0.05
-value = 0.8
-script = ExtResource("2_h6jt3")
-audio_bus_name = "SFX"
-
-[node name="Back_Button2" type="Button" parent="Volume_Sub_Menu"]
-layout_mode = 2
-offset_left = 33.5
-offset_top = 176.0
-offset_right = 305.5
-offset_bottom = 221.0
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 32
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fnvfa")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h6jt3")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7w4jk")
-theme_override_styles/normal = SubResource("StyleBoxFlat_fnvfa")
-text = "Back"
+anchors_preset = 0
 
 [connection signal="pressed" from="MM-ButtonContainer/Start_Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MM-ButtonContainer/Options_Button" to="." method="_on_options_button_pressed"]
@@ -333,6 +209,3 @@ text = "Back"
 [connection signal="pressed" from="Options_Sub_Menu/Options_ButtonContainer/Volume_Button" to="." method="_on_volume_button_pressed"]
 [connection signal="pressed" from="Options_Sub_Menu/Options_ButtonContainer/Credits_Button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Options_Sub_Menu/Options_ButtonContainer/Back_Button" to="." method="_on_back_button_pressed"]
-[connection signal="value_changed" from="Volume_Sub_Menu/Music_Slider" to="Volume_Sub_Menu/Music_Slider" method="_on_value_changed"]
-[connection signal="value_changed" from="Volume_Sub_Menu/SFX_Slider1" to="Volume_Sub_Menu/SFX_Slider1" method="_on_value_changed"]
-[connection signal="pressed" from="Volume_Sub_Menu/Back_Button2" to="." method="_on_back_button_2_pressed"]
