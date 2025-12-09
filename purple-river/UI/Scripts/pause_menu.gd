@@ -11,7 +11,7 @@ func _ready() -> void:
 	game_manager.connect("toggle_game_paused", _on_game_manager_toggle_game_paused)
 
 func _on_game_manager_toggle_game_paused(is_paused : bool):
-	print("signal")
+	#print("signal")
 	if(is_paused):
 		show()
 		position = player_char.position

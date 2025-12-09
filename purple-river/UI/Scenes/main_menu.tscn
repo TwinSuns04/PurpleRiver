@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c531qtutmxpqb"]
+[gd_scene load_steps=11 format=3 uid="uid://c531qtutmxpqb"]
 
 [ext_resource type="Script" uid="uid://bhq54kejms6dq" path="res://UI/Scripts/main_menu.gd" id="1_2sit6"]
 [ext_resource type="PackedScene" uid="uid://imxxp6glglsl" path="res://volume_sub_menu.tscn" id="2_h6jt3"]
+[ext_resource type="PackedScene" uid="uid://day2dglp5ywj2" path="res://UI/Scenes/game_credits.tscn" id="3_7w4jk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sit6"]
 bg_color = Color(0.495072, 0.364077, 0.968205, 1)
@@ -200,8 +201,47 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_fnvfa")
 text = "Back"
 
 [node name="Volume_Sub_Menu" parent="." instance=ExtResource("2_h6jt3")]
-layout_mode = 0
+layout_mode = 1
 anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 413.0
+offset_top = 248.0
+offset_right = 752.0
+offset_bottom = 483.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Back_Button3" type="Button" parent="Volume_Sub_Menu"]
+layout_mode = 2
+offset_left = 33.5
+offset_top = 176.5
+offset_right = 305.5
+offset_bottom = 221.5
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fnvfa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6jt3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7w4jk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fnvfa")
+text = "Back"
+
+[node name="Game_Credits_Node" parent="." instance=ExtResource("3_7w4jk")]
+
+[node name="RichTextLabel" parent="Game_Credits_Node/Control" index="0"]
+text = "
+
+
+
+
+
+
+
+
+
+"
 
 [connection signal="pressed" from="MM-ButtonContainer/Start_Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MM-ButtonContainer/Options_Button" to="." method="_on_options_button_pressed"]
@@ -209,3 +249,6 @@ anchors_preset = 0
 [connection signal="pressed" from="Options_Sub_Menu/Options_ButtonContainer/Volume_Button" to="." method="_on_volume_button_pressed"]
 [connection signal="pressed" from="Options_Sub_Menu/Options_ButtonContainer/Credits_Button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Options_Sub_Menu/Options_ButtonContainer/Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Volume_Sub_Menu/Back_Button3" to="." method="_on_back_button_3_pressed"]
+
+[editable path="Game_Credits_Node"]
