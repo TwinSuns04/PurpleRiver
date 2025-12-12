@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4yskxe6wy32c"]
+
+[ext_resource type="Script" uid="uid://ds5f2u8ynw6qe" path="res://UI/Scripts/haiku_textbox.gd" id="1_g0s7o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rw6e"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[node name="Haiku_Textbox" type="CanvasLayer"]
+script = ExtResource("1_g0s7o")
+
+[node name="Textbox_Container" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 148.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="Textbox_Container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1rw6e")
+
+[node name="MarginContainer" type="MarginContainer" parent="Textbox_Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Panel" type="Panel" parent="Textbox_Container/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Textbox_Container/MarginContainer"]
+layout_mode = 2
+
+[node name="Start_Text" type="Label" parent="Textbox_Container/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(6, 23)
+layout_mode = 2
+size_flags_vertical = 0
+text = "-"
+
+[node name="Haiku_Text" type="RichTextLabel" parent="Textbox_Container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Author
+Haiku
+HaikuJ"
+
+[node name="End_Text" type="Label" parent="Textbox_Container/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(6, 23)
+layout_mode = 2
+size_flags_vertical = 8
+text = "-"

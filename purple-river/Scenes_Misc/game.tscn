@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://wtl85rrogwix"]
+[gd_scene load_steps=18 format=3 uid="uid://wtl85rrogwix"]
 
 [ext_resource type="PackedScene" uid="uid://bl6r404fichkp" path="res://Map/Levels/PNG_Levels/Scenes/level_one.tscn" id="1_hqfge"]
 [ext_resource type="Script" uid="uid://4fu6x4iigquq" path="res://Scripts_Misc/game.gd" id="1_itksk"]
+[ext_resource type="PackedScene" uid="uid://bm63alha2aesb" path="res://UI/Scenes/pause_menu.tscn" id="2_4famp"]
 [ext_resource type="PackedScene" uid="uid://bmkevp0y2kcjc" path="res://Player/player_character_cb2.tscn" id="2_hqfge"]
-[ext_resource type="PackedScene" uid="uid://bprkjh7he2r6h" path="res://Map/Flora/flora_spawner.tscn" id="2_sikyw"]
 [ext_resource type="PackedScene" uid="uid://beb7oridfiwtr" path="res://Map/Levels/PNG_Levels/Scenes/level_two.tscn" id="3_u4x70"]
 [ext_resource type="PackedScene" uid="uid://bgkox0kxxivp8" path="res://Map/Levels/PNG_Levels/Scenes/level_three.tscn" id="4_sikyw"]
 [ext_resource type="PackedScene" uid="uid://dswsqkw1mdpqv" path="res://Map/Levels/PNG_Levels/Scenes/level_four.tscn" id="5_wkjrv"]
@@ -14,62 +14,137 @@
 [ext_resource type="PackedScene" uid="uid://ckngq03fhpp8e" path="res://Map/Levels/PNG_Levels/Scenes/level_nine_a.tscn" id="10_4hheb"]
 [ext_resource type="PackedScene" uid="uid://bftvciymvxw7k" path="res://Map/Levels/PNG_Levels/Scenes/level_nine_b.tscn" id="11_nckv2"]
 [ext_resource type="PackedScene" uid="uid://gf78mc62u6ng" path="res://Mechanics/Leveling/food_item.tscn" id="13_wkjrv"]
+[ext_resource type="PackedScene" uid="uid://dbxw3kq5wt5eq" path="res://Haiku/haiku_system.tscn" id="15_35wev"]
+[ext_resource type="PackedScene" uid="uid://bprkjh7he2r6h" path="res://Flora/Scenes/flora_spawner.tscn" id="15_xch6g"]
+[ext_resource type="PackedScene" uid="uid://b50qc8fhb83ik" path="res://Flora/Scenes/flora_despawn.tscn" id="16_xch6g"]
 
 [node name="Game" type="Node"]
+process_mode = 3
 script = ExtResource("1_itksk")
 
 [node name="Level_One" parent="." instance=ExtResource("1_hqfge")]
+visibility_layer = 2
 position = Vector2(64, 38)
 
-[node name="FloraSpawnerArea" parent="Level_One" instance=ExtResource("2_sikyw")]
-position = Vector2(593, 111)
-
-[node name="CollisionShape2D" parent="Level_One/FloraSpawnerArea" index="0"]
-position = Vector2(44, 35)
-scale = Vector2(17, 1.24)
-
 [node name="Level_Two" parent="." instance=ExtResource("3_u4x70")]
+process_mode = 1
 position = Vector2(64, -674)
 
 [node name="Level_Three" parent="." instance=ExtResource("4_sikyw")]
+process_mode = 1
 position = Vector2(54, -1389)
 
 [node name="Level_Four" parent="." instance=ExtResource("5_wkjrv")]
+process_mode = 1
 position = Vector2(1139, -1390)
 
 [node name="Level_Five" parent="." instance=ExtResource("6_itksk")]
+process_mode = 1
 position = Vector2(2232, -1399)
 
 [node name="level_six" parent="." instance=ExtResource("7_35wev")]
+process_mode = 1
 position = Vector2(2212, -2109)
 
 [node name="level_seven" parent="." instance=ExtResource("8_xch6g")]
+process_mode = 1
 position = Vector2(1381, -2826)
 
 [node name="level_eight" parent="." instance=ExtResource("9_4famp")]
+process_mode = 1
 position = Vector2(1376, -3548)
 
 [node name="level_nine_a" parent="." instance=ExtResource("10_4hheb")]
+process_mode = 1
 position = Vector2(1400, -4258)
 
 [node name="level_nine_b" parent="." instance=ExtResource("11_nckv2")]
+process_mode = 1
 position = Vector2(1476, -4973)
 
 [node name="PlayerCharacterCB2" parent="." groups=["Player"] instance=ExtResource("2_hqfge")]
+process_mode = 1
 position = Vector2(253, 568)
 scale = Vector2(0.08, 0.08)
 wall_min_slide_angle = 0.0
 
 [node name="FoodItem" parent="." instance=ExtResource("13_wkjrv")]
+process_mode = 1
 position = Vector2(168, -388)
 scale = Vector2(0.287328, 0.287328)
+
+[node name="HaikuSystem_Root" parent="." instance=ExtResource("15_35wev")]
+process_mode = 1
+
+[node name="HaikuArea" parent="HaikuSystem_Root" index="1"]
+position = Vector2(273, 356)
+scale = Vector2(-5.519, -5.519)
+
+[node name="CollisionShape2D" parent="HaikuSystem_Root/HaikuArea" index="0"]
+scale = Vector2(0.110967, 0.110967)
+
+[node name="HaikuArea2" parent="HaikuSystem_Root" index="2"]
+position = Vector2(-292, 276)
+
+[node name="CollisionShape2D" parent="HaikuSystem_Root/HaikuArea2" index="0"]
+position = Vector2(1311, -955)
+
+[node name="HaikuArea3" parent="HaikuSystem_Root" index="3"]
+position = Vector2(-253, 267)
+
+[node name="CollisionShape2D" parent="HaikuSystem_Root/HaikuArea3" index="0"]
+position = Vector2(449, -1557)
+
+[node name="HaikuArea4" parent="HaikuSystem_Root" index="4"]
+position = Vector2(1903, -1086)
+
+[node name="HaikuArea5" parent="HaikuSystem_Root" index="5"]
+position = Vector2(2369, -2069)
+
+[node name="HaikuArea6" parent="HaikuSystem_Root" index="6"]
+position = Vector2(1710, -3376)
+
+[node name="HaikuArea7" parent="HaikuSystem_Root" index="7"]
+position = Vector2(1651, -4897)
+
+[node name="FloraSpawnerArea2" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(488, -456)
+floraType = 2
+
+[node name="FloraSpawnerArea3" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1654, -4895)
+scale = Vector2(0.582952, 0.680019)
+spawnDelay = 8.0
+floraType = 3
+floraCountMax = 100
+
+[node name="FloraSpawnerArea" parent="." instance=ExtResource("15_xch6g")]
+top_level = true
+position = Vector2(713, 63)
+scale = Vector2(0.8, 2.12)
+spawnDelay = 0.1
+floraType = 1
+
+[node name="FloraDespawn" parent="." instance=ExtResource("16_xch6g")]
+position = Vector2(266, 651)
+scale = Vector2(21.32, 2)
+
+[node name="FloraSpawnerArea4" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1634, -1210)
+scale = Vector2(0.92, 0.92)
+floraType = 2
+
+[node name="FloraSpawnerArea5" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1986, -3135)
+scale = Vector2(0.579938, 0.579938)
+floraType = 3
 
 [node name="FoodItem2" parent="." instance=ExtResource("13_wkjrv")]
 position = Vector2(488, -140)
 scale = Vector2(0.287328, 0.287328)
 
 [node name="FoodItem3" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(1036, -691)
+position = Vector2(1036, -690.999)
 scale = Vector2(0.287328, 0.287328)
 
 [node name="FoodItem4" parent="." instance=ExtResource("13_wkjrv")]
@@ -121,7 +196,7 @@ position = Vector2(2224, -2917)
 scale = Vector2(0.287328, 0.287328)
 
 [node name="FoodItem16" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(2357, -3494)
+position = Vector2(2357, -3493.99)
 scale = Vector2(0.287328, 0.287328)
 
 [node name="FoodItem17" parent="." instance=ExtResource("13_wkjrv")]
@@ -129,7 +204,7 @@ position = Vector2(2417, -2997)
 scale = Vector2(0.287328, 0.287328)
 
 [node name="FoodItem18" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(2070, -3310)
+position = Vector2(2070, -3310.01)
 scale = Vector2(0.287328, 0.287328)
 
 [node name="FoodItem19" parent="." instance=ExtResource("13_wkjrv")]
@@ -137,8 +212,171 @@ position = Vector2(1613, -3051)
 scale = Vector2(0.287328, 0.287328)
 
 [node name="FoodItem20" parent="." instance=ExtResource("13_wkjrv")]
-position = Vector2(273, 354)
+position = Vector2(273, 353.999)
 scale = Vector2(0.287328, 0.287328)
 
+[node name="FloraSpawnerArea6" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(304, -694.001)
+scale = Vector2(0.699499, -0.677683)
+spawnDelay = 0.1
+
+[node name="FloraSpawnerArea7" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(485, -742)
+scale = Vector2(0.222963, 0.63777)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea11" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(421, -1232)
+scale = Vector2(0.222963, 0.63777)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea12" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(426, -1089)
+scale = Vector2(0.222963, 0.63777)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea13" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(502, -1165)
+scale = Vector2(0.222963, 0.63777)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea14" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1470, -991)
+scale = Vector2(0.222963, 0.63777)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea8" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(906, -879.001)
+scale = Vector2(0.435217, 1.24491)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea15" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(2370, -1193)
+scale = Vector2(0.435217, 1.24491)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea16" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(2204, -1156)
+scale = Vector2(0.435217, 1.24491)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea17" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(2345, -1538)
+scale = Vector2(0.646577, 1.84949)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea21" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(2167, -2340.99)
+scale = Vector2(0.435217, 1.24491)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea22" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(2371, -2794.99)
+scale = Vector2(0.62695, 0.671446)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea26" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1508, -3248.99)
+scale = Vector2(0.62695, 0.671446)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea23" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1897, -2948.99)
+scale = Vector2(1.30615, 0.302155)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea24" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1980, -3611)
+scale = Vector2(2.06047, 0.476652)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea25" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1775, -4325.99)
+scale = Vector2(1.93155, 3.5849)
+spawnDelay = 0.1
+floraCountMax = 40
+
+[node name="FloraSpawnerArea18" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(3101, -1873)
+scale = Vector2(0.348174, 1.14421)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea19" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(2838, -1502)
+scale = Vector2(0.435217, 1.24491)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea20" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(2776, -1030)
+scale = Vector2(0.999824, 0.468671)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea9" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(165, -1037)
+scale = Vector2(0.435217, 1.24491)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea10" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1217, -1123)
+scale = Vector2(0.435217, 1.24491)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea27" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1357, -1121)
+scale = Vector2(0.435217, 1.24491)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea28" parent="." instance=ExtResource("15_xch6g")]
+top_level = true
+position = Vector2(1194, -867)
+scale = Vector2(0.503628, 1.07796)
+spawnDelay = 0.1
+floraType = 1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea29" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1049, -490)
+scale = Vector2(0.810456, 0.37531)
+spawnDelay = 0.1
+floraCountMax = 16
+
+[node name="FloraSpawnerArea30" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(1835, -3786)
+scale = Vector2(0.411355, 0.479849)
+spawnDelay = 8.0
+floraType = 2
+floraCountMax = 100
+
+[node name="FloraSpawnerArea31" parent="." instance=ExtResource("15_xch6g")]
+position = Vector2(2257, -2619)
+scale = Vector2(0.536316, 0.625618)
+floraType = 3
+
+[node name="PauseMenu" parent="." node_paths=PackedStringArray("game_manager", "player_char") instance=ExtResource("2_4famp")]
+top_level = true
+game_manager = NodePath("..")
+player_char = NodePath("../PlayerCharacterCB2")
+
 [editable path="Level_One"]
-[editable path="Level_One/FloraSpawnerArea"]
+[editable path="Level_Two"]
+[editable path="HaikuSystem_Root"]

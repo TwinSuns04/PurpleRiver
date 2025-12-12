@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm63alha2aesb"]
+
+[ext_resource type="Script" uid="uid://coe1xm1wdjyy7" path="res://UI/Scripts/pause_menu.gd" id="1_1do6l"]
+[ext_resource type="PackedScene" uid="uid://imxxp6glglsl" path="res://volume_sub_menu.tscn" id="2_chqln"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1do6l")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -66.0
+offset_right = 57.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="Resume-Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Volume-Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="Quit-Button" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Volume_Sub_Menu" parent="Panel" instance=ExtResource("2_chqln")]
+layout_mode = 1
+offset_left = -169.5
+offset_top = -117.5
+offset_right = 169.5
+offset_bottom = 117.5
+
+[connection signal="pressed" from="Panel/VBoxContainer/Resume-Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Volume-Button" to="." method="_on_volume_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quit-Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Panel/Volume_Sub_Menu/Back_Button2" to="." method="_on_back_button_2_pressed"]
+
+[editable path="Panel/Volume_Sub_Menu"]

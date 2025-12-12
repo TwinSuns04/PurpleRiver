@@ -5,6 +5,8 @@ var horizontalDirection
 var verticalDirection
 var temp_river_velocity
 
+signal position_at_game_pause(p_pos : Vector2)
+
 func _ready():
 	print("Player ready")
 	print("Player name: ", name)
@@ -136,7 +138,7 @@ func _on_pc_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 		positionalRCCS = get_rCurrent_collision_status(tile_data)
 		
 	else:
-		print("tile_data invalid")
+		#print("tile_data invalid")
 		positionalRCV = Vector2(0, 0)
 		positionalRCM = 0
 		positionalRCCS = false
@@ -159,7 +161,7 @@ func get_river_current_vector(p_tileData: TileData) -> Vector2i:
 	if(p_tileData):
 		riverCurrentVector = p_tileData.get_custom_data("currentVector")
 		if not riverCurrentVector:
-			print("Failed to get custom data for rcv")
+			#print("Failed to get custom data for rcv")
 			riverCurrentVector = Vector2i.ZERO
 		#print("riverCurrentVector val updated")
 	

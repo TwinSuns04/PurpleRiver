@@ -20,6 +20,8 @@ sources.append(Glob("src/*.cpp"))
 env.Append(CPPPATH=["src/gdextension/"])
 sources.append(Glob("src/gdextension/*.cpp"))
 
+env.Append(CPPPATH=["src/haiku/"])
+sources.append(Glob("src/haiku/*.cpp"))
 env.Append(CPPPATH=["src/map/"])
 sources.append(Glob("src/map/*.cpp"))
 env.Append(CPPPATH=["src/map/flora/"])
