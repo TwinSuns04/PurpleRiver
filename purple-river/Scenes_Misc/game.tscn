@@ -26,41 +26,71 @@ script = ExtResource("1_itksk")
 visibility_layer = 2
 position = Vector2(64, 38)
 
+[node name="Current_TileMapLayer2" parent="Level_One" index="2"]
+visible = false
+
 [node name="Level_Two" parent="." instance=ExtResource("3_u4x70")]
 process_mode = 1
 position = Vector2(64, -674)
+
+[node name="Current_TileMapLayer" parent="Level_Two" index="3"]
+visible = false
 
 [node name="Level_Three" parent="." instance=ExtResource("4_sikyw")]
 process_mode = 1
 position = Vector2(54, -1389)
 
+[node name="Current_TileMapLayer" parent="Level_Three" index="3"]
+visible = false
+
 [node name="Level_Four" parent="." instance=ExtResource("5_wkjrv")]
 process_mode = 1
 position = Vector2(1139, -1390)
+
+[node name="Current_TileMapLayer" parent="Level_Four" index="2"]
+visible = false
 
 [node name="Level_Five" parent="." instance=ExtResource("6_itksk")]
 process_mode = 1
 position = Vector2(2232, -1399)
 
+[node name="Current_TileMapLayer" parent="Level_Five" index="2"]
+visible = false
+
 [node name="level_six" parent="." instance=ExtResource("7_35wev")]
 process_mode = 1
 position = Vector2(2212, -2109)
+
+[node name="Current_TileMapLayer" parent="level_six" index="3"]
+visible = false
 
 [node name="level_seven" parent="." instance=ExtResource("8_xch6g")]
 process_mode = 1
 position = Vector2(1381, -2826)
 
+[node name="Current_TileMapLayer" parent="level_seven" index="2"]
+visible = false
+
 [node name="level_eight" parent="." instance=ExtResource("9_4famp")]
 process_mode = 1
 position = Vector2(1376, -3548)
+
+[node name="Current_TileMapLayer" parent="level_eight" index="2"]
+visible = false
 
 [node name="level_nine_a" parent="." instance=ExtResource("10_4hheb")]
 process_mode = 1
 position = Vector2(1400, -4258)
 
+[node name="Current_TileMapLayer" parent="level_nine_a" index="3"]
+visible = false
+
 [node name="level_nine_b" parent="." instance=ExtResource("11_nckv2")]
 process_mode = 1
 position = Vector2(1476, -4973)
+
+[node name="Current_TileMapLayer" parent="level_nine_b" index="2"]
+visible = false
 
 [node name="PlayerCharacterCB2" parent="." groups=["Player"] instance=ExtResource("2_hqfge")]
 process_mode = 1
@@ -379,4 +409,12 @@ player_char = NodePath("../PlayerCharacterCB2")
 
 [editable path="Level_One"]
 [editable path="Level_Two"]
+[editable path="Level_Three"]
+[editable path="Level_Four"]
+[editable path="Level_Five"]
+[editable path="level_six"]
+[editable path="level_seven"]
+[editable path="level_eight"]
+[editable path="level_nine_a"]
+[editable path="level_nine_b"]
 [editable path="HaikuSystem_Root"]

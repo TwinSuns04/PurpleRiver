@@ -1,5 +1,8 @@
 extends PlayerCharacterCB2
 
+const VELOCITY_CAP_MAX : float = 400.0
+const VELOCITY_CAP_MIN : float = -400.0
+
 var screen_size
 var horizontalDirection
 var verticalDirection
@@ -14,6 +17,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	$PCCamera.zoom.x = 2.0
 	$PCCamera.zoom.y = 2.0
+	
 	
 	#change mouse mode
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED
@@ -49,7 +53,18 @@ func _physics_process(delta):
 	velocity.x = velocity.x + temp_river_velocity.x
 	velocity.y = verticalDirection * movementSpeed
 	velocity.y = velocity.y + temp_river_velocity.y
-
+	
+	#cap values
+	if(velocity.x < VELOCITY_CAP_MIN):
+		velocity.x = VELOCITY_CAP_MIN
+	elif(velocity.x > VELOCITY_CAP_MAX):
+		velocity.x = VELOCITY_CAP_MAX
+		
+	if(velocity.y < VELOCITY_CAP_MIN):
+		velocity.y = VELOCITY_CAP_MIN
+	elif(velocity.y > VELOCITY_CAP_MAX):
+		velocity.y = VELOCITY_CAP_MAX
+	
 	#velocity = calc_basis_transform(basisRotation)
 	# above line implements control of sprite with mouse movement vs keyboard input
 	

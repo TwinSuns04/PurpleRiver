@@ -105,9 +105,9 @@ PlayerCharacterCB2::PlayerCharacterCB2()
 	//velocity = Vector2(0, 0);
 	playerLevel = 1;
 	movementSpeedBase = 100;
-	movementSpeedMult = 3.6;
+	movementSpeedMult = 1.8;
 	movementSpeed = movementSpeedBase * movementSpeedMult;
-	speedBoostMult = 1.5;
+	speedBoostMult = 1.25;
 	boostDuration = 25.0;
 	boostStatus = false;
 	staminaVal = 100;
@@ -132,11 +132,11 @@ void PlayerCharacterCB2::_process(double delta)
 	//position = get_global_position();
 	if (boostStatus)
 	{
-		DepleteStamina(1);
+		DepleteStamina(c_depleteStamina);
 	}
 	else
 	{
-		RegenStamina(1);
+		RegenStamina(c_regenStamina);
 	}
 
 }

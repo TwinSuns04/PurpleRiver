@@ -35,11 +35,13 @@ namespace godot {
 
 
 		double const speedScaler = 1.10;
-		double const boostMultScaler = 1.25;
+		double const boostMultScaler = 1.10;
 		double const boostDurationScaler = 1.10;
 		double const staminaScaler = 1.10;
 		int const strengthScaler = 2;
 		int const riverCurrentScaler = 50;
+		int const c_depleteStamina = 25;
+		int const c_regenStamina = 10;
 		
 
 	protected:
