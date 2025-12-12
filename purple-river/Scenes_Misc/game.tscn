@@ -80,23 +80,32 @@ process_mode = 1
 position = Vector2(273, 356)
 scale = Vector2(-5.519, -5.519)
 
+[node name="CollisionShape2D" parent="HaikuSystem_Root/HaikuArea" index="0"]
+scale = Vector2(0.110967, 0.110967)
+
 [node name="HaikuArea2" parent="HaikuSystem_Root" index="2"]
 position = Vector2(-292, 276)
+
+[node name="CollisionShape2D" parent="HaikuSystem_Root/HaikuArea2" index="0"]
+position = Vector2(1311, -955)
 
 [node name="HaikuArea3" parent="HaikuSystem_Root" index="3"]
 position = Vector2(-253, 267)
 
+[node name="CollisionShape2D" parent="HaikuSystem_Root/HaikuArea3" index="0"]
+position = Vector2(449, -1557)
+
 [node name="HaikuArea4" parent="HaikuSystem_Root" index="4"]
-position = Vector2(-208, 270)
+position = Vector2(1903, -1086)
 
 [node name="HaikuArea5" parent="HaikuSystem_Root" index="5"]
-position = Vector2(-168, 267)
+position = Vector2(2369, -2069)
 
 [node name="HaikuArea6" parent="HaikuSystem_Root" index="6"]
-position = Vector2(-129, 269)
+position = Vector2(1710, -3376)
 
 [node name="HaikuArea7" parent="HaikuSystem_Root" index="7"]
-position = Vector2(-87, 264)
+position = Vector2(1651, -4897)
 
 [node name="FloraSpawnerArea2" parent="." instance=ExtResource("15_xch6g")]
 position = Vector2(488, -456)

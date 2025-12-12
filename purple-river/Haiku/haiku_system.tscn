@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b4yskxe6wy32c" path="res://UI/Scenes/haiku_textbox.tscn" id="3_udwmh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wiaut"]
+radius = 95.6713
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_wiaut")
