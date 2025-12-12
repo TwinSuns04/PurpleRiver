@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8485j"]
 size = Vector2(263, 216)
 
-[node name="FloraSpawnerArea" type="Area2D"]
+[node name="FloraSpawnerArea" type="Area2D" groups=["Flora_Scenes"]]
 script = ExtResource("1_phlvg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,0 +1,11 @@
+Game Credits
+
+Made By: Garrett Bills
+
+Haiku Translations: ''
+
+Soundtrack/Music: ''
+
+SFX: ''
+
+Godot 4.4.1

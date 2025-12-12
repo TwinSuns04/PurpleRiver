@@ -44,6 +44,7 @@ animations = [{
 }]
 
 [node name="Level_One" type="Node2D"]
+process_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(566, 285)

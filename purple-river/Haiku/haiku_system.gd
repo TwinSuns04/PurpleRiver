@@ -3,14 +3,18 @@ extends HaikuSystem
 const TOTAL_HAIKU_NUM = 93
 
 var haiku_file
-var haiku_file_pos
+var haiku_file_pos = 0
+
+@onready var playerRef
 
 func _ready() -> void:
 	haiku_file_pos = 0
-	
+	playerRef = get_tree().get_first_node_in_group("Player")
+
 func _process(delta: float) -> void:
-	pass
+	position = playerRef.position
 	
+
 func Open_Haiku(c_haiku_file_path: String) -> void:
 	#print("Open_Haiku() exec")
 	haiku_file = FileAccess.open(c_haiku_file_path, FileAccess.READ)
@@ -64,8 +68,18 @@ func Choose_Haiku() -> void:
 	ChooseHaiku(tempRand)
 	
 func Display_Chosen_Haiku() -> void:
+	var haikuInfo : Array 
+	var haikuString2 : String = "Author: " + haikuAuthor + "\n"
+	var haikuString3 : String = "Haiku: " + haikuText + "\n"
+	var haikuString4 : String = "Haiku: " + haikuTextJapanese
+	
+	haikuInfo.append(haikuString2)
+	haikuInfo.append(haikuString3)
+	haikuInfo.append(haikuString4)
+	$Haiku_Textbox.show_textbox(haikuInfo)
+	
 	print("Chosen Haiku: ", chosenHaiku, "\n")
 	print("Author: ", haikuAuthor, "\n")
 	print("Haiku: ", haikuText, "\n")
 	print("Haiku: ", haikuTextJapanese, "\n")
-	
+	$Timer.start(8.0)

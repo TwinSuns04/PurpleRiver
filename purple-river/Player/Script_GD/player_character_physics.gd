@@ -5,6 +5,8 @@ var horizontalDirection
 var verticalDirection
 var temp_river_velocity
 
+signal position_at_game_pause(p_pos : Vector2)
+
 func _ready():
 	print("Player ready")
 	print("Player name: ", name)

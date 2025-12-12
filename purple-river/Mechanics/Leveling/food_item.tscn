@@ -104,7 +104,7 @@ _data = {
 &"RESET": SubResource("Animation_bcrwi")
 }
 
-[node name="FoodItem" type="FoodItem"]
+[node name="FoodItem" type="FoodItem" groups=["Food"]]
 script = ExtResource("1_ot7d1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
