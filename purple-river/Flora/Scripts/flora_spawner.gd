@@ -11,7 +11,7 @@ extends Node
 @onready var rectColl = $CollisionShape2D
 var randomness = RandomNumberGenerator.new()
 
-const FLOWER_SCALE := Vector2(0.04, 0.04)
+const FLOWER_SCALE := Vector2(0.08, 0.08)
 
 #If time, I would like to implement a system so multiple flora
 # don't spawn on top of one another. Could possible implement
