@@ -2,9 +2,12 @@ extends Node
 
 class_name GameManager
 
+@onready var game_soundtrack : AudioStreamPlayer2D = $Music/Soundtrack
+
+var audio_evening_calm : AudioStreamMP3
+
 #@export var map_scene: PackedScene
 signal toggle_game_paused(is_paused : bool)
-
 @export var pause_status : bool = false:
 	get:
 		return pause_status
@@ -15,6 +18,8 @@ signal toggle_game_paused(is_paused : bool)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	game_soundtrack.bus = "Soundtrack"
+	game_soundtrack.play(0.0)
 	randomize()
 	#$PlayerCharacterCB2.scale = Vector2(0.08, 0.08)
 

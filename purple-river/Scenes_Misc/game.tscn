@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://wtl85rrogwix"]
+[gd_scene load_steps=20 format=3 uid="uid://wtl85rrogwix"]
 
 [ext_resource type="PackedScene" uid="uid://bl6r404fichkp" path="res://Map/Levels/PNG_Levels/Scenes/level_one.tscn" id="1_hqfge"]
 [ext_resource type="Script" uid="uid://4fu6x4iigquq" path="res://Scripts_Misc/game.gd" id="1_itksk"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bprkjh7he2r6h" path="res://Flora/Scenes/flora_spawner.tscn" id="15_xch6g"]
 [ext_resource type="PackedScene" uid="uid://b50qc8fhb83ik" path="res://Flora/Scenes/flora_despawn.tscn" id="16_xch6g"]
 [ext_resource type="PackedScene" uid="uid://cvva46wigsbiu" path="res://UI/Scenes/music.tscn" id="18_4hheb"]
+[ext_resource type="AudioStream" uid="uid://dt7n1bdynq3xl" path="res://UI/Assets/Audio/Music/JMP/Mountain God's Shrine.mp3" id="19_nckv2"]
 
 [node name="Game" type="Node"]
 process_mode = 3
@@ -27,12 +28,21 @@ script = ExtResource("1_itksk")
 visibility_layer = 2
 position = Vector2(64, 38)
 
+[node name="RiverCurrentAnim" parent="Level_One" index="1"]
+frame_progress = 0.562862
+
 [node name="Current_TileMapLayer2" parent="Level_One" index="2"]
 visible = false
 
 [node name="Level_Two" parent="." instance=ExtResource("3_u4x70")]
 process_mode = 1
 position = Vector2(64, -674)
+
+[node name="RiverCurrentAnim" parent="Level_Two" index="1"]
+frame_progress = 0.945219
+
+[node name="WaterfallBaseAnim" parent="Level_Two" index="2"]
+frame_progress = 0.384389
 
 [node name="Current_TileMapLayer" parent="Level_Two" index="3"]
 visible = false
@@ -455,6 +465,10 @@ player_char = NodePath("../PlayerCharacterCB2")
 
 [node name="Music" parent="." instance=ExtResource("18_4hheb")]
 
+[node name="Soundtrack" parent="Music" index="0"]
+stream = ExtResource("19_nckv2")
+bus = &"Soundtrack"
+
 [editable path="Level_One"]
 [editable path="Level_Two"]
 [editable path="Level_Three"]
@@ -466,3 +480,4 @@ player_char = NodePath("../PlayerCharacterCB2")
 [editable path="level_nine_a"]
 [editable path="level_nine_b"]
 [editable path="HaikuSystem_Root"]
+[editable path="Music"]

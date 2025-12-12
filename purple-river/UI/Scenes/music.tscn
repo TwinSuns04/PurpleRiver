@@ -1,11 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvva46wigsbiu"]
-
-[ext_resource type="AudioStream" uid="uid://dt7n1bdynq3xl" path="res://UI/Assets/Audio/Music/JMP/Mountain God's Shrine.mp3" id="1_knvw0"]
+[gd_scene format=3 uid="uid://cvva46wigsbiu"]
 
 [node name="Music" type="Node"]
 
 [node name="Soundtrack" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_knvw0")
-autoplay = true
-bus = &"Soundtrack"
-parameters/looping = true
