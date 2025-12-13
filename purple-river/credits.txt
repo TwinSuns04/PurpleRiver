@@ -8,4 +8,6 @@ Soundtrack/Music: 'Japanese Music Pack' by MOMIZism MUSiC
 
 SFX: '8-bit / 16-bit Sound Effects (x25) Pack' by JDWasabi
 
+Font: 'Arkipelago' by Nasir Udin Studio
+
 Made in: Godot Engine v4.4.1

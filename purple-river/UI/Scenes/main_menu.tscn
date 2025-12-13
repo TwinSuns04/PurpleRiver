@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c531qtutmxpqb"]
+[gd_scene load_steps=15 format=3 uid="uid://c531qtutmxpqb"]
 
 [ext_resource type="Script" uid="uid://bhq54kejms6dq" path="res://UI/Scripts/main_menu.gd" id="1_2sit6"]
 [ext_resource type="SpriteFrames" uid="uid://wgk6g612lhx3" path="res://Player/Assets/koi_sprite_frames.tres" id="2_1ft4g"]
 [ext_resource type="PackedScene" uid="uid://imxxp6glglsl" path="res://volume_sub_menu.tscn" id="2_h6jt3"]
+[ext_resource type="FontFile" uid="uid://b83n7ga7yqkes" path="res://UI/Assets/Arkipelago-MxRJ.otf" id="2_yjk8c"]
 [ext_resource type="PackedScene" uid="uid://day2dglp5ywj2" path="res://UI/Scenes/game_credits.tscn" id="3_7w4jk"]
 [ext_resource type="PackedScene" uid="uid://cvva46wigsbiu" path="res://UI/Scenes/music.tscn" id="4_2oafp"]
 [ext_resource type="AudioStream" uid="uid://bdhfwa8v8a46" path="res://UI/Assets/Audio/Music/JMP/Voice of Evening Calm.mp3" id="5_y8e7h"]
@@ -106,13 +107,14 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -202.0
-offset_top = 92.0
+offset_top = 82.0
 offset_right = 203.0
-offset_bottom = 207.0
+offset_bottom = 197.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0.498039, 0.329412, 1)
 theme_override_colors/font_shadow_color = Color(0.109804, 0.321569, 0.713726, 1)
-theme_override_font_sizes/font_size = 64
+theme_override_fonts/font = ExtResource("2_yjk8c")
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxTexture_2sit6")
 text = "Purple River"
 horizontal_alignment = 1
