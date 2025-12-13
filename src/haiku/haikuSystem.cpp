@@ -71,6 +71,8 @@ HaikuSystem::HaikuSystem()
     haikuInfo = {};
     haikuMap = {};
 
+    UpdateHaikuFileErrors();
+
     bool fileExists = FileAccess::file_exists(haikuFilePath);
     if(fileExists)
     {
@@ -213,6 +215,7 @@ void HaikuSystem::ChooseHaiku(int p_rand)
     {
         UtilityFunctions::print("Haikus have all been displayed");
         selectedHaikus.clear();
+        UpdateHaikuFileErrors();
         return;
     }
 
@@ -252,6 +255,21 @@ void HaikuSystem::OutputChosenHaiku()
     // output chosen haiku to game
     call_deferred("emit_signal", "g_display_haiku", chosenHaiku);
 
+}
+
+void HaikuSystem::UpdateHaikuFileErrors()
+{
+    selectedHaikus.emplace(5, true);
+    selectedHaikus.emplace(6, true);
+    selectedHaikus.emplace(31, true);
+    selectedHaikus.emplace(34, true);
+    selectedHaikus.emplace(35, true);
+    selectedHaikus.emplace(60, true);
+    selectedHaikus.emplace(73, true);
+    selectedHaikus.emplace(74, true);
+    selectedHaikus.emplace(75, true);
+    selectedHaikus.emplace(76, true);
+    selectedHaikus.emplace(77, true);
 }
 
 #pragma region GetSet

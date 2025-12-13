@@ -52,6 +52,7 @@ namespace godot
         void OutputHaikuFile_PH(); // Godot Access point placeholder
         void ChooseHaiku(int p_rand); // choose a random haiku and check if it has been read
         void OutputChosenHaiku();
+        void UpdateHaikuFileErrors(); // Method to add any haikus that have an error in translation or missing info form haiku file so they aren't output
 
         // getset
         int get_chosenHaiku() const;
