@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wtl85rrogwix"]
+[gd_scene load_steps=24 format=3 uid="uid://wtl85rrogwix"]
 
 [ext_resource type="PackedScene" uid="uid://bl6r404fichkp" path="res://Map/Levels/PNG_Levels/Scenes/level_one.tscn" id="1_hqfge"]
 [ext_resource type="Script" uid="uid://4fu6x4iigquq" path="res://Scripts_Misc/game.gd" id="1_itksk"]
@@ -20,6 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://cvva46wigsbiu" path="res://UI/Scenes/music.tscn" id="18_4hheb"]
 [ext_resource type="AudioStream" uid="uid://dt7n1bdynq3xl" path="res://UI/Assets/Audio/Music/JMP/Mountain God's Shrine.mp3" id="19_nckv2"]
 [ext_resource type="Texture2D" uid="uid://23djtgh1gnm5" path="res://Map/Assets/green_base.PNG" id="20_x84hn"]
+[ext_resource type="PackedScene" uid="uid://dmoncxywu6t83" path="res://UI/Scenes/transitions.tscn" id="21_wc8vj"]
+[ext_resource type="Script" uid="uid://cq3kisubi7qpy" path="res://Scripts_Misc/game_area_end.gd" id="22_j233n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wc8vj"]
 
 [node name="Game" type="Node"]
 process_mode = 3
@@ -106,16 +110,12 @@ visible = false
 
 [node name="PlayerCharacterCB2" parent="." groups=["Player"] instance=ExtResource("2_hqfge")]
 process_mode = 1
-position = Vector2(253, 568)
+position = Vector2(1840, -4906)
 scale = Vector2(0.08, 0.08)
 wall_min_slide_angle = 0.0
 
 [node name="HaikuSystem_Root" parent="." instance=ExtResource("15_35wev")]
 process_mode = 1
-visible = false
-
-[node name="Haiku_Textbox" parent="HaikuSystem_Root/HaikuSystem" index="0"]
-visible = false
 
 [node name="HaikuArea" parent="HaikuSystem_Root" index="1"]
 position = Vector2(273, 356)
@@ -468,7 +468,6 @@ player_char = NodePath("../PlayerCharacterCB2")
 
 [node name="Soundtrack" parent="Music" index="0"]
 stream = ExtResource("19_nckv2")
-bus = &"Soundtrack"
 
 [node name="MapFill" type="Node" parent="."]
 
@@ -611,6 +610,36 @@ texture = ExtResource("20_x84hn")
 z_index = -4
 position = Vector2(-345, -718)
 texture = ExtResource("20_x84hn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Transitions" parent="CanvasLayer" instance=ExtResource("21_wc8vj")]
+offset_left = 1500.0
+offset_top = -4941.0
+offset_right = 1540.0
+offset_bottom = -4901.0
+
+[node name="Game_End_Area" type="Area2D" parent="CanvasLayer/Transitions" node_paths=PackedStringArray("transitioner")]
+position = Vector2(120, 36)
+scale = Vector2(4.4609, 4.4609)
+collision_layer = 2048
+collision_mask = 2048
+script = ExtResource("22_j233n")
+transitioner = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Transitions/Game_End_Area"]
+shape = SubResource("CircleShape2D_wc8vj")
+
+[node name="Timer_One" type="Timer" parent="CanvasLayer/Transitions/Game_End_Area"]
+one_shot = true
+
+[node name="Timer_Two" type="Timer" parent="CanvasLayer/Transitions/Game_End_Area"]
+one_shot = true
+
+[connection signal="area_entered" from="CanvasLayer/Transitions/Game_End_Area" to="CanvasLayer/Transitions/Game_End_Area" method="_on_area_entered"]
+[connection signal="timeout" from="CanvasLayer/Transitions/Game_End_Area/Timer_One" to="CanvasLayer/Transitions/Game_End_Area" method="_on_timer_one_timeout"]
+[connection signal="timeout" from="CanvasLayer/Transitions/Game_End_Area/Timer_Two" to="CanvasLayer/Transitions/Game_End_Area" method="_on_timer_two_timeout"]
 
 [editable path="Level_One"]
 [editable path="Level_Two"]

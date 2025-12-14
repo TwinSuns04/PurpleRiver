@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c531qtutmxpqb"]
+[gd_scene load_steps=14 format=3 uid="uid://c531qtutmxpqb"]
 
 [ext_resource type="Script" uid="uid://bhq54kejms6dq" path="res://UI/Scripts/main_menu.gd" id="1_2sit6"]
 [ext_resource type="SpriteFrames" uid="uid://wgk6g612lhx3" path="res://Player/Assets/koi_sprite_frames.tres" id="2_1ft4g"]
@@ -6,7 +6,6 @@
 [ext_resource type="FontFile" uid="uid://b83n7ga7yqkes" path="res://UI/Assets/Arkipelago-MxRJ.otf" id="2_yjk8c"]
 [ext_resource type="PackedScene" uid="uid://day2dglp5ywj2" path="res://UI/Scenes/game_credits.tscn" id="3_7w4jk"]
 [ext_resource type="PackedScene" uid="uid://cvva46wigsbiu" path="res://UI/Scenes/music.tscn" id="4_2oafp"]
-[ext_resource type="AudioStream" uid="uid://bdhfwa8v8a46" path="res://UI/Assets/Audio/Music/JMP/Voice of Evening Calm.mp3" id="5_y8e7h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2sit6"]
 bg_color = Color(0.495072, 0.364077, 0.968205, 1)
@@ -256,10 +255,6 @@ text = "
 "
 
 [node name="Music" parent="." instance=ExtResource("4_2oafp")]
-
-[node name="Soundtrack" parent="Music" index="0"]
-stream = ExtResource("5_y8e7h")
-bus = &"Soundtrack"
 
 [connection signal="pressed" from="MM-ButtonContainer/Start_Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MM-ButtonContainer/Options_Button" to="." method="_on_options_button_pressed"]

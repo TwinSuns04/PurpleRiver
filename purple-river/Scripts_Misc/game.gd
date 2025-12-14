@@ -2,7 +2,7 @@ extends Node
 
 class_name GameManager
 
-@onready var game_soundtrack : AudioStreamPlayer2D = $Music/Soundtrack
+@onready var game_soundtrack : AudioStreamPlayer = $Music/Soundtrack
 
 var audio_evening_calm : AudioStreamMP3
 

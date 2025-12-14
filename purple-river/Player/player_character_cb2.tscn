@@ -36,8 +36,8 @@ shape = SubResource("CapsuleShape2D_ce8l7")
 zoom = Vector2(1, 1)
 
 [node name="PCArea" type="PCArea" parent="."]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 2048
+collision_mask = 2050
 script = ExtResource("3_eyy2q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PCArea"]
