@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvjji6abg6xqj" path="res://UI/Scripts/game_credits.gd" id="1_vqf53"]
 
-[node name="Node" type="Node"]
+[node name="Game_Credits" type="Node"]
 script = ExtResource("1_vqf53")
 
 [node name="Control" type="Control" parent="."]

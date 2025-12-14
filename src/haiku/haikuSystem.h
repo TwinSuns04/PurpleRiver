@@ -25,6 +25,7 @@ namespace godot
         bool fileReadStatus;
         bool haikuAdded;
         bool haikusAllDisplayed;
+        bool readingHaiku;
 
         std::vector<String> haikuInfo;
 
@@ -73,6 +74,8 @@ namespace godot
         void set_haikuAdded(const bool p_status);
         bool get_haikusAllDisplayed() const;
         void set_haikusAllDisplayed(const bool p_status);
+        bool get_readingHaiku() const;
+        void set_readingHaiku(const bool p_status);
     };
     
 }
