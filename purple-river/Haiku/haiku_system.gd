@@ -82,4 +82,4 @@ func Display_Chosen_Haiku() -> void:
 	#print("Author: ", haikuAuthor, "\n")
 	#print("Haiku: ", haikuText, "\n")
 	#print("Haiku: ", haikuTextJapanese, "\n")
-	$Timer.start(8.0)
+	$Timer.start(12.0)

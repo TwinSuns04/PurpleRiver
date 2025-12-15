@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://day2dglp5ywj2"]
+[gd_scene load_steps=3 format=3 uid="uid://day2dglp5ywj2"]
 
 [ext_resource type="Script" uid="uid://bvjji6abg6xqj" path="res://UI/Scripts/game_credits.gd" id="1_vqf53"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqf53"]
+bg_color = Color(0.0431373, 0, 0.129412, 0.635294)
 
 [node name="Game_Credits" type="Node"]
 script = ExtResource("1_vqf53")
@@ -16,6 +19,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+z_index = 6
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,3 +32,13 @@ text = "
 
 "
 horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="Control"]
+z_index = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vqf53")

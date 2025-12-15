@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhq54kejms6dq" path="res://UI/Scripts/main_menu.gd" id="1_2sit6"]
 [ext_resource type="SpriteFrames" uid="uid://wgk6g612lhx3" path="res://Player/Assets/koi_sprite_frames.tres" id="2_1ft4g"]
-[ext_resource type="PackedScene" uid="uid://imxxp6glglsl" path="res://volume_sub_menu.tscn" id="2_h6jt3"]
+[ext_resource type="PackedScene" uid="uid://imxxp6glglsl" path="res://UI/volume_sub_menu.tscn" id="2_h6jt3"]
 [ext_resource type="FontFile" uid="uid://b83n7ga7yqkes" path="res://UI/Assets/Arkipelago-MxRJ.otf" id="2_yjk8c"]
 [ext_resource type="PackedScene" uid="uid://day2dglp5ywj2" path="res://UI/Scenes/game_credits.tscn" id="3_7w4jk"]
 [ext_resource type="PackedScene" uid="uid://cvva46wigsbiu" path="res://UI/Scenes/music.tscn" id="4_2oafp"]
