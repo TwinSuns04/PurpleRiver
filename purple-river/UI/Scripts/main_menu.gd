@@ -10,7 +10,7 @@ class_name MainMenu
 @onready var volume_sub_menu: Panel = $Volume_Sub_Menu
 @onready var volume_label: Label = $Volume_Sub_Menu/Volume_Label
 @onready var game_credits: Node = $Game_Credits_Node/Control
-@onready var music: AudioStreamPlayer2D = $Music/Soundtrack
+@onready var music: AudioStreamPlayer = $Music/Soundtrack
 
 signal toggle_game_start(is_running : bool)
 @export var start_status : bool = false:
