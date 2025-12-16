@@ -43,6 +43,10 @@ void HaikuSystem::_bind_methods()
     ClassDB::bind_method(D_METHOD("set_haikusAllDisplayed", "p_status"), &HaikuSystem::set_haikusAllDisplayed);
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "haikusAllDisplayed"), "set_haikusAllDisplayed", "get_haikusAllDisplayed");
 
+    ClassDB::bind_method(D_METHOD("get_readingHaiku"), &HaikuSystem::get_readingHaiku);
+    ClassDB::bind_method(D_METHOD("set_readingHaiku", "p_status"), &HaikuSystem::set_readingHaiku);
+    ADD_PROPERTY(PropertyInfo(Variant::BOOL, "readingHaiku"), "set_readingHaiku", "get_readingHaiku");
+
     ADD_SIGNAL(MethodInfo("g_open_file", PropertyInfo(Variant::BOOL, "p_fileStatus"), PropertyInfo(Variant::STRING, "p_filePath")));
     ADD_SIGNAL(MethodInfo("g_read_file", PropertyInfo(Variant::BOOL, "p_haikuAdded")));
     ADD_SIGNAL(MethodInfo("g_close_file", PropertyInfo(Variant::BOOL, "p_fileStatus")));
@@ -67,9 +71,12 @@ HaikuSystem::HaikuSystem()
     fileReadStatus = false;
     haikuAdded = false;
     haikusAllDisplayed = false;
+    readingHaiku = false;
 
     haikuInfo = {};
     haikuMap = {};
+
+    UpdateHaikuFileErrors();
 
     bool fileExists = FileAccess::file_exists(haikuFilePath);
     if(fileExists)
@@ -204,38 +211,43 @@ void HaikuSystem::OutputHaikuFile()
 
 void HaikuSystem::ChooseHaiku(int p_rand)
 {
-    // Get rand num from godot
-    chosenHaiku = p_rand;
-    UtilityFunctions::print("chosenHaiku: ", chosenHaiku);
-    
-    // If all haikus displayed, reset tracked map so they can be displayed again
-    if(haikusAllDisplayed)
+    if(!readingHaiku)
     {
-        UtilityFunctions::print("Haikus have all been displayed");
-        selectedHaikus.clear();
-        return;
-    }
-
-    // check if haiku has already been used
-    // if no, display it. If yes, choose new one
-    if(selectedHaikus.count(chosenHaiku) == 0)
-    {
-        haikuAuthor = haikuMap.find(chosenHaiku)->second[0];
-        haikuText = haikuMap.find(chosenHaiku)->second[1];
-        haikuTextJapanese = haikuMap.find(chosenHaiku)->second[2];
-        selectedHaikus.emplace(chosenHaiku, true);
-        OutputChosenHaiku();
-    }
-    else
-    {
-        if(chosenHaiku < 93)
+        // Get rand num from godot
+        chosenHaiku = p_rand;
+        UtilityFunctions::print("chosenHaiku: ", chosenHaiku);
+        
+        // If all haikus displayed, reset tracked map so they can be displayed again
+        if(haikusAllDisplayed)
         {
-            ChooseHaiku(chosenHaiku + 1);
+            UtilityFunctions::print("Haikus have all been displayed");
+            selectedHaikus.clear();
+            UpdateHaikuFileErrors();
+            return;
+        }
+
+        // check if haiku has already been used
+        // if no, display it. If yes, choose new one
+        if(selectedHaikus.count(chosenHaiku) == 0)
+        {
+            haikuAuthor = haikuMap.find(chosenHaiku)->second[0];
+            haikuText = haikuMap.find(chosenHaiku)->second[1];
+            haikuTextJapanese = haikuMap.find(chosenHaiku)->second[2];
+            selectedHaikus.emplace(chosenHaiku, true);
+            OutputChosenHaiku();
         }
         else
         {
-            ChooseHaiku(chosenHaiku - 1);
+            if(chosenHaiku < 93)
+            {
+                ChooseHaiku(chosenHaiku + 1);
+            }
+            else
+            {
+                ChooseHaiku(chosenHaiku - 1);
+            }
         }
+        readingHaiku = true;
     }
 
     // check to see if all haikus have been displayed
@@ -252,6 +264,21 @@ void HaikuSystem::OutputChosenHaiku()
     // output chosen haiku to game
     call_deferred("emit_signal", "g_display_haiku", chosenHaiku);
 
+}
+
+void HaikuSystem::UpdateHaikuFileErrors()
+{
+    selectedHaikus.emplace(5, true);
+    selectedHaikus.emplace(6, true);
+    selectedHaikus.emplace(31, true);
+    selectedHaikus.emplace(34, true);
+    selectedHaikus.emplace(35, true);
+    selectedHaikus.emplace(60, true);
+    selectedHaikus.emplace(73, true);
+    selectedHaikus.emplace(74, true);
+    selectedHaikus.emplace(75, true);
+    selectedHaikus.emplace(76, true);
+    selectedHaikus.emplace(77, true);
 }
 
 #pragma region GetSet
@@ -343,5 +370,15 @@ bool HaikuSystem::get_haikusAllDisplayed() const
 void HaikuSystem::set_haikusAllDisplayed(const bool p_status)
 {
     haikusAllDisplayed = p_status;
+}
+
+bool HaikuSystem::get_readingHaiku() const
+{
+    return readingHaiku;
+}
+
+void HaikuSystem::set_readingHaiku(const bool p_status)
+{
+    readingHaiku = p_status;
 }
 #pragma endregion

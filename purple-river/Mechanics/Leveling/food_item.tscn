@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dvn5cder33ayv" path="res://Mechanics/Leveling/bug_PH.png" id="1_cpkvl"]
 [ext_resource type="Script" uid="uid://clj15c8m5x7g1" path="res://Mechanics/Leveling/food_item.gd" id="1_ot7d1"]
-[ext_resource type="AudioStream" uid="uid://drbfi4v6wgmf2" path="res://UI/Assets/Audio/impactBell_heavy_000.ogg" id="3_xt54n"]
+[ext_resource type="AudioStream" uid="uid://tsd46ldbtajl" path="res://UI/Assets/Audio/Bubble 1.wav" id="3_xt54n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ot7d1"]
 
@@ -118,6 +118,7 @@ debug_color = Color(0.764706, 0, 0.133333, 0.670588)
 
 [node name="Omnom_SFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_xt54n")
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

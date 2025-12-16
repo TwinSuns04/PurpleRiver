@@ -25,6 +25,7 @@ namespace godot
         bool fileReadStatus;
         bool haikuAdded;
         bool haikusAllDisplayed;
+        bool readingHaiku;
 
         std::vector<String> haikuInfo;
 
@@ -52,6 +53,7 @@ namespace godot
         void OutputHaikuFile_PH(); // Godot Access point placeholder
         void ChooseHaiku(int p_rand); // choose a random haiku and check if it has been read
         void OutputChosenHaiku();
+        void UpdateHaikuFileErrors(); // Method to add any haikus that have an error in translation or missing info form haiku file so they aren't output
 
         // getset
         int get_chosenHaiku() const;
@@ -72,6 +74,8 @@ namespace godot
         void set_haikuAdded(const bool p_status);
         bool get_haikusAllDisplayed() const;
         void set_haikusAllDisplayed(const bool p_status);
+        bool get_readingHaiku() const;
+        void set_readingHaiku(const bool p_status);
     };
     
 }

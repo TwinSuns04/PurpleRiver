@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dt7n1bdynq3xl"
+path="res://.godot/imported/Mountain God's Shrine.mp3-28da1871fef17f46ce017e68378e79cf.mp3str"
+
+[deps]
+
+source_file="res://UI/Assets/Audio/Music/JMP/Mountain God's Shrine.mp3"
+dest_files=["res://.godot/imported/Mountain God's Shrine.mp3-28da1871fef17f46ce017e68378e79cf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

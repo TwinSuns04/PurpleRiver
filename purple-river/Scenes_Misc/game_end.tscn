@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://v212lu75kgro"]
+
+[ext_resource type="PackedScene" uid="uid://bftvciymvxw7k" path="res://Map/Levels/PNG_Levels/Scenes/level_nine_b.tscn" id="1_113qp"]
+[ext_resource type="Script" uid="uid://cle73euah12pm" path="res://Scripts_Misc/game_end.gd" id="1_psaic"]
+[ext_resource type="Texture2D" uid="uid://23djtgh1gnm5" path="res://Map/Assets/green_base.PNG" id="2_fg42u"]
+[ext_resource type="Texture2D" uid="uid://c5cnl4dxq3163" path="res://Player/Assets/Ryu_final_resize.png" id="4_ts52l"]
+[ext_resource type="PackedScene" uid="uid://day2dglp5ywj2" path="res://UI/Scenes/game_credits.tscn" id="5_c3q74"]
+
+[node name="Game_End" type="Node"]
+script = ExtResource("1_psaic")
+
+[node name="Game_Credits" parent="." instance=ExtResource("5_c3q74")]
+
+[node name="Control" parent="Game_Credits" index="0"]
+z_index = 4
+
+[node name="level_nine_b" parent="." instance=ExtResource("1_113qp")]
+position = Vector2(44, 149)
+
+[node name="Current_TileMapLayer" parent="level_nine_b" index="2"]
+visible = false
+
+[node name="MapFill" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="MapFill"]
+z_index = -4
+position = Vector2(-367, 433)
+texture = ExtResource("2_fg42u")
+
+[node name="Sprite2D2" type="Sprite2D" parent="MapFill"]
+z_index = -4
+position = Vector2(-296, -129)
+texture = ExtResource("2_fg42u")
+
+[node name="Sprite2D3" type="Sprite2D" parent="MapFill"]
+z_index = -4
+position = Vector2(711, -110)
+texture = ExtResource("2_fg42u")
+
+[node name="Sprite2D4" type="Sprite2D" parent="MapFill"]
+z_index = -4
+position = Vector2(1397, 443)
+texture = ExtResource("2_fg42u")
+
+[node name="Sprite2D5" type="Sprite2D" parent="MapFill"]
+z_index = -4
+position = Vector2(1414, 885)
+texture = ExtResource("2_fg42u")
+
+[node name="Sprite2D6" type="Sprite2D" parent="MapFill"]
+z_index = -4
+position = Vector2(462, 947)
+texture = ExtResource("2_fg42u")
+
+[node name="Ryu_Sprite" type="Sprite2D" parent="."]
+position = Vector2(416, 360)
+scale = Vector2(0.720489, 0.720489)
+texture = ExtResource("4_ts52l")
+
+[node name="Timer_Credits" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 5
+offset_left = 248.0
+offset_top = 33.0
+offset_right = 1097.0
+offset_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "You have been transformed into a ryu because of your hard work and perseverance"
+
+[connection signal="timeout" from="Timer_Credits" to="." method="_on_timer_credits_timeout"]
+
+[editable path="Game_Credits"]
+[editable path="level_nine_b"]

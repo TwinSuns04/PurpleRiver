@@ -78,8 +78,8 @@ func Display_Chosen_Haiku() -> void:
 	haikuInfo.append(haikuString4)
 	$Haiku_Textbox.show_textbox(haikuInfo)
 	
-	print("Chosen Haiku: ", chosenHaiku, "\n")
-	print("Author: ", haikuAuthor, "\n")
-	print("Haiku: ", haikuText, "\n")
-	print("Haiku: ", haikuTextJapanese, "\n")
-	$Timer.start(8.0)
+	#print("Chosen Haiku: ", chosenHaiku, "\n")
+	#print("Author: ", haikuAuthor, "\n")
+	#print("Haiku: ", haikuText, "\n")
+	#print("Haiku: ", haikuTextJapanese, "\n")
+	$Timer.start(12.0)
