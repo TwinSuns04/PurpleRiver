@@ -13,8 +13,8 @@
 #include "map/tileSetCurrent.h"
 //#include "map/flora/floraSpawner.h"
 #include "map/levels/levelTemplate.h"
-#include "map/procGen/procGenMap.h"
-#include "map/procGen/walkerProcGen.h"
+//#include "map/procGen/procGenMap.h"
+//#include "map/procGen/walkerProcGen.h"
 
 // mechanics related
 #include "mechanics/leveling/foodItem.h"
@@ -26,7 +26,7 @@
 #include "player/pcCamera.h"
 #include "player/pcCollision.h"
 #include "player/pcSprite.h"
-#include "player/playerCharacter.h"
+//#include "player/playerCharacter.h"
 #include "player/playerCharacterPhysicsBase.h"
 #include "player/testScons.h"
 
@@ -54,8 +54,8 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_RUNTIME_CLASS(TileSetCurrent);
 	//GDREGISTER_CLASS(FloraSpawner);
 	GDREGISTER_RUNTIME_CLASS(LevelTemplate);
-	GDREGISTER_RUNTIME_CLASS(ProcGenMap);
-	GDREGISTER_RUNTIME_CLASS(WalkerProcGen);
+	//GDREGISTER_RUNTIME_CLASS(ProcGenMap);
+	//GDREGISTER_RUNTIME_CLASS(WalkerProcGen);
 
 	// mechanics related
 	GDREGISTER_RUNTIME_CLASS(FoodItem);
@@ -67,7 +67,7 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_RUNTIME_CLASS(PCCamera);
 	GDREGISTER_RUNTIME_CLASS(PCCollision);
 	GDREGISTER_RUNTIME_CLASS(PCSprite);
-	GDREGISTER_RUNTIME_CLASS(PlayerCharacter);
+	//GDREGISTER_RUNTIME_CLASS(PlayerCharacter);
 	GDREGISTER_RUNTIME_CLASS(PlayerCharacterCB2);
 	GDREGISTER_CLASS(TestScons);
 }
