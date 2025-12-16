@@ -10,6 +10,15 @@ class_name MainMenu
 @onready var volume_sub_menu: Panel = $Volume_Sub_Menu
 @onready var volume_label: Label = $Volume_Sub_Menu/Volume_Label
 @onready var game_credits: Node = $Game_Credits_Node/Control
+@onready var music: AudioStreamPlayer = $Music/Soundtrack
+
+signal toggle_game_start(is_running : bool)
+@export var start_status : bool = false:
+	get:
+		return start_status
+	set(p_status):
+		start_status = p_status
+		emit_signal("toggle_game_start", start_status)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,17 +26,17 @@ func _ready() -> void:
 	options_sub_menu.visible = false
 	volume_sub_menu.visible = false
 	game_credits.visible = false
+	music.play(0.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_start_button_pressed():
 	print("start button pressed")
+	music.stop()
 	#Global.scene_manager.change_world2d_scene("res://Scenes_Misc/game.tscn")
 	get_tree().change_scene_to_file("res://Scenes_Misc/game.tscn")
-
 
 func _on_options_button_pressed():
 	print("options button pressed")

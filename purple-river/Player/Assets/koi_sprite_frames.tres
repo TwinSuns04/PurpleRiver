@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://wgk6g612lhx3"]
+
+[ext_resource type="Texture2D" uid="uid://dygdhcex5f4dv" path="res://Player/Assets/Anims/Koi_SpriteSheet.png" id="1_qupyj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lp61"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(0, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jretb"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(270, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oufvr"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(540, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bn1e"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(0, 270, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46dx3"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(270, 270, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bweyw"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(0, 270, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hags4"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(540, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67s77"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(270, 0, 270, 270)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lp61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jretb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oufvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bn1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46dx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bweyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hags4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67s77")
+}],
+"loop": true,
+"name": &"swimming",
+"speed": 8.0
+}]

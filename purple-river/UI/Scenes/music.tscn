@@ -1,7 +1,10 @@
-[gd_scene format=3 uid="uid://cvva46wigsbiu"]
+[gd_scene load_steps=2 format=3 uid="uid://cvva46wigsbiu"]
+
+[ext_resource type="AudioStream" uid="uid://bdhfwa8v8a46" path="res://UI/Assets/Audio/Music/JMP/Voice of Evening Calm.mp3" id="1_knvw0"]
 
 [node name="Music" type="Node"]
 
-[node name="Soundtrack" type="AudioStreamPlayer2D" parent="."]
-autoplay = true
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_knvw0")
 bus = &"Soundtrack"
+parameters/looping = true

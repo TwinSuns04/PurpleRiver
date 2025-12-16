@@ -37,14 +37,13 @@ func _physics_process(delta):
 	verticalDirection = Input.get_axis("moveUp", "moveDown")
 	
 	if Input.is_action_pressed("swimBoost"):
-		print("swimBoost pressed")
+		#print("swimBoost pressed")
 		if staminaVal > 0:
 			movementSpeed = movementSpeed * speedBoostMult
 			boostStatus = true
-		else:
-			print("No mucho boosto")
+
 	if Input.is_action_just_released("swimBoost"):
-		print("swimBoost released")
+		#print("swimBoost released")
 		movementSpeed = movementSpeedBase * movementSpeedMult
 		boostStatus = false
 

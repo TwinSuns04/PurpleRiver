@@ -28,3 +28,4 @@ func _on_haiku_system_g_display_haiku(_p_chosenHaiku: int) -> void:
 
 func _on_timer_timeout() -> void:
 	$HaikuSystem/Haiku_Textbox.hide_textbox()
+	$HaikuSystem.readingHaiku = false

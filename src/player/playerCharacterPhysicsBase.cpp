@@ -251,11 +251,11 @@ void PlayerCharacterCB2::RegenStamina(int p_val)
 
 void PlayerCharacterCB2::DepleteStamina(int p_val)
 {
-	UtilityFunctions::print("DepleteStamina() exec");
+	//UtilityFunctions::print("DepleteStamina() exec");
 	if (staminaVal > 0)
 	{
 		staminaVal -= p_val;
-		UtilityFunctions::print("staminaVal: ", staminaVal);
+		//UtilityFunctions::print("staminaVal: ", staminaVal);
 	}
 }
 

@@ -27,4 +27,6 @@ func display_file():
 		
 		if (c == ""):
 			c = "\n\n"
+		if(c == "/n"):
+			c = "\n"
 		rtl.append_text(c)
